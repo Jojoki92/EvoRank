@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title EvoRank X5.7 - Node-Fallback
+title EvoRank X5.8 - Node-Fallback
 where node >nul 2>nul
 if errorlevel 1 (
   echo Node.js wurde nicht gefunden.

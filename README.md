@@ -1,47 +1,23 @@
-# EvoRank X5.7
+# EvoRank X5.8
 
-Dieser Ordner enthält den vollständigen Projektstand X5.7
-(`x5.7-r1`) für die weitere Entwicklung in Codex. Die App liegt in
-`public/rankforge/`; Framework, Grafiken, Datenbankskripte, Integrationen und
-Tests sind ebenfalls enthalten. Das nächste App-Update ist X5.7.
+Vollständiger Projektstand X5.8 (`x5.8-r1`). Die App liegt in
+`public/rankforge/`. Framework, Grafiken, Datenbankskripte, Integrationen und
+Tests sind ebenfalls enthalten. Nächstes App-Update: X5.9.
+
+Einstieg für neue Sitzungen: [CLAUDE.md](CLAUDE.md).
 
 ## Lokal starten
 
-Fertige Versionen werden direkt entpackt unter
-`C:\Users\johan\OneDrive\Dokumente\EvoRank\FREED\x\x<major>\X<release>\` gespeichert.
-Die Windows-App X5.7 liegt unter `x5\X5.7\EVORANK-X5.7-WINDOWS`.
-Start: `EVORANK-STARTEN.bat` (ohne Node). ZIP-Dateien entstehen nur noch auf Wunsch.
-Der Ablauf ist in `scripts/save-release.mjs` und `packaging/release-targets.json`
-hinterlegt: nach Tests und Build `npm.cmd run release:prepare`, danach
-`npm.cmd run release:save`. Der zweite Schritt kann eine Dateisystemfreigabe
-für den gewünschten Ordner außerhalb des Arbeitsbereichs benötigen.
+Node.js ab 22.13:
 
-Für die Weiterentwicklung: Node.js ab 22.13. In Windows PowerShell:
-
-```powershell
-npm.cmd ci
-npm.cmd run test:x5
-npm.cmd run preview:app
+```
+npm ci
+npm test              # aktuelles Testgate (129 Tests)
+npm run preview:app   # App unter http://127.0.0.1:8123/
 ```
 
-`npm.cmd ci` wird nur bei der ersten Einrichtung oder nach Änderungen am Lockfile
-benötigt. Die statische App-Vorschau selbst benötigt nur Node.js.
-In anderen Shells kann `npm` statt `npm.cmd` verwendet werden.
-
-Die Vorschau öffnet `http://127.0.0.1:8123/`. Das Terminal geöffnet lassen;
-zum Beenden `Strg+C` drücken. Bei der Einrichtung lief auf dieser Adresse
-bereits EvoRank X4: Diese ältere Serverinstanz vor dem Start der Arbeitskopie
-schließen. Änderungen werden aus den Quelldateien geladen;
-anschließend die Seite neu laden. Ein vorhandener Service Worker kann alte
-Dateien zwischenspeichern. Für die Entwicklung gegebenenfalls in den
-Browser-Entwicklertools den Service Worker für Netzwerkanfragen umgehen
-("Bypass for network"), ohne Website-Daten zu löschen.
-
-Die Vorschau dient der PWA-Entwicklung. Netlify-Serverfunktionen werden damit
-nicht ausgeführt. Der bestehende vollständige Framework-Build
-(`npm run build`) benötigt die Linux-/WSL-Werkzeuge seiner Shell-Skripte.
-Unter Windows funktioniert derselbe Build direkt mit
-`.\node_modules\.bin\vinext.cmd build`.
+Build: `npm run build` (Linux) oder `.\node_modules\.bin\vinext.cmd build` (Windows).
+Die Vorschau führt keine Netlify-Serverfunktionen aus. Keine Website-Daten löschen.
 
 ## Im Code weiterarbeiten
 
@@ -55,40 +31,23 @@ Unter Windows funktioniert derselbe Build direkt mit
 | Konten, Garmin und Serverfunktionen | `public/rankforge/netlify/functions/` |
 | Supabase-Datenbankskripte | `db/` |
 | Framework und Hosting | `app/`, `worker/`, `vite.config.ts` |
-| 129 aktuelle Prüfungen | Aktuelles X5.7-Verhalten und Strava-Serverlogik über `npm run test:x5` |
+| 129 aktuelle Prüfungen | Aktuelles Verhalten und Strava-Serverlogik über `npm run test:x5` |
 | Live-Tracking | `public/rankforge/assets/endurance-tracker-x4.2.js` |
 | Aktuelle Ansichten | `public/rankforge/assets/evorank-x5.1-ui.css`, `interface-x5.5.js` |
 | Vollständiger Katalog-Audit | `npm run audit:x4.2` |
 
-Die Dateinamen mit X2 sind weiterhin Teil der aktuellen App. Ältere
-Versionsanleitungen sind historisch; die aktuelle Übergabe hat Vorrang.
+Die Dateinamen mit X2 sind weiterhin Teil der aktuellen App.
 
-- [Aktuelle Projektübergabe](CONTINUE-HERE-X5.7.md)
-- [Felix: Code ansehen und optimieren](FELIX-START-HIER-X4.5.md)
-- [Strava, Garmin und Freunde einrichten](docs/EVORANK-X4.5-VERBINDUNGEN.md)
+- [Gedächtnis und Arbeitsweise](CLAUDE.md)
 - [Projektregeln](AGENTS.md)
-- [Anleitung X5.7](EVORANK-X5.7-ANLEITUNG.md)
+- [Übergabe X5.7](CONTINUE-HERE-X5.7.md) und [Übergabe-Dokumente](docs/uebergabe-x5.7/)
+- [Anleitung X5.8](EVORANK-X5.8-ANLEITUNG.md)
+- [Strava, Garmin und Freunde einrichten](docs/EVORANK-X4.5-VERBINDUNGEN.md)
 - [Rangprüfung und Quellen](docs/EVORANK-X4.2-RANGPRUEFUNG.md)
 - [Prüfbericht X5.7](docs/EVORANK-X5.7-VALIDIERUNG.md)
-- [Einrichtung dieses Arbeitsordners](docs/LOKALE-ENTWICKLUNG.md)
-- [Historischer Prüfbericht X4.1](docs/EVORANK-X4.1-VALIDATION.json)
 
-## Daten und Sicherung
+## Daten
 
-Das vollständige Original-ZIP einschließlich seiner Git-Daten ist zusätzlich in
-`.local-backup/EVORANK-X4.1-CODEX-PROJEKT.zip` gesichert. Dieser lokale
-Sicherungsordner wird von Git ignoriert. Die beiden vorhandenen Commits X4 und
-X4.1 sind in das aktive Repository übernommen. Der aktuelle Arbeitsbranch heißt
-`codex/evorank-x5.7`.
-
-Persönliche Trainingsaufzeichnungen aus der bisherigen App sind nicht im
-Quellcode-Paket enthalten. Sie bleiben im jeweiligen Browser-/App-Speicher oder
-Cloud-Konto. Ein Geräte- oder Browserwechsel erfordert gegebenenfalls einen
-Export aus der bisherigen App und einen Import in die lokale App.
-Die Adresse `127.0.0.1:8123` beibehalten und keine Website-Daten löschen.
-
-Supabase- und Garmin-Code sowie die Konfigurationsvorlagen wurden übernommen.
-Produktive Server-Zugangsdaten sind nicht Teil des Backups. Der bestehende
-Sites-Bezug und die Netlify-Konfiguration bleiben erhalten. Die lokale
-Einrichtung veröffentlicht keine neue App-Version.
-
+Persönliche Trainingsdaten sind nicht im Quellcode. Sie bleiben im Browser-/App-Speicher
+oder im Cloud-Konto. Adresse und Website-Daten nicht löschen. Supabase-/Garmin-/Strava-
+Geheimnisse sind absichtlich nicht enthalten (Vorlage: `netlify.env.example`).

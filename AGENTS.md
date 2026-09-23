@@ -1,6 +1,7 @@
 # EvoRank project instructions
 
-Current release: **X5.7 / x5.7-r1**. Read `CONTINUE-HERE-X5.7.md` before changing code.
+Current release: **X5.8 / x5.8-r1** (cleanup only; behaviour as X5.7). Read `CLAUDE.md`
+and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X5.9.
 Communicate in German. The user prefers concrete completed app packages and a
 short explanation. The complete source is authoritative; older release notes
 are historical. Do not claim access to private phone workouts or prior chats.

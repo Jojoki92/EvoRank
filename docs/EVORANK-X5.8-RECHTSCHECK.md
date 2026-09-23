@@ -1,4 +1,4 @@
-# EvoRank X5.7 – rechtliche Prüfung und notwendige Betreiberangaben
+# EvoRank X5.8 (Inhalt unverändert seit X5.7) – rechtliche Prüfung und notwendige Betreiberangaben
 
 Stand: 22.09.2026. Die technischen Korrekturen sind umgesetzt. Eine rechtliche Gesamtfreigabe ist damit **nicht** erreicht. Die folgenden Angaben und Nachweise fehlen tatsächlich; weder ein Hinweis im Impressum noch eine KI-Neugenerierung ersetzt sie. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
 
