@@ -359,3 +359,8 @@
  #app .next-workout-card__body{margin-block:14px}
  #app .next-workout-card__body h2{font-size:1.25rem!important}
 }
+
+/* X5.9: natural labels instead of tiny, wide-spaced all-caps eyebrows. */
+.x59-label{letter-spacing:.01em!important;text-transform:none!important;font-weight:650!important;font-size:max(11.5px,.78rem)!important}
+.home-title p{letter-spacing:.01em!important;text-transform:none!important;font-size:max(12px,.8rem)!important}
+.design-preview small{letter-spacing:.01em!important;text-transform:none!important}

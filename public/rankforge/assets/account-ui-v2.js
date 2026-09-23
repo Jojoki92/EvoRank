@@ -186,7 +186,7 @@ html[data-rf92-auth="true"] #app{visibility:hidden!important}
   }
 
   function cloudConsentField() {
-    return `<label class="rf92__consent"><input type="checkbox" name="cloudConsent" ${laeuft ? "disabled" : ""}><span></span><div><strong>Cloud-Sicherung aktivieren · optional</strong><small>Ich willige ausdrücklich ein, dass meine Trainings- und Körperdaten zur Sicherung an Supabase übertragen werden. Im Produktionscenter jederzeit widerrufbar. Ohne Freigabe ist die Anmeldung möglich.</small></div></label><p class="rf92__legal">Für das Konto werden E-Mail und Anmeldedaten verarbeitet. <a href="./privacy.html" target="_blank" rel="noopener">Datenschutz</a> · <a href="./terms.html" target="_blank" rel="noopener">Nutzungsbedingungen</a></p>`;
+    return `<label class="rf92__consent"><input type="checkbox" name="cloudConsent" ${laeuft ? "disabled" : ""}><span></span><div><strong>Cloud-Sicherung aktivieren · optional</strong><small>Ich willige ausdrücklich ein, dass meine Trainings- und Körperdaten zur Sicherung an Supabase übertragen werden. Du kannst das jederzeit im Profil unter „Sicherheit, Cloud & Support“ widerrufen. Ohne Freigabe ist die Anmeldung möglich.</small></div></label><p class="rf92__legal">Für das Konto werden E-Mail und Anmeldedaten verarbeitet. <a href="./privacy.html" target="_blank" rel="noopener">Datenschutz</a> · <a href="./terms.html" target="_blank" rel="noopener">Nutzungsbedingungen</a></p>`;
   }
 
   function bestaetigeCloudConsent(formular) {

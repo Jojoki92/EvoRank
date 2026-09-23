@@ -52,7 +52,7 @@ test('profile controls stay grouped, detail panels disclose the model, and frien
  const html=m.friends(x,'run');assert.match(html,/Runner/);assert.doesNotMatch(html,/Gym only|Invalid/);assert.equal(m.publicRanks(x).run.recorded,false);
  assert.ok(readFileSync('public/rankforge/service-worker.js','utf8').includes('sports-profile-x5.3.js'));
 });
-test('keyboard selection retains focus and accent updates retain the existing density preference',()=>{
+test('keyboard selection retains focus and accent updates keep the always-detailed interface (X5.9)',()=>{
  const x=app();w.RANKFORGE_APP=x;x.render=()=>{w.document.getElementById('app').innerHTML=x.renderHome();};x.render();const region=w.document.querySelector('.x53-region[data-area="tempo"]');region.focus();region.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));assert.equal(w.document.activeElement.dataset.area,'tempo');assert.equal(x.ui.x53Areas.run,'tempo');
- x.state.settings.uiStyle='minimal';x.updateDesign({accentColor:'#ff3762'});assert.equal(x.state.settings.uiStyle,'minimal');assert.equal(x.state.settings.accentColor,'#ff3762');
+ x.state.settings.uiStyle='minimal';x.updateDesign({accentColor:'#ff3762'});assert.equal(x.state.settings.uiStyle,'classic');assert.equal(x.state.settings.accentColor,'#ff3762');
 });

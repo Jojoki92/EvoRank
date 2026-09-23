@@ -6,6 +6,7 @@ const CORE = [
   "./assets/evorank-x5.1.js?build=x5.8-r1",
   "./assets/sports-profile-x5.3.js?build=x5.8-r1",
   "./assets/interface-x5.5.js?build=x5.8-r1",
+  "./assets/interface-x5.9.js?build=x5.8-r1",
   "./assets/ranks-x5.7/strength-0.png",
   "./assets/ranks-x5.7/strength-1.png",
   "./assets/ranks-x5.7/strength-2.png",

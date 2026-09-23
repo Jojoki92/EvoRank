@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const DEFAULT = { appearance: "dark", accentColor: "#2f7dff", uiStyle: "minimal" };
+  const DEFAULT = { appearance: "dark", accentColor: "#2f7dff", uiStyle: "classic" };
   const root = document.documentElement;
   const normalizeHex = value => /^#[0-9a-f]{6}$/i.test(String(value || "")) ? String(value).toLowerCase() : DEFAULT.accentColor;
   try {
@@ -8,7 +8,7 @@
     const appearance = ["system", "dark", "light"].includes(stored.appearance) ? stored.appearance : DEFAULT.appearance;
     const theme = appearance === "system" ? (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark") : appearance;
     const accent = normalizeHex(stored.accentColor);
-    const uiStyle = ["minimal", "classic"].includes(stored.uiStyle) ? stored.uiStyle : DEFAULT.uiStyle;
+    const uiStyle = DEFAULT.uiStyle; // X5.9: always the detailed interface
     const r = Number.parseInt(accent.slice(1, 3), 16);
     const g = Number.parseInt(accent.slice(3, 5), 16);
     const b = Number.parseInt(accent.slice(5, 7), 16);
