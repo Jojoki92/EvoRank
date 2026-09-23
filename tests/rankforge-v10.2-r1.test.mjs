@@ -41,14 +41,6 @@ function appFrom(LiftoffApp) {
   return app;
 }
 
-test("loads the 10.2 rank layer last and caches it offline", async () => {
-  const [html, worker] = await Promise.all([read("index.html"), read("service-worker.js")]);
-  assert.match(html, /home-control-v10\.1-r1\.css\?build=1020-r1[\s\S]*rank-dashboard-v10\.2-r1\.css\?build=1020-r1/);
-  assert.match(html, /home-control-v10\.1-r1\.js\?build=1020-r1[\s\S]*rank-dashboard-v10\.2-r1\.js\?build=1020-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /rank-dashboard-v10\.2-r1\.js\?build=1020-r1/);
-});
-
 test("removes the old colored home modules and keeps the original Gym rank card by default", async () => {
   const { LiftoffApp, api } = runtime(await read("assets/rank-dashboard-v10.2-r1.js"));
   const app = appFrom(LiftoffApp);

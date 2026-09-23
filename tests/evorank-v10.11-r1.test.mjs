@@ -5,19 +5,6 @@ import test from "node:test";
 const root = new URL("../public/rankforge/", import.meta.url);
 const read = path => readFile(new URL(path, root), "utf8");
 
-test("publishes EvoRank 10.11 with a fresh install identity", async () => {
-  const [html, manifestText, worker, version] = await Promise.all([
-    read("index.html"),read("manifest.webmanifest"),read("service-worker.js"),read("version.txt")
-  ]);
-  const manifest = JSON.parse(manifestText);
-  assert.equal(version.trim(),"10.11");
-  assert.equal(manifest.name,"EvoRank");
-  assert.equal(manifest.short_name,"EvoRank");
-  assert.ok(manifest.icons.some(item => /evorank-icon-v10\.11-512\.png/.test(item.src)));
-  assert.match(html,/evorank-v10\.11-r1\.js\?build=1110-r1/);
-  assert.match(worker,/evorank-v10\.11\.0-r1/);
-});
-
 test("explicit logout survives reload and a later login clears the marker", async () => {
   const source = await read("assets/account-sync-v2.js");
   assert.match(source,/EXPLICIT_LOGOUT_KEY/);

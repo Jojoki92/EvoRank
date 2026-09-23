@@ -6,20 +6,6 @@ import vm from "node:vm";
 const root = new URL("../public/rankforge/", import.meta.url);
 const read = path => readFile(new URL(path, root), "utf8");
 
-test("keeps EVORANK 10.10 loaded before the current final layer", async () => {
-  const [html, worker, version, manifest, layout] = await Promise.all([
-    read("index.html"), read("service-worker.js"), read("version.txt"), read("manifest.webmanifest"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-  ]);
-  assert.equal(version.trim(), "10.11");
-  assert.match(html, /evorank-v10\.9-r1\.js\?build=1090-r3[\s\S]*evorank-v10\.10-r1\.js\?build=1100-r1[\s\S]*evorank-v10\.11-r1\.js\?build=1110-r1/);
-  assert.match(html, /evorank-v10\.9-r1\.css\?build=1090-r3[\s\S]*evorank-v10\.10-r1\.css\?build=1100-r1[\s\S]*evorank-v10\.11-r1\.css\?build=1110-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /evorank-v10\.10-r1\.js\?build=1100-r1/);
-  assert.match(manifest, /EvoRank 10\.11/);
-  assert.match(layout, /EvoRank 10\.11/);
-});
-
 test("keeps cloud and leaderboard publishing off until explicit consent", async () => {
   const [bridge, leaderboard, production] = await Promise.all([
     read("assets/account-bridge-v1.js"),

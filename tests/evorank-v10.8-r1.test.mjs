@@ -31,24 +31,6 @@ function runtime108(source) {
   return context.window.EVORANK108;
 }
 
-test("keeps the 10.8 layer before 10.9 and Home and Ranks in separate state", async () => {
-  const [html, source, css, worker] = await Promise.all([
-    read("index.html"),
-    read("assets/evorank-v10.8-r1.js"),
-    read("assets/evorank-v10.8-r1.css"),
-    read("service-worker.js"),
-  ]);
-
-  assert.match(html, /evorank-brand-v10\.7-r1\.js[\s\S]*evorank-v10\.8-r1\.js\?build=1080-r1[\s\S]*evorank-v10\.9-r1\.js\?build=1090-r3/);
-  assert.match(source, /rankDisplayV108/);
-  assert.match(source, /homeOrder/);
-  assert.match(source, /rankOrder/);
-  assert.match(source, /rf108HomeSelectedMuscle/);
-  assert.match(source, /rf108RankSelectedMuscle/);
-  assert.match(css, /rf108-rank-section/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-});
-
 test("migrates existing rank choices without silently adding another sport", async () => {
   const api = runtime108(await read("assets/evorank-v10.8-r1.js"));
   const existing = { state:{ homeRanksV103:{ order:["strength"], selected:["strength"] } }, ui:{} };

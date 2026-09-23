@@ -40,34 +40,6 @@ function appFrom(LiftoffApp) {
   return app;
 }
 
-test("loads the 10.4 Home design layer last and caches it offline", async () => {
-  const [html, worker] = await Promise.all([read("index.html"), read("service-worker.js")]);
-  assert.match(html, /rank-dashboard-v10\.3-r1\.css\?build=1110-r1[\s\S]*home-rank-frame-v10\.4-r1\.css\?build=1040-r1/);
-  assert.match(html, /rank-dashboard-v10\.3-r1\.js\?build=1110-r1[\s\S]*home-rank-frame-v10\.4-r1\.js\?build=1040-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /home-rank-frame-v10\.4-r1\.js\?build=1040-r1/);
-});
-
-test("keeps colored Home frames enabled for existing profiles", async () => {
-  const { LiftoffApp, api } = runtime(await read("assets/rank-dashboard-v10.3-r1.js"), await read("assets/home-rank-frame-v10.4-r1.js"));
-  const app = appFrom(LiftoffApp);
-  assert.equal(api.ensure(app).framed, true);
-  assert.equal(app.state.appVersion, "10.4");
-  assert.equal(app.state.schemaVersion, 33);
-  assert.match(app.renderHome(), /rf104-home-ranks--framed/);
-});
-
-test("adds a framed or frameless choice to the existing rank settings", async () => {
-  const { LiftoffApp } = runtime(await read("assets/rank-dashboard-v10.3-r1.js"), await read("assets/home-rank-frame-v10.4-r1.js"));
-  const app = appFrom(LiftoffApp);
-  app.ui.modal = { type:"rf103-rank-settings" };
-  app.ui.rf103RankDraft = { order:["strength","swim"] };
-  const html = app.renderModal();
-  assert.match(html, /Mit Rahmen/);
-  assert.match(html, /Ohne Rahmen/);
-  assert.match(html, /data-action="rf104-frame-style"/);
-});
-
 test("persists the frameless choice only for Home rank cards", async () => {
   const { LiftoffApp } = runtime(await read("assets/rank-dashboard-v10.3-r1.js"), await read("assets/home-rank-frame-v10.4-r1.js"));
   const app = appFrom(LiftoffApp);

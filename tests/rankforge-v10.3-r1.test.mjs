@@ -41,14 +41,6 @@ function appFrom(LiftoffApp) {
   return app;
 }
 
-test("loads the 10.3 layer last and caches it offline", async () => {
-  const [html, worker] = await Promise.all([read("index.html"), read("service-worker.js")]);
-  assert.match(html, /rank-dashboard-v10\.2-r1\.css\?build=1020-r1[\s\S]*rank-dashboard-v10\.3-r1\.css\?build=1110-r1/);
-  assert.match(html, /rank-dashboard-v10\.2-r1\.js\?build=1020-r1[\s\S]*rank-dashboard-v10\.3-r1\.js\?build=1110-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /rank-dashboard-v10\.3-r1\.js\?build=1110-r1/);
-});
-
 test("uses the selected onboarding focus as the first of up to four ranks", async () => {
   const { LiftoffApp, api } = runtime(await read("assets/rank-dashboard-v10.3-r1.js"));
   const app = appFrom(LiftoffApp);

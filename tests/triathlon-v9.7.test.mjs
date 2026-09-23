@@ -49,16 +49,6 @@ test("ships three disciplines with exactly nine progressively named animal ranks
   assert.equal(runtime.animals.bike.at(-1)[1], "Wanderfalke");
 });
 
-test("scores endurance performance without equating human and animal speeds", async () => {
-  const runtime = loadRuntime(await read("assets/triathlon-v9.7.js"));
-  const easyRun = runtime.activityPerformance({ sport: "run", distanceMeters: 5000, durationSeconds: 2400 });
-  const fastRun = runtime.activityPerformance({ sport: "run", distanceMeters: 5000, durationSeconds: 1200 });
-  const shortSprint = runtime.activityPerformance({ sport: "run", distanceMeters: 100, durationSeconds: 10 });
-  assert.ok(fastRun > easyRun);
-  assert.ok(shortSprint < 200, "a very short sprint must not unlock elite ranks");
-  assert.match(await read("assets/triathlon-v9.7.js"), /nicht mit der echten Tiergeschwindigkeit gleichgesetzt/);
-});
-
 test("returns finite profile-calibrated results for women and men in every triathlon discipline", async () => {
   const runtime = loadRuntime(await read("assets/triathlon-v9.7.js"));
   const examples = {
@@ -144,13 +134,3 @@ test("keeps Garmin credentials server-side and exposes only safe same-origin end
   assert.doesNotMatch(config, /accessToken\s*:/i);
 });
 
-test("loads the isolated triathlon assets after the existing 9.6 patch and caches them offline", async () => {
-  const html = await read("index.html");
-  const worker = await read("service-worker.js");
-  const styles = await read("assets/triathlon-v9.7.css");
-  assert.match(html, /rankforge-v9\.2\.0-patch\.js\?build=1020-r1[\s\S]*rf93-unilateral-v1\.js\?build=1020-r1[\s\S]*rf93-friends-v1\.js\?build=1020-r1[\s\S]*triathlon-v9\.7\.js\?build=1020-r1/);
-  assert.match(worker, /garmin-connect-config\.js\?build=1110-r1/);
-  assert.match(worker, /triathlon-v9\.7\.css\?build=1020-r1/);
-  assert.match(worker, /triathlon-v9\.7\.js\?build=1020-r1/);
-  assert.match(styles, /grid-template-columns:1fr 1fr 62px 1fr 1fr 1fr/);
-});

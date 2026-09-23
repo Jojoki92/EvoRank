@@ -40,15 +40,6 @@ function appFrom(LiftoffApp) {
   return app;
 }
 
-test("loads the 10.2 release layer after the existing feature layers and caches it offline", async () => {
-  const [html, worker] = await Promise.all([read("index.html"), read("service-worker.js")]);
-  assert.match(html, /calendar-plan-v10\.0\.css\?build=1020-r1[\s\S]*home-control-v10\.1-r1\.css\?build=1020-r1/);
-  assert.match(html, /calendar-plan-v10\.0\.js\?build=1020-r1[\s\S]*home-control-v10\.1-r1\.js\?build=1020-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /home-control-v10\.1-r1\.css\?build=1020-r1/);
-  assert.match(worker, /home-control-v10\.1-r1\.js\?build=1020-r1/);
-});
-
 test("persists configurable home areas without changing the default strength design", async () => {
   const { LiftoffApp, api } = loadRuntime(await read("assets/home-control-v10.1-r1.js"));
   const app = appFrom(LiftoffApp);

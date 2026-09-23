@@ -35,23 +35,6 @@ function runtime109(source) {
   return { api:window.EVORANK109, exercises, exerciseIndex };
 }
 
-test("keeps EVORANK 10.9 intact before the public 10.11 layer", async () => {
-  const [html, worker, manifest, version, layout] = await Promise.all([
-    read("index.html"),
-    read("service-worker.js"),
-    read("manifest.webmanifest"),
-    read("version.txt"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-  ]);
-  assert.equal(version.trim(), "10.11");
-  assert.match(html, /evorank-v10\.8-r1\.js\?build=1080-r1[\s\S]*evorank-v10\.9-r1\.js\?build=1090-r3[\s\S]*evorank-v10\.10-r1\.js\?build=1100-r1/);
-  assert.match(html, /evorank-v10\.9-r1\.css\?build=1090-r3[\s\S]*evorank-v10\.10-r1\.css\?build=1100-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /evorank-v10\.9-r1\.js\?build=1090-r3/);
-  assert.match(manifest, /EvoRank 10\.11/);
-  assert.match(layout, /EvoRank 10\.11/);
-});
-
 test("adds exactly 500 unique stretching and mobility exercises", async () => {
   const { api, exercises, exerciseIndex } = runtime109(await read("assets/evorank-v10.9-r1.js"));
   assert.equal(api.version, "10.9");

@@ -67,55 +67,6 @@ test("ships pixel-aligned male masks and one mirrored, inward-fitted female lat 
   await Promise.all(required.map(path => access(new URL(path, root))));
 });
 
-test("ships clean ornate high-rank art and adaptive shell assets", async () => {
-  const paths = [
-    "assets/ranks/platinum-v9.2.0.png",
-    "assets/ranks/diamond-v9.2.0.png",
-    "assets/ranks/champion-v9.2.0.png",
-    "assets/ranks/titan-v9.2.0.png",
-    "icons/favicon-light-v9.2.0.svg",
-    "icons/favicon-dark-v9.2.0.svg",
-    "native/ios/EvoRankLiveActivityWidget.swift",
-    "native/ios/EvoRankLiveActivityManager.swift",
-    "native/home-screen/home-screen-assets.json",
-  ];
-  await Promise.all(paths.map(path => access(new URL(path, root))));
-
-  const styles = await read("assets/rankforge-v9.2.0-patch.css");
-  assert.match(styles, /:root\[data-theme="light"\] \.bottom-nav \.nav-item\.is-active/);
-  assert.match(styles, /\.bottom-nav \.nav-item\.is-active[\s\S]*color: var\(--accent\) !important;[\s\S]*background: transparent !important;/);
-  assert.match(styles, /\.brand__mark\.rf82-brand-mark[\s\S]*color: var\(--accent\) !important;/);
-  assert.doesNotMatch(styles, /\.bottom-nav \.nav-item\.is-active[\s\S]{0,180}background: #ff3658 !important/);
-});
-
-test("forces Netlify to load one coherent 10.11 release with all feature lines", async () => {
-  const html = await read("index.html");
-  const headers = await read("_headers");
-  const worker = await read("service-worker.js");
-
-  assert.match(html, /rankforge-v9\.2\.0\.css\?build=1020-r1/);
-  assert.match(html, /rankforge-v9\.2\.0-patch\.css\?build=1020-r1/);
-  assert.match(html, /triathlon-v9\.7\.css\?build=1020-r1/);
-  assert.match(html, /rankforge-v9\.2\.0\.js\?build=1020-r1/);
-  assert.match(html, /rankforge-v9\.2\.0-patch\.js\?build=1020-r1/);
-  assert.match(html, /rf93-unilateral-v1\.js\?build=1020-r1/);
-  assert.match(html, /rf93-friends-v1\.js\?build=1020-r1/);
-  assert.match(html, /triathlon-v9\.7\.js\?build=1020-r1/);
-  assert.match(html, /calendar-plan-v10\.0\.js\?build=1020-r1/);
-  assert.match(html, /garmin-connect-config\.js\?build=1110-r1/);
-  assert.match(headers, /\/assets\/\*[\s\S]*max-age=0, must-revalidate/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /garmin-connect-config\.js\?build=1110-r1/);
-  assert.match(worker, /account-sync-v2\.js\?build=1110-r1/);
-  assert.match(worker, /account-bridge-v1\.js\?build=1110-r1/);
-  assert.match(worker, /account-ui-v2\.js\?build=1110-r1/);
-  assert.match(worker, /rankforge-v9\.2\.0-patch\.js\?build=1020-r1/);
-  assert.match(worker, /rf93-unilateral-v1\.js\?build=1020-r1/);
-  assert.match(worker, /rf93-friends-v1\.js\?build=1020-r1/);
-  assert.match(worker, /triathlon-v9\.7\.js\?build=1020-r1/);
-  assert.match(worker, /calendar-plan-v10\.0\.js\?build=1020-r1/);
-});
-
 test("opens the iPhone layout without changing the desktop composition", async () => {
   const styles = await read("assets/rankforge-v9.2.0-patch.css");
   assert.match(styles, /@media \(max-width: 600px\)[\s\S]*\.screen \{[\s\S]*padding: 18px 8px/);

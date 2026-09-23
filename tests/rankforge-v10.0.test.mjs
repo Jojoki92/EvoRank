@@ -16,19 +16,6 @@ function runtime(source) {
   return context.window.RANKFORGE1000;
 }
 
-test("ships a coherent RankForge 10.2 calendar build after the triathlon layer", async () => {
-  const [html, worker, source] = await Promise.all([read("index.html"), read("service-worker.js"), read("assets/calendar-plan-v10.0.js")]);
-  assert.match(html, /triathlon-v9\.7\.js\?build=1020-r1[\s\S]*calendar-plan-v10\.0\.js\?build=1020-r1/);
-  assert.match(html, /triathlon-v9\.7\.css\?build=1020-r1[\s\S]*calendar-plan-v10\.0\.css\?build=1020-r1/);
-  assert.match(worker, /evorank-v10\.11\.0-r1/);
-  assert.match(worker, /calendar-plan-v10\.0\.js\?build=1020-r1/);
-  const api = runtime(source);
-  assert.equal(api.version, "10.2");
-  assert.equal(api.build, "1020-r1");
-  assert.deepEqual(Array.from(api.sports), ["strength", "swim", "run", "bike"]);
-  assert.deepEqual({ ...api.colors }, { strength:"#ff3b5f", swim:"#2f7dff", run:"#42c86b", bike:"#f2bd35" });
-});
-
 test("keeps password recovery on the current public build, including root redirects", async () => {
   const [account, cloud, page] = await Promise.all([
     read("assets/account-sync-v2.js"),

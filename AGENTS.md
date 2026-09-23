@@ -57,7 +57,6 @@ are historical. Do not claim access to private phone workouts or prior chats.
   installed home-screen icon remains the approved metallic D+H design.
 - The user approved D + H (Obsidian + Aufstieg). X4 installs this design.
   Master: `docs/brand-x4/evorank-dh-master.png`; exports: `icons/evorank-x4-*`.
-  `designs-x3.html` shows the active design with older options under history.
 - No Google Stitch work is requested.
 
 ## Development
@@ -105,21 +104,20 @@ Useful commands:
 - `npm run build` — complete framework build under Linux/WSL.
 - `node_modules\.bin\vinext.cmd build` — the same framework build on Windows.
 
-Use relevant tests to resolve concrete risks. Historical `npm test` runs archived
-version-specific suites and is not the current X4 gate. Re-run the project build
+Use relevant tests to resolve concrete risks. `npm test` runs the current X5 gate
+(`test:x5`); `npm run test:alle` also runs the retained historical suites. Re-run the project build
 after source changes. Record honest limits: no real-device, account or hosting
 test should be claimed unless actually performed.
 
-## RTK
+## Cleanup (after X5.7 handover)
 
-RTK 0.48.0 was verified and used in the original Linux execution environment.
-Its uploaded setup archive is `dev-tools/RTK-Codex-Setup.zip`.
-Check `rtk --version` in every new environment; Linux x86_64 binaries do not run
-natively on Windows. Prefer RTK for supported compact development output when
-installed. Use native commands for exact reads, machine parsing and full error
-logs. Keep telemetry disabled. Do not overwrite global agent instructions or use
-RTK to alter an operation's permissions. RTK changes development output, not the
-EvoRank app runtime.
+Unused files were removed on the evidence of a reference scan from `index.html`,
+legal pages, manifest, Netlify config and dynamic path templates: old v9.1.1 app
+bundle and v1 account modules, superseded icons/splash sets, the unlinked
+`designs-x3.html` gallery, public historical docs and root release notes.
+Superseded X5.1 rank sheets are preserved in `design-master/ranks-x5.1-originale/`.
+Full history remains in Git commit `611d7f0`. Keep `service-worker.js` CORE in
+sync with existing files; a missing entry makes the install fail.
 
 ## Hosting
 
