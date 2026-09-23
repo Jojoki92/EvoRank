@@ -44,6 +44,20 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 4. Aus der Übergabe weiterhin offen: Betreiberanschrift/Unternehmensstatus, Bildrechte,
    Mindestalter, Mac/Xcode für Dynamic Island, echte iPhone-/Cloud-Tests.
 
+## Supabase (Konnektor verbunden, Stand 23.09.2026, nur gelesen)
+
+- Projekt `wbujkhjoxepglsmtwqrf` (eu-west-1), dasselbe wie in `cloud-config.js`.
+- Eingerichtet: Konto-Sicherung und Freunde (Stand 9.8): Tabellen `rankforge_state`
+  (4 Zeilen), `rf_profiles` (6), `rf_friendships` (1); Funktionen `rf_state_*`,
+  `rf_profile_*`, `rf_friend_*`, `rf_account_delete`. RLS überall an. Kein Storage-Bucket.
+- **Fehlt** (App ruft es auf, Server kennt es nicht): Bestenlisten `evorank_leaderboard_*`
+  (+ `evorank_data_consents`), Geburtstag `evorank_birthday*`, Garmin/Strava-Tabellen.
+  Einrichtung Bestenlisten: `packaging/windows/BESTENLISTEN-EINRICHTEN/1-BESTENLISTEN-EINRICHTEN.sql`
+  (nur neue Tabellen/Funktionen, ändert bestehende Daten nicht). **Erst nach Zustimmung ausführen.**
+- Sicherheitshinweise: Schutz vor geleakten Passwörtern aus (Einstellung im Dashboard);
+  `rls_auto_enable()` für `anon` ausführbar; `citext` im Schema `public`.
+- Das Supabase-Werkzeug kann keine Dateien hochladen → nicht für Windows/Netlify-Pakete nutzbar.
+
 ## Lieferung (so will es Johannes)
 
 Jede neue Version (X5.9, X6.0, …) als **Windows**- und **Netlify**-Ordner.
