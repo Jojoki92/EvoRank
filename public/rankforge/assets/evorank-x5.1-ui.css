@@ -364,3 +364,29 @@
 .x59-label{letter-spacing:.01em!important;text-transform:none!important;font-weight:650!important;font-size:max(11.5px,.78rem)!important}
 .home-title p{letter-spacing:.01em!important;text-transform:none!important;font-size:max(12px,.8rem)!important}
 .design-preview small{letter-spacing:.01em!important;text-transform:none!important}
+
+/* X6.0: Freunde ohne Links und Mitmachen in der Bestenliste. */
+.x60-friends .x60-me{margin:6px 0 16px}
+.screen-title p{letter-spacing:.02em!important;text-transform:none!important}
+.x60-muted{color:var(--muted);font-size:.86rem;line-height:1.45;margin:6px 0}
+.x60-note{margin:0 0 14px;padding:10px 12px;border-radius:14px;background:var(--surface);border:1px solid var(--line);font-size:.88rem}
+.x60-card{display:grid;gap:10px;padding:18px;border-radius:22px;background:var(--surface);border:1px solid var(--line)}
+.x60-section{margin:0 0 22px}
+.x60-section h2{font-size:1.02rem;margin:0 0 10px}
+.x60-person,.x60-friend header{display:flex;align-items:center;gap:12px}
+.x60-person{padding:10px 12px;margin:0 0 8px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.x60-person>div,.x60-friend header>div{flex:1;min-width:0}
+.x60-person strong,.x60-friend strong{display:block;font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.x60-person small,.x60-friend small{display:block;color:var(--muted);font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.x60-avatar{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--surface-2,rgba(127,127,127,.18));color:var(--accent)}
+.x60-small{min-height:36px!important;padding:0 14px!important;font-size:.85rem!important;width:auto!important}
+.x60-actions{display:flex;gap:6px}
+.x60-tag{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.x60-friend{padding:14px;margin:0 0 10px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
+.x60-ranks{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+.x60-ranks span{padding:6px 10px;border-radius:999px;background:var(--surface-2,rgba(127,127,127,.14));font-size:.82rem}
+.x60-ranks b{margin-right:4px;color:var(--accent)}
+.x60-search{display:grid;grid-template-columns:1fr auto;gap:8px;margin:0 0 12px}
+.x60-search input{min-width:0;height:46px;padding:0 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:16px}
+.x60-join{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 4px;padding:10px 12px;border-radius:16px;border:1px solid var(--line);font-size:.88rem}
+

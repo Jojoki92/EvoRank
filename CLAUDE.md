@@ -15,7 +15,11 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 
 ## Stand
 
-- Aktuelle App: **X5.9 / x5.9-r1** (nicht veröffentlicht). Nächste Lieferung: **X6.0**.
+- Aktuelle App: **X6.0 / x6.0-r1**. Nächste Lieferung: **X6.1**.
+- **Veröffentlichung auf Netlify war am 23.09.2026 blockiert:** Netzwerk-Regel der Umgebung sperrt
+  `api.netlify.com` und `netlify-mcp.netlify.app`. Deploy-Weg: Netlify-Tool `deploy-site` (siteId s. unten)
+  liefert einen `npx @netlify/mcp …`-Befehl; im Ordner des Netlify-Pakets ausführen. Johannes wurde gebeten,
+  die Hosts freizugeben. Johannes hat das Veröffentlichen von X6.0 ausdrücklich gewünscht.
 - Git: einziger Branch `claude/zealous-galileo-eb7l67` (Standardbranch des Repos).
   - `611d7f0` X5.7-Übergabe aus 9 ZIPs übernommen (alle 652 Dateien per SHA-256 geprüft).
   - Aufräumen (~39 MB), X5.8 (nur Version), X5.9 (siehe unten).
@@ -25,6 +29,10 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
   - „Menschlicher“: Begrüßung mit Name/Datum, Großbuchstaben-Labels natürlich
     (`assets/interface-x5.9.js`), englische Begriffe eingedeutscht.
   - Supabase eingerichtet (siehe unten), Rechtstexte ergänzt (`docs/EVORANK-X5.9-RECHTSCHECK.md`).
+- X6.0 (23.09.2026): Freunde ohne Links (`assets/friends-x6.0.js`: Vorschläge, Suche nach Name/@spitzname,
+  Anfragen/Annehmen, Stand der Freunde), gegenseitige Anfrage = befreundet, Bestenliste „Mitmachen“ mit
+  Bestätigung. Server: `db/SUPABASE-LIVE-X6.0.sql` (eingespielt). Test-Server: `tests/helpers/supabase-mock.mjs`
+  (PGlite + Live-Schema `db/SUPABASE-LIVE-BASE.sql`), Zwei-Konten-Ablauf mit Playwright geprüft.
 - Prüfung X5.9: `npm test` 140/140, Build ok, Smoke ok, Browser-Screenshots (Chromium,
   iPhone-Größe). Nicht geprüft: echtes iPhone.
 - Browser-Test hier: `packaging/windows/EVORANK-NODE-SERVER.mjs` starten, Playwright
@@ -49,7 +57,7 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
    Laufen nur in `npm run test:alle`.
 3. **X6.0 (vorgeschlagen):** ~30 CSS- und ~45 JS-Schichten zusammenlegen → nur mit
    Handy-Prüfung durch Johannes.
-4. Veröffentlichen auf Netlify: **erst nach ausdrücklichem OK**.
+4. Veröffentlichen auf Netlify: X6.0 freigegeben (blockiert durch Netzwerk, s. oben); spätere Versionen erst nach OK.
 5. Supabase-Dashboard: „Leaked password protection“ einschalten (Tarif-abhängig).
 6. Garmin/Strava: Anbieter-Freigabe und Netlify-Umgebungsvariablen fehlen.
 7. Aus der Übergabe: Mac/Xcode für Dynamic Island, echte iPhone-/Cloud-Tests.
@@ -81,13 +89,14 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 
 ## Lieferung (so will es Johannes)
 
-Jede neue Version (X6.0, X6.1, …) als **Windows**- und **Netlify**-Ordner.
+Jede neue Version (X6.1, X6.2, …) als **Windows**- und **Netlify**-Ordner.
 
 - Johannes' PC-Ziel (nur Doku): `C:\Users\johan\OneDrive\Dokumente\EvoRank\FREED\x\x5\X<version>\`.
 - **Google Drive** (verbunden): gleiche Struktur `EvoRank/FREED/x/x5/X<version>/`.
   - Ordner-IDs: `EvoRank` 10-hfnxncRLnX54LYD2NnvhJdKX9PCspl, `FREED` 131G7OSL2uTZmWIAdJ3619ucWy5Ff6Ahu,
     `x` 1hsM8icTw0JAz0q5yMmSfNxFfj8QZCPKJ, `x5` 1kmFAyLj6-x_D1gmqfwbODjikbpsZ_T9n,
-    `X5.8` 1kQZTWvuwrj-DyysWaliGP1KShhnpl33u, `X5.9` 1EkqgzOHK-mX3OWjMbqwbtViDzaj0MDyK.
+    `X5.8` 1kQZTWvuwrj-DyysWaliGP1KShhnpl33u, `X5.9` 1EkqgzOHK-mX3OWjMbqwbtViDzaj0MDyK,
+    `x6` 1a9KOFsyRXOj33ApvucDJ35asIme8svYn, `X6.0` 1dnPfG832GTQqeIdJh6YYNohv-11jUb5z.
   - **Grenze:** Das Drive-Werkzeug kann nur kleine Textdateien hochladen (Inhalt läuft durch
     den Chat). Bilder, `EVORANK.exe` und ganze Pakete (~19 MB je ZIP) gehen so nicht.
   - Deshalb: Version-Ordner + Anleitung in Drive anlegen, die zwei Pakete als ZIP

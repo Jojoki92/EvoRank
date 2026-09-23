@@ -1,8 +1,8 @@
-# EvoRank X5.9
+# EvoRank X6.0
 
-Vollständiger Projektstand X5.9 (`x5.9-r1`). Die App liegt in
+Vollständiger Projektstand X6.0 (`x6.0-r1`). Die App liegt in
 `public/rankforge/`. Framework, Grafiken, Datenbankskripte, Integrationen und
-Tests sind ebenfalls enthalten. Nächstes App-Update: X6.0.
+Tests sind ebenfalls enthalten. Nächstes App-Update: X6.1.
 
 Einstieg für neue Sitzungen: [CLAUDE.md](CLAUDE.md).
 
@@ -12,7 +12,7 @@ Node.js ab 22.13:
 
 ```
 npm ci
-npm test              # aktuelles Testgate (140 Tests)
+npm test              # aktuelles Testgate (143 Tests)
 npm run preview:app   # App unter http://127.0.0.1:8123/
 ```
 
@@ -41,7 +41,7 @@ Die Dateinamen mit X2 sind weiterhin Teil der aktuellen App.
 - [Gedächtnis und Arbeitsweise](CLAUDE.md)
 - [Projektregeln](AGENTS.md)
 - [Übergabe X5.7](CONTINUE-HERE-X5.7.md) und [Übergabe-Dokumente](docs/uebergabe-x5.7/)
-- [Anleitung X5.9](EVORANK-X5.9-ANLEITUNG.md)
+- [Anleitung X6.0](EVORANK-X6.0-ANLEITUNG.md)
 - [Strava, Garmin und Freunde einrichten](docs/EVORANK-X4.5-VERBINDUNGEN.md)
 - [Rangprüfung und Quellen](docs/EVORANK-X4.2-RANGPRUEFUNG.md)
 - [Prüfbericht X5.7](docs/EVORANK-X5.7-VALIDIERUNG.md)

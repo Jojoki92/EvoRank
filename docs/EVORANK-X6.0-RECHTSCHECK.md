@@ -1,6 +1,11 @@
-# EvoRank X5.9 – rechtliche Prüfung und notwendige Betreiberangaben
+# EvoRank X6.0 – rechtliche Prüfung und notwendige Betreiberangaben
 
 Stand: 23.09.2026. Eine rechtliche Gesamtfreigabe ist **nicht** erreicht. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
+
+## In X6.0 umgesetzt
+
+- Freundessuche zeigt angemeldeten Nutzern Spitzname, Anzeigename und Rang-Titel anderer Profile (nie E-Mail). In der Datenschutzerklärung ergänzt.
+- Bestenlisten: Teilnahme nur nach eigener Bestätigung („Mitmachen“ mit Hinweistext), jederzeit beendbar.
 
 ## In X5.9 umgesetzt
 

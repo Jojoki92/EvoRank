@@ -1,7 +1,7 @@
 # EvoRank project instructions
 
-Current release: **X5.9 / x5.9-r1**. Read `CLAUDE.md`
-and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.0.
+Current release: **X6.0 / x6.0-r1**. Read `CLAUDE.md`
+and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.1.
 Communicate in German. The user prefers concrete completed app packages and a
 short explanation. The complete source is authoritative; older release notes
 are historical. Do not claim access to private phone workouts or prior chats.
@@ -45,6 +45,9 @@ are historical. Do not claim access to private phone workouts or prior chats.
   built-in routines stay deleted via existing sync tombstones.
 - Live Supabase uses `rf_profiles`/`rf_friendships` (key `id`), not the older
   `rankforge_profiles` of the repository SQL. Use `db/SUPABASE-LIVE-X5.9.sql`.
+- X6.0: the Friends tab is `assets/friends-x6.0.js` (account-based search/request/accept, no
+  link invitations). Leaderboard participation needs an explicit "Mitmachen" confirmation.
+  Local backend tests: `tests/helpers/supabase-mock.mjs`.
 - Muscle aggregation: best contribution 70%, up to three supporting contributions
   together 30%; one contribution counts fully. Secondary transfer remains 58%.
 - Cable defaults remain visibly unconfirmed 1:1 unless the user configures them.

@@ -4,7 +4,7 @@
 )
 
 $ErrorActionPreference = "Stop"
-$Host.UI.RawUI.WindowTitle = "EvoRank X5.9"
+$Host.UI.RawUI.WindowTitle = "EvoRank X6.0"
 
 $WebsiteRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "website"))
 if (-not [System.IO.Directory]::Exists($WebsiteRoot)) {
@@ -113,7 +113,7 @@ if ($null -eq $Listener) {
 
 $Url = "http://127.0.0.1:$SelectedPort/"
 Write-Host ""
-Write-Host "  EvoRank X5.9 ist bereit" -ForegroundColor Cyan
+Write-Host "  EvoRank X6.0 ist bereit" -ForegroundColor Cyan
 Write-Host "  $Url" -ForegroundColor White
 Write-Host ""
 Write-Host "  Dieses Fenster waehrend der Nutzung offen lassen."
