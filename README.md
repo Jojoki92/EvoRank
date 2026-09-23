@@ -1,8 +1,8 @@
-# EvoRank X5.8
+# EvoRank X5.9
 
-Vollständiger Projektstand X5.8 (`x5.8-r1`). Die App liegt in
+Vollständiger Projektstand X5.9 (`x5.9-r1`). Die App liegt in
 `public/rankforge/`. Framework, Grafiken, Datenbankskripte, Integrationen und
-Tests sind ebenfalls enthalten. Nächstes App-Update: X5.9.
+Tests sind ebenfalls enthalten. Nächstes App-Update: X6.0.
 
 Einstieg für neue Sitzungen: [CLAUDE.md](CLAUDE.md).
 
@@ -12,7 +12,7 @@ Node.js ab 22.13:
 
 ```
 npm ci
-npm test              # aktuelles Testgate (129 Tests)
+npm test              # aktuelles Testgate (140 Tests)
 npm run preview:app   # App unter http://127.0.0.1:8123/
 ```
 
@@ -31,7 +31,7 @@ Die Vorschau führt keine Netlify-Serverfunktionen aus. Keine Website-Daten lös
 | Konten, Garmin und Serverfunktionen | `public/rankforge/netlify/functions/` |
 | Supabase-Datenbankskripte | `db/` |
 | Framework und Hosting | `app/`, `worker/`, `vite.config.ts` |
-| 129 aktuelle Prüfungen | Aktuelles Verhalten und Strava-Serverlogik über `npm run test:x5` |
+| 129 aktuelle Prüfungen | Aktuelles Verhalten, Supabase-SQL und Strava-Serverlogik über `npm run test:x5` |
 | Live-Tracking | `public/rankforge/assets/endurance-tracker-x4.2.js` |
 | Aktuelle Ansichten | `public/rankforge/assets/evorank-x5.1-ui.css`, `interface-x5.5.js` |
 | Vollständiger Katalog-Audit | `npm run audit:x4.2` |
@@ -41,7 +41,7 @@ Die Dateinamen mit X2 sind weiterhin Teil der aktuellen App.
 - [Gedächtnis und Arbeitsweise](CLAUDE.md)
 - [Projektregeln](AGENTS.md)
 - [Übergabe X5.7](CONTINUE-HERE-X5.7.md) und [Übergabe-Dokumente](docs/uebergabe-x5.7/)
-- [Anleitung X5.8](EVORANK-X5.8-ANLEITUNG.md)
+- [Anleitung X5.9](EVORANK-X5.9-ANLEITUNG.md)
 - [Strava, Garmin und Freunde einrichten](docs/EVORANK-X4.5-VERBINDUNGEN.md)
 - [Rangprüfung und Quellen](docs/EVORANK-X4.2-RANGPRUEFUNG.md)
 - [Prüfbericht X5.7](docs/EVORANK-X5.7-VALIDIERUNG.md)

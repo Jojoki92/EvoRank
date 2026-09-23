@@ -1,4 +1,4 @@
-/* EvoRank X5.8 — workout ordering, equipment settings and model-aligned anatomy.
+/* EvoRank X5.9 — workout ordering, equipment settings and model-aligned anatomy.
    X2 filenames/API names are retained for compatibility with existing patches. */
 (() => {
   'use strict';
@@ -36,7 +36,7 @@
     return html.replace(/<span class="rf872-design-preview-mark"[^>]*>[\s\S]*?<\/span>/g,
       '<span class="rf872-design-preview-mark rfx42-preview-mark" aria-hidden="true"><img src="./assets/brand-x4.1/evorank-er-flat.png" alt="" class="rfx41-logo-flat"></span>');
   }
-  proto.render=function(...args){const out=old.render.apply(this,args);if(this.state)this.state.appVersion='X5.8';document.documentElement.style.setProperty('--rfx42-accent-hue',`${accentHue(this.state?.settings?.accentColor)}deg`);document.documentElement.style.setProperty('--rfx42-accent-saturation',String(accentSaturation(this.state?.settings?.accentColor)));document.querySelectorAll('.brand__mark,.rf75-auth__mark,.rf92-brand__mark').forEach(el=>{el.classList.add('rfx41-brand-mark');el.innerHTML='<img src="./assets/brand-x4.1/evorank-er-flat.png" alt="" class="rfx2-brand-icon rfx41-logo-flat">';});return out;};
+  proto.render=function(...args){const out=old.render.apply(this,args);if(this.state)this.state.appVersion='X5.9';document.documentElement.style.setProperty('--rfx42-accent-hue',`${accentHue(this.state?.settings?.accentColor)}deg`);document.documentElement.style.setProperty('--rfx42-accent-saturation',String(accentSaturation(this.state?.settings?.accentColor)));document.querySelectorAll('.brand__mark,.rf75-auth__mark,.rf92-brand__mark').forEach(el=>{el.classList.add('rfx41-brand-mark');el.innerHTML='<img src="./assets/brand-x4.1/evorank-er-flat.png" alt="" class="rfx2-brand-icon rfx41-logo-flat">';});return out;};
   proto.renderDesignModal=function(...args){return replacePreviewLogo(old.renderDesignModal.apply(this,args));};
   proto.renderModal=function(...args) {
     let html=replacePreviewLogo(old.renderModal.apply(this,args));
@@ -140,7 +140,7 @@
   proto.renderProfile=function(...args){
     return oldProfile.apply(this,args)
 
-      .replace(/(<p class="data-note">)Version [^·<]+/,'$1EvoRank X5.8 ');
+      .replace(/(<p class="data-note">)Version [^·<]+/,'$1EvoRank X5.9 ');
   };
   proto.renderExerciseRankModal=function(id){
     const html=oldRankModal.call(this,id),item=this.metrics?.exerciseRanks?.find(l=>l.exerciseId===id);if(!item)return html;
@@ -165,7 +165,7 @@
   },{passive:false});
   function finish(event){if(!drag||event.pointerId!==drag.pointer)return;const d=drag;drag=null;d.card.classList.remove('rfx2-dragging');if(event.type==='pointercancel'){window.RANKFORGE_APP?.render();return;}if(d.moved){const i=[...d.parent.children].filter(el=>el.matches('[data-exercise-instance]')).indexOf(d.card);window.RANKFORGE_APP?.moveX2Exercise(d.id,i);}}
   document.addEventListener('pointerup',finish);document.addEventListener('pointercancel',finish);
-  window.EVORANK=Object.freeze({name:'EvoRank',version:'X5.8',build:'x5.8-r1',legacyStorageCompatible:true});
-  window.EVORANK_X2=Object.freeze({version:'X5.8',femaleLatPath:latLeft});
-  window.EVORANK_X3=Object.freeze({version:'X5.8',femaleLatPaths:Object.freeze([latLeft,latRight])});
+  window.EVORANK=Object.freeze({name:'EvoRank',version:'X5.9',build:'x5.9-r1',legacyStorageCompatible:true});
+  window.EVORANK_X2=Object.freeze({version:'X5.9',femaleLatPath:latLeft});
+  window.EVORANK_X3=Object.freeze({version:'X5.9',femaleLatPaths:Object.freeze([latLeft,latRight])});
 })();

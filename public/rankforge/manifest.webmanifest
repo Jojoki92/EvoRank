@@ -28,7 +28,7 @@
       "url": "./index.html#quick-workout",
       "icons": [
         {
-          "src": "./icons/evorank-x4-192.png?build=x5.8-r1",
+          "src": "./icons/evorank-x4-192.png?build=x5.9-r1",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -40,7 +40,7 @@
       "url": "./index.html#bodygraph",
       "icons": [
         {
-          "src": "./icons/evorank-x4-192.png?build=x5.8-r1",
+          "src": "./icons/evorank-x4-192.png?build=x5.9-r1",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -52,7 +52,7 @@
       "url": "./index.html#sports",
       "icons": [
         {
-          "src": "./icons/evorank-x4-192.png?build=x5.8-r1",
+          "src": "./icons/evorank-x4-192.png?build=x5.9-r1",
           "sizes": "192x192",
           "type": "image/png"
         }
@@ -61,19 +61,19 @@
   ],
   "icons": [
     {
-      "src": "./icons/evorank-x4-192.png?build=x5.8-r1",
+      "src": "./icons/evorank-x4-192.png?build=x5.9-r1",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./icons/evorank-x4-512.png?build=x5.8-r1",
+      "src": "./icons/evorank-x4-512.png?build=x5.9-r1",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./icons/evorank-x4-maskable-512.png?build=x5.8-r1",
+      "src": "./icons/evorank-x4-maskable-512.png?build=x5.9-r1",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

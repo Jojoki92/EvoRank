@@ -1,11 +1,11 @@
-EvoRank X5.8 – WINDOWS
+EvoRank X5.9 – WINDOWS
 
 1. Den entpackten Windows-Ordner öffnen.
 2. EVORANK-STARTEN.bat oder EVORANK.exe doppelklicken. Dafür ist Node.js nicht nötig.
 3. Serverfenster geöffnet lassen.
 
 Optional: EVORANK-START-MIT-NODE.bat, falls Node installiert ist.
-Anleitung: EVORANK-X5.8-ANLEITUNG.md.
+Anleitung: EVORANK-X5.9-ANLEITUNG.md.
 Standardadresse: http://127.0.0.1:8123/
 Denselben Browser und dieselbe Adresse verwenden, damit die lokalen Daten erreichbar bleiben.
 Eine noch laufende alte Serverinstanz zuerst schließen.

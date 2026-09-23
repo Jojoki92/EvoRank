@@ -80,7 +80,7 @@ server.on("error", error => {
 server.listen(port, "127.0.0.1", () => {
   const address = server.address();
   const url = `http://127.0.0.1:${address.port}/`;
-  console.log("\n  EvoRank X5.8 ist bereit");
+  console.log("\n  EvoRank X5.9 ist bereit");
   console.log(`  ${url}\n`);
   console.log("  Dieses Fenster geöffnet lassen. Zum Beenden Strg+C drücken.\n");
   if (process.env.EVORANK_NO_OPEN !== "1") {

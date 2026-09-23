@@ -1,7 +1,7 @@
 # EvoRank project instructions
 
-Current release: **X5.8 / x5.8-r1** (cleanup only; behaviour as X5.7). Read `CLAUDE.md`
-and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X5.9.
+Current release: **X5.9 / x5.9-r1**. Read `CLAUDE.md`
+and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.0.
 Communicate in German. The user prefers concrete completed app packages and a
 short explanation. The complete source is authoritative; older release notes
 are historical. Do not claim access to private phone workouts or prior chats.
@@ -39,6 +39,12 @@ are historical. Do not claim access to private phone workouts or prior chats.
 - Confirmed operator: Johannes Gumplmayr, Austria, evorank.fitness@gmail.com.
   Public address is missing; never infer or publish it. App is free, IAP is planned
   but not implemented. Native/App Store readiness and image rights remain unverified.
+- X5.9: the interface is always the detailed style (`uiStyle` = classic); the
+  minimal/detailed switch is removed. `interface-x5.9.js` rewrites all-caps eyebrow
+  labels into natural German (only when the app language is German). Deleted
+  built-in routines stay deleted via existing sync tombstones.
+- Live Supabase uses `rf_profiles`/`rf_friendships` (key `id`), not the older
+  `rankforge_profiles` of the repository SQL. Use `db/SUPABASE-LIVE-X5.9.sql`.
 - Muscle aggregation: best contribution 70%, up to three supporting contributions
   together 30%; one contribution counts fully. Secondary transfer remains 58%.
 - Cable defaults remain visibly unconfirmed 1:1 unless the user configures them.

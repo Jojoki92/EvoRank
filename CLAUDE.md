@@ -15,58 +15,79 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 
 ## Stand
 
-- Aktuelle App: **X5.8 / x5.8-r1**. Nächste Lieferung: **X5.9**.
+- Aktuelle App: **X5.9 / x5.9-r1** (nicht veröffentlicht). Nächste Lieferung: **X6.0**.
 - Git: einziger Branch `claude/zealous-galileo-eb7l67` (Standardbranch des Repos).
   - `611d7f0` X5.7-Übergabe aus 9 ZIPs übernommen (alle 652 Dateien per SHA-256 geprüft).
-  - Aufräum-Commit: ~39 MB ungenutzte Dateien entfernt (siehe AGENTS.md → Cleanup).
-  - X5.8: Versionsnummer, Anleitung, Rechtscheck-Datei umbenannt, README/CLAUDE.md.
-- Prüfung X5.8: `npm test` 129/129, Vinext-Build ok, Smoke 194 Ressourcen,
-  Windows-Paket per Node-Server getestet (zeigt X5.8). PowerShell-Server hier nicht testbar.
-- Nicht geprüft: echtes iPhone, echtes Konto, echte Netlify-/Supabase-Umgebung.
+  - Aufräumen (~39 MB), X5.8 (nur Version), X5.9 (siehe unten).
+- X5.9 geliefert am 23.09.2026:
+  - Gelöschte Standard-Workouts (Push/Pull/Leg Day …) kommen nicht mehr zurück.
+  - Design immer „detailliert“ (Minimal-Schalter entfernt).
+  - „Menschlicher“: Begrüßung mit Name/Datum, Großbuchstaben-Labels natürlich
+    (`assets/interface-x5.9.js`), englische Begriffe eingedeutscht.
+  - Supabase eingerichtet (siehe unten), Rechtstexte ergänzt (`docs/EVORANK-X5.9-RECHTSCHECK.md`).
+- Prüfung X5.9: `npm test` 140/140, Build ok, Smoke ok, Browser-Screenshots (Chromium,
+  iPhone-Größe). Nicht geprüft: echtes iPhone.
+- Browser-Test hier: `packaging/windows/EVORANK-NODE-SERVER.mjs` starten, Playwright
+  (global) mit `executablePath /opt/pw-browsers/chromium-1194/chrome-linux/chrome`,
+  `cloud-config.js` per Route leeren → lokaler Modus; dann in der Seite
+  `RANKFORGE_APP.state.onboardingComplete = true` setzen und `render()`.
+
+## Frage „Konto gelöscht“ (23.09.2026)
+
+- Laut Datenbank existiert Johannes' Hauptkonto weiterhin, inklusive Cloud-Sicherung.
+  Personenbezogene Details werden hier absichtlich nicht gespeichert (Datenschutz);
+  bei Bedarf erneut in Supabase nachsehen. Genaue Anzeige am Handy noch unklar → nachfragen.
 
 ## Offene Entscheidungen von Johannes
 
-1. **Einwilligungs-Tests** (Sicherheits-/Datenschutztests, Entfernen wurde von der
-   Umgebung blockiert – nicht ohne ausdrückliche Zustimmung löschen):
-   - `tests/evorank-v10.10-r1.test.mjs` „keeps cloud and leaderboard publishing off until explicit consent“
-   - `tests/evorank-v10.11-r1.test.mjs` „cloud reconciliation is automatic, non-blocking and loss-averse“
-   - `tests/test-ui.mjs` Prüfung „Cloud-Sicherung verlangt eine ausdrückliche Freigabe“
-   - `tests/test-bridge.mjs` (5 von 10 Prüfungen scheitern)
-   Vermutlich veraltet (Einwilligung liegt seit X4.9 in `cloud-consent-x4.9.js` und ist beim
-   Login optional). Empfehlung: auf die aktuelle Logik umschreiben statt löschen.
-   Diese laufen nur in `npm run test:alle`, nicht im Gate `npm test`.
-2. **Nächster Schritt X5.9 (vorgeschlagen):** ~30 CSS- und ~45 JS-Schichten in
-   `index.html` überschreiben sich gegenseitig. Zusammenlegen ist möglich, kann aber
-   die Optik auf dem iPhone verändern → nur mit Handy-Prüfung durch Johannes.
-3. Konnektoren **Netlify** und **Supabase**: Johannes verbindet sie unter
-   https://claude.ai/customize/connectors und startet dann eine neue Sitzung.
-   Vor jeder Veröffentlichung oder Datenbankänderung ausdrücklich fragen. Vorher Backup.
-4. Aus der Übergabe weiterhin offen: Betreiberanschrift/Unternehmensstatus, Bildrechte,
-   Mindestalter, Mac/Xcode für Dynamic Island, echte iPhone-/Cloud-Tests.
+1. **Impressum-Anschrift** und Unternehmensstatus (größtes Rechtsrisiko), **Bildrechte**
+   (Körpergrafiken, Rangbilder, Logos), Mindestalter technisch prüfen (nur in AGB).
+2. **Einwilligungs-Tests** (Entfernen wurde von der Umgebung blockiert – nicht ohne
+   ausdrückliche Zustimmung löschen): `evorank-v10.10-r1` „explicit consent“,
+   `evorank-v10.11-r1` „loss-averse“, `tests/test-ui.mjs` Pflicht-Freigabe,
+   `tests/test-bridge.mjs`. Vermutlich veraltet; Empfehlung: umschreiben statt löschen.
+   Laufen nur in `npm run test:alle`.
+3. **X6.0 (vorgeschlagen):** ~30 CSS- und ~45 JS-Schichten zusammenlegen → nur mit
+   Handy-Prüfung durch Johannes.
+4. Veröffentlichen auf Netlify: **erst nach ausdrücklichem OK**.
+5. Supabase-Dashboard: „Leaked password protection“ einschalten (Tarif-abhängig).
+6. Garmin/Strava: Anbieter-Freigabe und Netlify-Umgebungsvariablen fehlen.
+7. Aus der Übergabe: Mac/Xcode für Dynamic Island, echte iPhone-/Cloud-Tests.
 
-## Supabase (Konnektor verbunden, Stand 23.09.2026, nur gelesen)
+## Supabase (Konnektor verbunden)
 
-- Projekt `wbujkhjoxepglsmtwqrf` (eu-west-1), dasselbe wie in `cloud-config.js`.
-- Eingerichtet: Konto-Sicherung und Freunde (Stand 9.8): Tabellen `rankforge_state`
-  (4 Zeilen), `rf_profiles` (6), `rf_friendships` (1); Funktionen `rf_state_*`,
-  `rf_profile_*`, `rf_friend_*`, `rf_account_delete`. RLS überall an. Kein Storage-Bucket.
-- **Fehlt** (App ruft es auf, Server kennt es nicht): Bestenlisten `evorank_leaderboard_*`
-  (+ `evorank_data_consents`), Geburtstag `evorank_birthday*`, Garmin/Strava-Tabellen.
-  Einrichtung Bestenlisten: `packaging/windows/BESTENLISTEN-EINRICHTEN/1-BESTENLISTEN-EINRICHTEN.sql`
-  (nur neue Tabellen/Funktionen, ändert bestehende Daten nicht). **Erst nach Zustimmung ausführen.**
-- Sicherheitshinweise: Schutz vor geleakten Passwörtern aus (Einstellung im Dashboard);
-  `rls_auto_enable()` für `anon` ausführbar; `citext` im Schema `public`.
-- Das Supabase-Werkzeug kann keine Dateien hochladen → nicht für Windows/Netlify-Pakete nutzbar.
+- Projekt `wbujkhjoxepglsmtwqrf` (eu-west-1, Irland), dasselbe wie in `cloud-config.js`.
+- **Echte Tabellennamen:** `rankforge_state`, `rf_profiles` (Schlüssel `id`), `rf_friendships`.
+  Die alten Repo-SQL-Dateien nutzen `rankforge_profiles` → nicht direkt ausführen.
+  Maßgeblich: `db/SUPABASE-LIVE-X5.9.sql` (getestet in `tests/supabase-live-x5.9.test.mjs`).
+- Am 23.09.2026 eingespielt (Migrationen `evorank_x59_*`): Bestenlisten + Einwilligungen,
+  Geburtstag (`rf_profiles.birth_date`), Strava-/Garmin-Tabellen, vollständige
+  Kontolöschung (`rf_account_delete` löscht jetzt auch Profil, Freundschaften,
+  Bestenlisten, Verbindungen und das Login), `rls_auto_enable()` nicht mehr öffentlich.
+- Sicherungskopie im Schema `evorank_backup_20260923` (ohne API-Zugriff); `pg_cron`-Job
+  `evorank-drop-backup-20260923` löscht sie am 23.10.2026 automatisch (so steht es
+  auch in der Datenschutzerklärung).
+- Verbleibende Hinweise (bewusst): Funktionen für angemeldete Nutzer (so gebaut),
+  Tabellen ohne Policies = nur Server-Zugriff, `citext` in `public` (Verschieben riskant).
+- Das Supabase-Werkzeug kann keine Dateien hochladen.
+
+## Netlify (Konnektor verbunden, nur gelesen)
+
+- Echte Seite: `clinquant-ganache-551532` (https://clinquant-ganache-551532.netlify.app),
+  Site-ID 1f762076-35e8-4b7b-b7d9-988548f12db3, letzter Deploy 17.09.2026 (Drop-Upload,
+  15 Funktionen, Funktionen in us-east-2). Zweite alte Seite `animated-lokum-5ac17c`
+  (14.08.2026, ohne Funktionen).
+- Diese Container-Umgebung darf `*.netlify.app` nicht direkt abrufen (Proxy 403).
 
 ## Lieferung (so will es Johannes)
 
-Jede neue Version (X5.9, X6.0, …) als **Windows**- und **Netlify**-Ordner.
+Jede neue Version (X6.0, X6.1, …) als **Windows**- und **Netlify**-Ordner.
 
 - Johannes' PC-Ziel (nur Doku): `C:\Users\johan\OneDrive\Dokumente\EvoRank\FREED\x\x5\X<version>\`.
 - **Google Drive** (verbunden): gleiche Struktur `EvoRank/FREED/x/x5/X<version>/`.
   - Ordner-IDs: `EvoRank` 10-hfnxncRLnX54LYD2NnvhJdKX9PCspl, `FREED` 131G7OSL2uTZmWIAdJ3619ucWy5Ff6Ahu,
     `x` 1hsM8icTw0JAz0q5yMmSfNxFfj8QZCPKJ, `x5` 1kmFAyLj6-x_D1gmqfwbODjikbpsZ_T9n,
-    `X5.8` 1kQZTWvuwrj-DyysWaliGP1KShhnpl33u.
+    `X5.8` 1kQZTWvuwrj-DyysWaliGP1KShhnpl33u, `X5.9` 1EkqgzOHK-mX3OWjMbqwbtViDzaj0MDyK.
   - **Grenze:** Das Drive-Werkzeug kann nur kleine Textdateien hochladen (Inhalt läuft durch
     den Chat). Bilder, `EVORANK.exe` und ganze Pakete (~19 MB je ZIP) gehen so nicht.
   - Deshalb: Version-Ordner + Anleitung in Drive anlegen, die zwei Pakete als ZIP

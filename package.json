@@ -20,7 +20,7 @@
     "legal:generate": "node scripts/build-legal-pages.mjs",
     "release:cleanup": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/cleanup-delivery.ps1 -Apply",
     "postrelease:save": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/cleanup-delivery.ps1 -Apply",
-    "test:x5": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs tests/evorank-x4.8.test.mjs tests/evorank-x4.9.test.mjs tests/evorank-x5.1.test.mjs tests/evorank-startup.test.mjs tests/evorank-x5.3.test.mjs tests/evorank-x5.4.test.mjs tests/leaderboards-x5.4.test.mjs tests/evorank-x5.5.test.mjs tests/evorank-x5.6.test.mjs tests/evorank-x5.7.test.mjs tests/evorank-x5.9.test.mjs",
+    "test:x5": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs tests/evorank-x4.8.test.mjs tests/evorank-x4.9.test.mjs tests/evorank-x5.1.test.mjs tests/evorank-startup.test.mjs tests/evorank-x5.3.test.mjs tests/evorank-x5.4.test.mjs tests/leaderboards-x5.4.test.mjs tests/evorank-x5.5.test.mjs tests/evorank-x5.6.test.mjs tests/evorank-x5.7.test.mjs tests/evorank-x5.9.test.mjs tests/supabase-live-x5.9.test.mjs",
     "test:alle": "node --test tests/*.test.mjs"
   },
   "dependencies": {
@@ -50,5 +50,5 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "displayName": "EvoRank X5.8"
+  "displayName": "EvoRank X5.9"
 }
