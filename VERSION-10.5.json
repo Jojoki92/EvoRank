@@ -1,0 +1,23 @@
+{
+  "product": "RANKFORGE",
+  "version": "10.5",
+  "technicalCore": "9.2.0",
+  "build": {
+    "assetTag": "1050-r1",
+    "serviceWorkerCache": "rankforge-v10.5.0-r1",
+    "schemaVersion": 33
+  },
+  "releasePolicy": "Every delivered update receives a new visible version number.",
+  "newFeatures": [
+    "stronger selected-muscle highlight without changing the normal body design",
+    "current-build redirect for signup confirmation and password recovery",
+    "in-app resend action for signup confirmation email"
+  ],
+  "sports": {
+    "strength": "#ff3b5f",
+    "swim": "#2f7dff",
+    "run": "#42c86b",
+    "bike": "#f2bd35"
+  },
+  "delivery": ["public-site", "netlify", "windows-no-node", "complete-backup"]
+}

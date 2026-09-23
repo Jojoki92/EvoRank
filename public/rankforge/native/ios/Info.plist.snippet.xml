@@ -1,0 +1,18 @@
+<!-- Add these keys to the MAIN APP target's Info.plist. -->
+<key>NSSupportsLiveActivities</key>
+<true/>
+<key>NSSupportsLiveActivitiesFrequentUpdates</key>
+<true/>
+
+<!-- Add evorank to the main app target's URL Types. -->
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLName</key>
+    <string>at.evorank.app</string>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>evorank</string>
+    </array>
+  </dict>
+</array>

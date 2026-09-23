@@ -1,0 +1,89 @@
+/* X4.1: X2 layout and surfaces, with understated boundaries. */
+#app .rfx41-workout-exercise {
+  --x41-set-line:rgba(255,255,255,.17);
+  --x41-set-line-done:rgba(255,255,255,.23);
+  border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line))!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.13)!important;
+}
+:root[data-theme="light"] #app .rfx41-workout-exercise {
+  --x41-set-line:rgba(20,30,48,.17);
+  --x41-set-line-done:rgba(20,30,48,.25);
+}
+#app .rfx41-workout-exercise::before {
+  height:2px; opacity:.7; box-shadow:none;
+}
+#app .rfx41-workout-exercise::after { display:none; }
+#app .rfx41-workout-exercise .v72-set-card {
+  border:1px solid var(--x41-set-line)!important;
+  background:var(--surface-2)!important;
+  box-shadow:none!important;
+}
+#app .rfx41-workout-exercise .v72-set-card.is-done {
+  border-color:var(--x41-set-line-done)!important;
+}
+#app .rfx41-workout-exercise .v72-set-card__number {
+  color:var(--text); background:var(--surface)!important;
+}
+#app .rfx41-workout-exercise .v72-set-card.is-done .v72-set-card__done {
+  color:var(--text); background:var(--surface-3); border-color:var(--x41-set-line-done);
+}
+#app .rfx41-workout-exercise .v72-set-card__fields input { font-variant-numeric:tabular-nums; }
+#app .rfx41-workout-exercise .v72-set-card__head { min-width:0; }
+#app .rfx41-workout-exercise>header>div:first-of-type::before { display:none; }
+#app .rfx41-exercise-heading { min-width:0; }
+#app .rfx41-workout-exercise .rfx2-workout-tools {
+  display:flex; align-items:center; justify-content:flex-start;
+  gap:0; flex-wrap:wrap; width:fit-content; max-width:100%; min-width:0; margin:-8px 0 0;
+  color:var(--muted); font-size:12px;
+}
+#app .rfx41-workout-exercise .rfx2-position {
+  gap:5px; color:var(--muted); font-size:12px;
+}
+#app .rfx41-workout-exercise .rfx2-position>span {
+  font-size:11px; font-weight:750; letter-spacing:.08em; text-transform:uppercase;
+}
+#app .rfx41-workout-exercise .rfx2-position select {
+  width:auto; min-width:60px; max-width:98px; min-height:44px;
+  padding:0 5px; border:0; border-radius:7px; background:transparent;
+  color:var(--text); font-size:12px; font-weight:650; line-height:1.2; font-family:inherit;
+}
+#app .rfx41-workout-exercise .rfx2-position option { background:var(--surface); color:var(--text); }
+#app .rfx41-workout-exercise .rfx2-grip {
+  width:44px; height:44px; min-width:44px; padding:0; border:0;
+  border-radius:8px; background:transparent; color:var(--muted);
+}
+#app .rfx41-workout-exercise .rfx2-grip:active { cursor:grabbing; }
+@media(hover:hover) {
+  #app .rfx41-workout-exercise .rfx2-grip:hover,
+  #app .rfx41-workout-exercise .rfx2-position select:hover { background:var(--surface-3); color:var(--text); }
+}
+#app .rfx41-workout-exercise .rfx2-grip:focus-visible,
+#app .rfx41-workout-exercise .rfx2-position select:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+#app .rfx41-workout-exercise>header h2 { overflow-wrap:break-word; }
+#app .rfx41-workout-exercise .rfx2-load-info { margin-top:12px!important; }
+#app .rfx41-workout-exercise .rfx2-cable { margin-top:12px; }
+/* Reuse the flat ER reference. Blend its black canvas into the app surface. */
+#app :is(.brand__mark,.rf75-auth__mark,.rf92-brand__mark).rfx41-brand-mark {
+  border:0!important; background:transparent!important; box-shadow:none!important;
+  padding:0!important; overflow:hidden;
+}
+#app .rfx41-brand-mark::before,#app .rfx41-brand-mark::after { display:none!important; }
+#app .rfx41-brand-mark .rfx2-brand-icon { object-fit:contain!important; border-radius:0; transform:scale(1.28); mix-blend-mode:screen; }
+@media(max-width:600px) {
+  #app .rfx41-workout-exercise .rfx2-workout-tools { margin-top:-6px; }
+}
+
+:root[data-theme="light"] #app .rfx41-brand-mark .rfx41-logo-flat { filter:invert(1) hue-rotate(180deg); mix-blend-mode:multiply; }
+
+@media(max-width:600px) {
+  #app .rfx41-workout-exercise>header {
+    display:grid; grid-template-columns:44px minmax(0,1fr) 44px!important;
+    gap:6px 10px!important;
+  }
+  #app .rfx41-workout-exercise>header>.rf78-exercise-glyph { grid-column:1; grid-row:1; }
+  #app .rfx41-workout-exercise>header>.rfx41-exercise-heading { grid-column:2; grid-row:1; }
+  #app .rfx41-workout-exercise>header>[data-action="workout-exercise-menu"] { grid-column:3; grid-row:1; }
+  #app .rfx41-workout-exercise>header>.v74-exercise-remove { grid-column:1; grid-row:2; }
+  #app .rfx41-workout-exercise>header>.rf111-exercise-replace { grid-column:2; grid-row:2; width:auto; justify-self:start; padding-inline:10px; }
+  #app .rfx41-workout-exercise>header>.rf111-exercise-replace span { display:inline; }
+}

@@ -1,0 +1,395 @@
+{
+  "release": "X5.7",
+  "at": "2026-09-22T19:57:50.847Z",
+  "engines": [
+    "Microsoft Edge",
+    "Playwright WebKit on Windows"
+  ],
+  "realIPhoneTested": false,
+  "tests": [
+    {
+      "engine": "edge",
+      "touchCases": [
+        {
+          "bodyProfile": "male",
+          "bodyView": "front",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 129.13500307058547,
+              "y": 532.4669352921196
+            },
+            {
+              "side": "right",
+              "x": 283.25252604672073,
+              "y": 532.4669352921196
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "male",
+          "bodyView": "back",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 126.26016934440113,
+              "y": 491.06253226902174
+            },
+            {
+              "side": "right",
+              "x": 291.6952848632736,
+              "y": 491.06253226902174
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "front",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 151.046484375,
+              "y": 508.08867187500005
+            },
+            {
+              "side": "right",
+              "x": 283.9048828125,
+              "y": 508.08867187500005
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "back",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 138.38203125,
+              "y": 473.955078125
+            },
+            {
+              "side": "right",
+              "x": 279.78203125,
+              "y": 473.955078125
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "male",
+          "bodyView": "front",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 129.13500307058547,
+              "y": 458.46693529211956
+            },
+            {
+              "side": "right",
+              "x": 283.25252604672073,
+              "y": 458.46693529211956
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "male",
+          "bodyView": "back",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 126.26016934440113,
+              "y": 453.06253226902174
+            },
+            {
+              "side": "right",
+              "x": 291.6952848632736,
+              "y": 453.06253226902174
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "front",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 151.046484375,
+              "y": 470.08867187500005
+            },
+            {
+              "side": "right",
+              "x": 283.9048828125,
+              "y": 470.08867187500005
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "0.94",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "back",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 138.38203125,
+              "y": 473.955078125
+            },
+            {
+              "side": "right",
+              "x": 279.78203125,
+              "y": 473.955078125
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "0.94",
+            "filter": "none"
+          }
+        }
+      ],
+      "errors": [],
+      "layouts": "320, 430, 1360 CSS px x light/dark x four sports",
+      "profileViewports": [
+        "430x932",
+        "430x460",
+        "932x430"
+      ],
+      "simulatedSafeInsets": {
+        "top": 59,
+        "bottom": 34
+      }
+    },
+    {
+      "engine": "webkit",
+      "touchCases": [
+        {
+          "bodyProfile": "male",
+          "bodyView": "front",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 129.13500307058547,
+              "y": 518.4356852921196
+            },
+            {
+              "side": "right",
+              "x": 283.25252604672073,
+              "y": 518.4356852921196
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "male",
+          "bodyView": "back",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 126.26016934440113,
+              "y": 491.03128226902174
+            },
+            {
+              "side": "right",
+              "x": 291.6952848632736,
+              "y": 491.03128226902174
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "front",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 151.046484375,
+              "y": 508.05742187500005
+            },
+            {
+              "side": "right",
+              "x": 283.9048828125,
+              "y": 508.05742187500005
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "back",
+          "theme": "dark",
+          "points": [
+            {
+              "side": "left",
+              "x": 138.38203125,
+              "y": 473.923828125
+            },
+            {
+              "side": "right",
+              "x": 279.78203125,
+              "y": 473.923828125
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "male",
+          "bodyView": "front",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 129.13500307058547,
+              "y": 458.43568529211956
+            },
+            {
+              "side": "right",
+              "x": 283.25252604672073,
+              "y": 458.43568529211956
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "male",
+          "bodyView": "back",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 126.26016934440113,
+              "y": 453.03128226902174
+            },
+            {
+              "side": "right",
+              "x": 291.6952848632736,
+              "y": 453.03128226902174
+            }
+          ],
+          "paint": {
+            "fill": "rgb(200, 138, 74)",
+            "opacity": "1",
+            "filter": "brightness(1.08) saturate(1.16) drop-shadow(rgb(231, 160, 93) 0px 0px 2px)"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "front",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 151.046484375,
+              "y": 470.05742187500005
+            },
+            {
+              "side": "right",
+              "x": 283.9048828125,
+              "y": 470.05742187500005
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "0.94",
+            "filter": "none"
+          }
+        },
+        {
+          "bodyProfile": "female",
+          "bodyView": "back",
+          "theme": "light",
+          "points": [
+            {
+              "side": "left",
+              "x": 138.38203125,
+              "y": 473.923828125
+            },
+            {
+              "side": "right",
+              "x": 279.78203125,
+              "y": 473.923828125
+            }
+          ],
+          "paint": {
+            "fill": "rgb(65, 180, 163)",
+            "opacity": "0.94",
+            "filter": "none"
+          }
+        }
+      ],
+      "errors": [],
+      "layouts": "320, 430, 1360 CSS px x light/dark x four sports",
+      "profileViewports": [
+        "430x932",
+        "430x460",
+        "932x430"
+      ],
+      "simulatedSafeInsets": {
+        "top": 59,
+        "bottom": 34
+      }
+    }
+  ]
+}

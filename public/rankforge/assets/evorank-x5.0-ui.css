@@ -1,0 +1,14 @@
+/* X5.0: quiet Apple navigation, compact goals and shared accent controls. */
+:root[data-interface='apple'] #app .bottom-nav {border:0!important;outline:0;}
+#app .rfx50-challenge {display:block;padding:16px;border-color:var(--line);background:var(--surface);}
+#app .rfx50-challenge header {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:0;}
+#app .rfx50-challenge h3 {margin:0;font-size:1rem;line-height:1.35;font-weight:750;}
+#app .rfx50-challenge :is(.rfx50-challenge-reward,.v7-claimed) {display:inline-flex;align-items:center;gap:5px;font-size:.875rem;line-height:1.4;color:var(--muted);}
+#app .rfx50-challenge .rfx48-challenge-goals {grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px;}
+#app .rfx50-challenge .rfx48-challenge-goal>div {font-size:.875rem;gap:4px;}
+#app .rfx50-challenge .rfx48-challenge-goal strong {font-size:.875rem!important;margin:0;white-space:nowrap;}
+#app .rfx50-challenge .button {margin-top:14px;}
+#app [data-action='rf93-friends-open'] {width:100%;min-height:48px;padding:12px 18px;border:0;border-radius:var(--radius-sm,16px)!important;background:var(--accent)!important;color:var(--x49-accent-ink,var(--accent-on))!important;font-size:1rem;line-height:1.4;white-space:normal;}
+#app .rfx49-legal-links {justify-content:center;align-items:center;gap:8px;max-width:46rem;margin:20px auto;text-align:center;}
+#app .rfx49-legal-links a {justify-content:center;min-height:44px;padding:10px 16px;border:0;border-radius:999px;background:var(--accent);color:var(--x49-accent-ink,var(--accent-on));font-size:.875rem;font-weight:650;line-height:1.4;text-decoration:none;}
+@media(max-width:350px){#app .rfx50-challenge .rfx48-challenge-goals{grid-template-columns:1fr;gap:12px;}}

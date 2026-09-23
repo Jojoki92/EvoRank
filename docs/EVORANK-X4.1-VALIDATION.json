@@ -1,0 +1,17 @@
+{
+  "release": "X4.1",
+  "build": "x4.1-r1",
+  "behavior_and_pwa_tests": {
+    "passed": 12,
+    "total": 12
+  },
+  "layout_reference": "X2 screenshot",
+  "borders": "1px white at 17% in dark mode; neutral dark at 17% in light mode",
+  "header_reordering_structure": "passed",
+  "framework_build": "passed",
+  "real_device_test": false,
+  "browser_test": false,
+  "deployed": false,
+  "ranking_logic_changed": false,
+  "homescreen_icons_changed": false
+}

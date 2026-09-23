@@ -1,0 +1,48 @@
+{
+  "version": "X3",
+  "build": "x3-r1",
+  "date": "2026-09-06",
+  "behavioralTests": {
+    "command": "npm run test:x3",
+    "passed": 19,
+    "failed": 0
+  },
+  "catalogEntries": 1500,
+  "rankableEntries": 1000,
+  "unrankedMobilityEntries": 500,
+  "estimatedEntries": 783,
+  "bodyweightsTestedKg": [
+    45,
+    75,
+    120
+  ],
+  "strengthRepetitionsTested": [
+    1,
+    5,
+    8,
+    12,
+    20,
+    30
+  ],
+  "frameworkBuild": {
+    "result": "passed",
+    "command": "Sites build-site.mjs / existing npm run build",
+    "workerEntryExists": true
+  },
+  "javascriptSyntax": "passed",
+  "nativeLaunchAssets": 11,
+  "designChoices": [
+    "A Graphit",
+    "B Magenta",
+    "C Titan"
+  ],
+  "activeIcon": "Existing EvoRank X2 icon pending user choice",
+  "rtk": "0.48.0 verified and applied; telemetry disabled",
+  "browserTested": false,
+  "realIPhoneTested": false,
+  "realWindowsTested": false,
+  "privateAccountTested": false,
+  "netlifyPublished": false,
+  "originalSiteLookup": "NOT_FOUND; identity preserved",
+  "dataPreservation": "Historical workouts and earned rewards unchanged in regression tests"
+}

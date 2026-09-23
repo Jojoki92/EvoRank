@@ -1,0 +1,23 @@
+{
+  "release": "X5.0",
+  "build": "x5.0-r1",
+  "date": "2026-09-11",
+  "checks": {
+    "behavior": {"command": "npm.cmd run test:x5", "passed": 85, "failed": 0},
+    "framework": {"command": "node_modules\\.bin\\vinext.cmd build", "status": "passed", "stages": 5, "note": "Root route remains statically unclassified; all five build stages succeeded."},
+    "http": {"status": "passed", "precacheUrls": 168, "origin": "http://127.0.0.1:18123", "note": "Temporary local server stopped after verification; HTTP only."}
+  },
+  "coverage": [
+    "Apple default migration is once per profile and preserves later explicit style choices, accent and workout history",
+    "Legal page links carry only validated appearance values, preserve internal navigation colors and leave external links unchanged",
+    "Existing challenge goals remain capped and claim behavior awards coins only once",
+    "Existing bodygraph masks, selection controls and female anatomy remain present",
+    "Existing ranks, cable settings, workout completion, persistence, plan deletion, consent isolation and Strava behavior"
+  ],
+  "limits": [
+    "No visual browser QA, real-device, VoiceOver, live account or hosting test was performed.",
+    "CSS appearance and raster-mask outline changes were reviewed in source; rendering on real devices remains unverified.",
+    "Legal content is unchanged apart from the version label and appearance; prior missing operator address and publication requirements remain open.",
+    "No deployment or App Store publication. External delivery is recorded separately by release:save."
+  ]
+}

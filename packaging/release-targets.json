@@ -1,0 +1,8 @@
+{
+  "format": "extracted",
+  "extractedRoot": "C:\\Users\\johan\\OneDrive\\Dokumente\\EvoRank\\FREED\\x",
+  "zipRoot": "C:\\Users\\johan\\OneDrive\\Dokumente\\EvoRank\\ZIP\\x",
+  "createZipByDefault": false,
+  "groupByRelease": true,
+  "artifacts": ["WINDOWS", "NETLIFY"]
+}

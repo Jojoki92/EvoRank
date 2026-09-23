@@ -1,0 +1,16 @@
+{
+  "version": "10.7",
+  "appleTouchIcon": "../../icons/evorank-icon-v10.7-180.png",
+  "pwaIcons": [
+    "../../icons/evorank-icon-v10.7-192.png",
+    "../../icons/evorank-icon-v10.7-512.png"
+  ],
+  "themeAwareFavicons": {
+    "light": "../../icons/favicon-light-evorank-v10.7.svg",
+    "dark": "../../icons/favicon-dark-evorank-v10.7.svg"
+  },
+  "shortcuts": [
+    "../../index.html#quick-workout",
+    "../../index.html#bodygraph"
+  ]
+}

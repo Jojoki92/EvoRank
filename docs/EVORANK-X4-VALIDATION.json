@@ -1,0 +1,17 @@
+{
+  "release": "X4",
+  "build": "x4-r1",
+  "framework_build": "passed",
+  "existing_behavior_checks": {
+    "passed": 11,
+    "total": 11
+  },
+  "version_adjusted_pwa_check": "passed",
+  "asset_references": "passed",
+  "iphone_launch_images": 11,
+  "pwa_identity_preserved": true,
+  "unrelated_x3_app_files_byte_identical": true,
+  "real_device_test": false,
+  "deployed": false,
+  "source_recovery_note": "See CONTINUE-HERE-X4.md; X3 extra tests and historical Git could not be recovered."
+}

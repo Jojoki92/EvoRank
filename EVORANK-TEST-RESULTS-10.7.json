@@ -1,0 +1,23 @@
+{
+  "packageVersion": "EvoRank 10.7",
+  "build": "1070-r2",
+  "date": "2026-08-27",
+  "results": {
+    "releaseIntegrationTests": { "passed": 72, "failed": 0 },
+    "accountTests": { "passed": 32, "failed": 0 },
+    "accountBridgeTests": { "passed": 9, "failed": 0 },
+    "accountUiTests": { "passed": 23, "failed": 0 },
+    "securityAudit": { "passed": 25, "failed": 0 },
+    "lint": { "errors": 0, "preExistingWarnings": 94 }
+  },
+  "verified": [
+    "the requested dark red-white lightning mark is used for browser and home-screen icons",
+    "versioned 180, 192 and 512 pixel PNG icons are wired and cached",
+    "Supabase signup confirmation and password recovery use the current app domain",
+    "confirmed Supabase users receive separate deterministic local data areas",
+    "the beginner Gmail SMTP and Netlify redirect guide is included",
+    "existing account, workout and cloud data keys remain compatible",
+    "bodygraph, ranks, themes, navigation and all training functions remain unchanged",
+    "Windows package runs without a separate Node.js installation"
+  ]
+}

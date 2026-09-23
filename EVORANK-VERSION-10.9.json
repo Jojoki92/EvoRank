@@ -1,0 +1,19 @@
+{
+  "product": "EVORANK",
+  "version": "10.9",
+  "technicalCore": "9.2.0",
+  "build": {
+    "assetTag": "1090-r3",
+    "serviceWorkerCache": "evorank-v10.9.0-r3",
+    "schema": 35
+  },
+  "released": "2026-08-27",
+  "features": [
+    "Separate Top-10 leaderboards for Gym, Swimming, Running and Cycling",
+    "Tappable category-specific public profiles without email or private workout details",
+    "500 generated stretching and mobility variants with time tracking",
+    "Garmin OAuth push sync, Apple Widget and Dynamic Island sources preserved",
+    "Netlify, Windows no-node and complete backup packages"
+  ],
+  "legacyStorageCompatible": true
+}

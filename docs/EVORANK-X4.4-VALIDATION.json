@@ -1,0 +1,31 @@
+{
+  "release": "X4.4",
+  "build": "x4.4-r1",
+  "checkedAt": "2026-09-08",
+  "tests": {
+    "command": "npm.cmd run test:x4",
+    "passed": 35,
+    "failed": 0,
+    "completionCoverage": ["individual set completion", "all sets complete", "saved draft reload", "undo", "adding an open set", "empty exercise", "preserved weight and repetitions", "accessible pressed state"]
+  },
+  "frameworkBuild": {
+    "command": ".\\node_modules\\.bin\\vinext.cmd build",
+    "status": "passed",
+    "stages": 5,
+    "notice": "Vinext reports the root route as Unknown because of its static route-classification limitations."
+  },
+  "localHttp": {
+    "status": "passed",
+    "precacheUrls": 145,
+    "versionVerified": "x4.4-r1",
+    "scope": "Node starter HTTP responses; no visual browser or private account test"
+  },
+  "delivery": {
+    "format": "extracted",
+    "destination": "C:\\Users\\johan\\OneDrive\\Dokumente\\EvoRank\\FREED\\x\\x4",
+    "defaultCreatesZip": false,
+    "verification": "Prepared files and final copies are verified individually using SHA-256 by scripts/save-release.mjs.",
+    "receiptAfterSuccess": "delivery/EVORANK-X4.4-SAVED.json"
+  },
+  "notPerformed": ["visual browser review", "real-device test", "private account inspection", "hosting deployment"]
+}

@@ -1,0 +1,29 @@
+{
+  "packageVersion": "RankForge 9.6",
+  "technicalBuild": "9.2.0 R15",
+  "testedAt": "2026-08-25",
+  "result": "passed",
+  "checks": {
+    "buildAndReleaseTests": { "passed": 12, "failed": 0 },
+    "accountTests": { "passed": 37, "failed": 0 },
+    "accountBridgeTests": { "passed": 9, "failed": 0 },
+    "accountUiTests": { "passed": 31, "failed": 0 },
+    "securityAudit": { "passed": 25, "failed": 0 },
+    "eslint": { "errors": 0, "existingWarnings": 94 }
+  },
+  "totalPassed": 114,
+  "totalFailed": 0,
+  "exerciseAudit": {
+    "exerciseCount": 1000,
+    "explicitUnilateralExercises": 102,
+    "rankableUnilateralExercisesWithoutReference": 0,
+    "unilateralLoadMultiplier": 1,
+    "provisionalRankCap": 699
+  },
+  "timer": {
+    "choiceAtWorkoutStart": true,
+    "supportsNoTimer": true,
+    "durationSelectionWhenEnabled": true,
+    "autoStartDisabledWhenTimerOff": true
+  }
+}

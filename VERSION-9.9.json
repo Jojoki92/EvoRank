@@ -1,0 +1,29 @@
+{
+  "product": "RANKFORGE",
+  "version": "9.9",
+  "technicalCore": "9.2.0",
+  "build": {
+    "assetTag": "990-r2",
+    "serviceWorkerCache": "rankforge-v9.9.0-r2",
+    "schemaVersion": 28
+  },
+  "mergedLines": [
+    {
+      "version": "9.7",
+      "feature": "triathlon",
+      "runtimeNamespace": "window.RANKFORGE970",
+      "stateNamespace": "state.triathlon"
+    },
+    {
+      "version": "9.8",
+      "feature": "accounts-friends-unilateral",
+      "databaseSetup": "db/SUPABASE-KONTO-FREUNDE-9.8.sql"
+    }
+  ],
+  "categories": ["strength", "swim", "run", "bike"],
+  "garmin": {
+    "localFormats": ["JSON", "TCX", "GPX"],
+    "credentials": "server-only"
+  },
+  "delivery": ["netlify", "windows-no-node", "complete-backup"]
+}

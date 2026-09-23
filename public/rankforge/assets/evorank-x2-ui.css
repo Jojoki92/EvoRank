@@ -1,0 +1,32 @@
+/* X2: keep anatomy inside its muscle boundary and controls within each card. */
+#app :is(.body-figure--female,.body-figure--female-893,.body-figure--female-892) .muscle-region--lats .rfx2-lat-shape{fill:var(--muscle-color)!important;fill-opacity:.68!important;stroke:var(--muscle-color)!important;stroke-width:1.5!important;filter:none!important}
+#app :is(.body-figure--female,.body-figure--female-893,.body-figure--female-892) .muscle-region--lats.is-selected .rfx2-lat-shape{fill:var(--muscle-color)!important;fill-opacity:.88!important;stroke:var(--muscle-color)!important;stroke-width:2.5!important;filter:none!important}
+.rf87-friend-rank-hero{display:flex!important;align-items:center!important;gap:20px!important;min-height:132px;padding:20px!important;overflow:hidden}
+.rf87-friend-rank-hero>.rank-mark{position:relative!important;display:block!important;flex:0 0 88px!important;width:88px!important;height:88px!important;margin:0!important;transform:none!important}
+.rf87-friend-rank-hero>.rank-mark .rank-mark__image{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important}
+.rf87-friend-rank-hero>.rank-mark .rank-mark__division{display:none!important}
+.rf87-friend-rank-hero>div:last-child{min-width:0}
+.rfx2-workout-tools{display:flex;align-items:center;gap:10px;margin:0 14px 12px;min-width:0}
+.rfx2-grip{touch-action:none;user-select:none;cursor:grab;display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid color-mix(in srgb,currentColor 18%,transparent);background:transparent;color:inherit;border-radius:12px;font:24px/1 sans-serif}
+.rfx2-position{display:flex;align-items:center;gap:10px;font-size:14px;color:inherit;min-width:0}
+.rfx2-position select{min-height:44px;max-width:145px;border-radius:12px;padding:8px 12px;background:var(--surface,#15171d);color:inherit;border:1px solid color-mix(in srgb,currentColor 18%,transparent);font:inherit}
+.rfx2-load-info{font-size:13px!important;line-height:1.5!important;margin:0 16px 14px!important;color:var(--text-muted,#9ba1af)}
+.rfx2-cable{margin:0 14px 14px;border:1px solid color-mix(in srgb,currentColor 15%,transparent);border-radius:12px;overflow:hidden}
+.rfx2-cable summary{padding:13px 12px;min-height:44px;font-size:14px;cursor:pointer;font-weight:650}
+.rfx2-cable-panel{display:grid;gap:12px;padding:0 12px 14px;font-size:14px}
+.rfx2-cable-panel p{margin:0;line-height:1.5;color:var(--text-muted,#9ba1af);font-size:13px}
+.rfx2-cable-panel label{display:grid;gap:6px;min-width:0;font-size:14px}
+.rfx2-cable-panel input,.rfx2-cable-panel select{box-sizing:border-box;width:100%;min-width:0;min-height:44px;border-radius:10px;padding:10px;background:var(--surface,#15171d);color:inherit;border:1px solid color-mix(in srgb,currentColor 20%,transparent);font:inherit}
+.rfx2-cable-panel button{white-space:normal;line-height:1.4;min-height:44px;font-size:14px}
+.rfx2-grip:focus-visible,.rfx2-position select:focus-visible{outline:2px solid #fd268e;outline-offset:3px}
+.workout-exercise.rfx2-dragging{outline:2px solid #fd268e;opacity:.82}
+.rfx2-brand-icon{display:block;width:100%;height:100%;object-fit:contain;border-radius:20%}
+#rf-splash{background:#08080b url('../splash/evorank-x2-background.png') center/cover no-repeat!important}
+#rf-splash .rf83-splash__ambient,#rf-splash .rf83-splash__ring{display:none!important}
+#rf-splash .rf83-splash__logo-wrap,#rf-splash .rf83-splash__brand,#rf-splash .rf83-splash__tagline{visibility:hidden}
+#rf-splash .rf83-splash__progress,#rf-splash .rf83-splash__status,#rf-splash .rf83-splash__steps{position:absolute;top:auto;left:50%;transform:translateX(-50%);width:min(300px,80vw);margin:0}
+#rf-splash .rf83-splash__progress{bottom:calc(100px + env(safe-area-inset-bottom))}
+#rf-splash .rf83-splash__status{bottom:calc(65px + env(safe-area-inset-bottom))}
+#rf-splash .rf83-splash__steps{bottom:calc(35px + env(safe-area-inset-bottom))}
+#rf-splash .rf83-splash__retry{position:absolute;bottom:calc(135px + env(safe-area-inset-bottom))}
+@media(max-width:420px){.rf87-friend-rank-hero>.rank-mark{flex-basis:72px!important;width:72px!important;height:72px!important}.rf87-friend-rank-hero{gap:14px!important}}

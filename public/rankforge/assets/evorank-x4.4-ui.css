@@ -1,0 +1,19 @@
+/* Completion is always green, independently of the chosen accent color. */
+#app .rfx41-workout-exercise .v72-set-card.is-done {
+  background:color-mix(in srgb,var(--green) 16%,var(--surface-2))!important;
+  border-color:color-mix(in srgb,var(--green) 48%,var(--line))!important;
+}
+#app .rfx41-workout-exercise .v72-set-card.is-done .v72-set-card__number {
+  background:color-mix(in srgb,var(--green) 20%,var(--surface))!important;
+  color:var(--green);
+}
+#app .rfx41-workout-exercise .v72-set-card.is-done .v72-set-card__done {
+  background:var(--green)!important; border-color:var(--green)!important; color:#06140d!important;
+}
+:root[data-theme='light'] #app .rfx41-workout-exercise .v72-set-card.is-done .v72-set-card__done { color:#fff!important; }
+#app .rfx41-workout-exercise.rfx44-complete {
+  background:color-mix(in srgb,var(--green) 8%,var(--surface))!important;
+  border-color:color-mix(in srgb,var(--green) 45%,var(--line))!important;
+}
+#app .rfx41-workout-exercise.rfx44-complete::before { background:var(--green)!important; }
+#app .rfx41-workout-exercise .v72-set-card.is-done.has-pain { border-color:var(--danger)!important; }

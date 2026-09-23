@@ -1,0 +1,31 @@
+/* X4.8 uses the existing surfaces, typography and button palette. */
+.rfx45-week>.rfx48-week-details{margin:0;padding:0;border:0}
+.rfx45-week>.rfx48-week-details>.rfx48-week-summary{padding:2px 0;min-height:60px}
+.rfx48-week-summary small{font-size:12px;color:var(--accent);font-weight:950;letter-spacing:.1em}
+.rfx48-week-summary h2{margin:5px 0;font-size:22px}
+.rfx48-week-summary p{margin:6px 0!important;color:var(--muted);font-weight:400;font-size:14px}
+.rfx48-week-actions{display:flex;justify-content:flex-end;margin:12px 0}
+.rfx48-week-content{padding-top:4px}
+.rfx48-endurance{margin:14px 0;padding:12px 16px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface)}
+.rfx48-endurance summary{cursor:pointer;font-size:14px;font-weight:750;color:var(--text);line-height:1.5;min-height:24px}
+.rfx48-endurance p,.rfx48-power-input p{color:var(--muted);font-size:14px;line-height:1.55;margin:12px 0}
+.rfx48-endurance a{color:var(--accent);font-size:14px}
+.rfx48-challenge{align-items:start}
+.rfx48-challenge .v7-challenge__copy{min-width:0;flex:1}
+.rfx48-challenge-goals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:12px}
+.rfx48-challenge-goal>div{display:flex;justify-content:space-between;gap:8px;font-size:13px;flex-wrap:wrap}
+.rfx48-challenge-goal>div strong{font-size:13px!important}
+.rfx48-challenge-goal>small{display:block;color:var(--muted);font-size:12px!important;margin-top:4px}
+.rfx48-challenge progress{display:block;width:100%;height:6px;margin-top:8px;border:0;border-radius:99px;overflow:hidden;background:var(--line);accent-color:var(--accent)}
+.rfx48-challenge progress::-webkit-progress-bar{background:var(--line);border-radius:99px}
+.rfx48-challenge progress::-webkit-progress-value{background:var(--accent);border-radius:99px}
+.rfx48-challenge progress::-moz-progress-bar{background:var(--accent);border-radius:99px}
+.rfx48-challenge .button{margin-top:8px;min-height:44px;font-size:14px}
+/* The entire locker fits the visual viewport; only its content scrolls. */
+#app .modal.rfx48-locker{display:flex!important;flex-direction:column;align-self:center;width:min(800px,calc(100% - 24px));height:min(900px,calc(var(--rf-visual-height,100dvh) - 24px));max-height:calc(var(--rf-visual-height,100dvh) - 24px)!important;min-height:0;padding:0;overflow:hidden!important;text-align:left;border-radius:var(--radius,24px)}
+.rfx48-locker>.sheet-handle,.rfx48-locker>.modal-header{flex:none}
+.rfx48-locker>.modal-header{margin:0;padding:12px 20px 16px}
+#app .rfx48-locker>.rfx48-locker-scroll{flex:1 1 0;min-height:0;height:auto;max-height:none!important;overflow-y:auto!important;overflow-x:hidden;padding:0 20px calc(24px + var(--safe-bottom,0px));overscroll-behavior:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
+.rfx48-locker-scroll>.v72-shop-hero{padding:16px 0}
+.rfx48-locker-scroll .rf893-locker-footer{padding-bottom:0}
+@media(max-width:480px){.rfx48-challenge-goals{grid-template-columns:1fr;gap:12px}.rfx48-challenge{gap:10px}#app .modal.rfx48-locker{width:calc(100% - 12px);height:calc(var(--rf-visual-height,100dvh) - 12px);max-height:calc(var(--rf-visual-height,100dvh) - 12px)!important}.rfx48-locker>.modal-header{padding-inline:16px}#app .rfx48-locker>.rfx48-locker-scroll{padding-inline:16px}}

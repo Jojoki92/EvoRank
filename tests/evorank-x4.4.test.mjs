@@ -1,0 +1,22 @@
+import test,{after} from 'node:test';
+import assert from 'node:assert/strict';
+import {appEnv} from './helpers/x2-app-env.mjs';
+const {api:a,w,dom}=appEnv();after(()=>dom.window.close());
+w.HTMLMediaElement.prototype.play=async()=>{};
+w.HTMLMediaElement.prototype.pause=()=>{};
+test('completion follows done sets, undo and newly added sets, including after reload',()=>{
+  const x=new a.LiftoffApp();x.accountKey='x44-test';x.state=a.normalizeState(a.initialState(x.accountKey),x.accountKey);
+  const e=a.instantiateExercise(x.state,'DIP_BW');e.sets=[a.normalizeSet({weightKg:40,reps:8}),a.normalizeSet({weightKg:40,reps:8})];
+  x.state.draft={id:'draft',exercises:[e]};x.scheduleSave=()=>{};x.render=()=>{};x.showToast=()=>{};
+  const render=()=>{const t=w.document.createElement('template');t.innerHTML=x.renderWorkoutExercise(x.state.draft.exercises[0],0);return t.content;};
+  assert.equal(render().querySelectorAll('.v72-set-card.is-done').length,0);assert.ok(!render().querySelector('.rfx44-complete'));
+  x.toggleSet(e.id,e.sets[0].id);assert.equal(render().querySelectorAll('.v72-set-card.is-done').length,1);assert.ok(!render().querySelector('.rfx44-complete'));
+  assert.equal(render().querySelector('.is-done [data-action="set-toggle"]').getAttribute('aria-pressed'),'true');
+  x.toggleSet(e.id,e.sets[1].id);assert.ok(render().querySelector('.rfx44-complete'));
+  x.state=a.normalizeState(JSON.parse(JSON.stringify(x.state)),x.accountKey);assert.ok(render().querySelector('.rfx44-complete'));
+  const restored=x.state.draft.exercises[0];x.toggleSet(restored.id,restored.sets[0].id);assert.ok(!render().querySelector('.rfx44-complete'));
+  x.toggleSet(restored.id,restored.sets[0].id);assert.ok(render().querySelector('.rfx44-complete'));
+  x.addSet(restored.id);assert.ok(!render().querySelector('.rfx44-complete'));
+  assert.equal(restored.sets[0].weightKg,40);assert.equal(restored.sets[0].reps,8);
+  restored.sets=[];assert.ok(!render().querySelector('.rfx44-complete'),'empty exercise is not complete');
+});

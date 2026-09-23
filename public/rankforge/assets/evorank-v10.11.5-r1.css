@@ -1,0 +1,88 @@
+/* EvoRank 10.11.5 — visible anatomy colours with calm, exact selection feedback. */
+
+/* Every anatomical zone stays visible. Selection changes emphasis, not geometry. */
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region
+  path:not(.rf113-muscle-hit):not(.rf114-muscle-hit):not(.rf115-muscle-hit):not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines){
+  fill:var(--muscle-color)!important;
+  fill-opacity:.9!important;
+  stroke:rgba(255,255,255,.2)!important;
+  stroke-width:.8!important;
+  paint-order:stroke fill!important;
+  mix-blend-mode:normal!important;
+  filter:saturate(1.04) brightness(1.02)!important;
+  transition:fill-opacity .16s ease,filter .16s ease,stroke .16s ease!important;
+}
+
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible)
+  path:not(.rf113-muscle-hit):not(.rf114-muscle-hit):not(.rf115-muscle-hit):not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines){
+  fill:var(--muscle-color)!important;
+  fill-opacity:1!important;
+  stroke:rgba(255,255,255,.92)!important;
+  stroke-width:1.45!important;
+  filter:brightness(1.1) saturate(1.18) drop-shadow(0 0 6px var(--muscle-color))!important;
+}
+
+.body-figure--male-v920 .rf920-muscle-region .rf920-muscle-fill{
+  fill:var(--muscle-color)!important;
+  fill-opacity:.9!important;
+  opacity:.9!important;
+  stroke:none!important;
+  mix-blend-mode:normal!important;
+  filter:saturate(1.04) brightness(1.02)!important;
+  transition:opacity .16s ease,filter .16s ease!important;
+}
+
+.body-figure--male-v920 .rf920-muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible) .rf920-muscle-fill{
+  fill:var(--muscle-color)!important;
+  fill-opacity:1!important;
+  opacity:1!important;
+  stroke:none!important;
+  filter:brightness(1.1) saturate(1.18) drop-shadow(0 0 6px var(--muscle-color))!important;
+}
+
+.rf113-muscle-hit,.rf114-muscle-hit,.rf115-muscle-hit,
+.rf113-shoulder-overlay ellipse,.rf114-shoulder-targets ellipse,.rf115-shoulder-targets ellipse{
+  fill:transparent!important;
+  fill-opacity:0!important;
+  stroke:transparent!important;
+  pointer-events:all!important;
+  cursor:pointer!important;
+  filter:none!important;
+}
+.rf115-muscle-hit{stroke-width:18!important}
+.rf115-shoulder-targets{pointer-events:none}
+.rf115-shoulder-targets ellipse{stroke-width:12!important}
+
+.body-figure--male-v920 .rf920-muscle-region.is-selected .rf920-muscle-hit{
+  fill:transparent!important;
+  stroke:rgba(255,255,255,.9)!important;
+  stroke-width:1.7!important;
+  paint-order:stroke!important;
+  filter:drop-shadow(0 0 5px var(--muscle-color))!important;
+}
+
+/* The legacy hand-drawn lat corrections are visual hit helpers only; the exact
+   8.9.3 anatomy path is the sole visible lat shape in 10.11.5. */
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region--lats
+  :is(.rf911-anatomy-lines,.rf113-muscle-hit,.rf114-muscle-hit){display:none!important}
+
+/* Only the two supported profile choices remain in the layout. */
+.rf890-body-profile input[value="unspecified"]{display:none!important}
+.rf890-body-profile label:has(input[value="unspecified"]){display:none!important}
+.rf890-body-profile__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+@media(hover:none){
+  :is(.body-figure--female-893,.body-figure--female-892) .muscle-region:not(.is-selected)
+    path:not(.rf113-muscle-hit):not(.rf114-muscle-hit):not(.rf115-muscle-hit):not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines){
+    fill-opacity:.9!important;
+    opacity:1!important;
+  }
+  .body-figure--male-v920 .rf920-muscle-region:not(.is-selected) .rf920-muscle-fill{
+    fill-opacity:.9!important;
+    opacity:.9!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .muscle-region path,.rf920-muscle-fill{transition:none!important}
+}

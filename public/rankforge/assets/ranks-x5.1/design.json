@@ -1,0 +1,84 @@
+{
+  "type": "design-handoff-not-app-release",
+  "language": "de",
+  "profilePreviewOriginalIncluded": true,
+  "profilePreviewImage": "bilder/sportprofile-original.png",
+  "individualTransparentIconsIncluded": false,
+  "rankPalette": [
+    "#e7a05d",
+    "#ff8746",
+    "#dce3ec",
+    "#ffc83d",
+    "#35ded0",
+    "#927cff",
+    "#f35bc5",
+    "#ff5149",
+    "#68e8f4"
+  ],
+  "paletteNote": "Designvorgaben, keine pixelweise aus den Rasterbildern gemessenen Farben; oberster Rang mit Goldakzenten.",
+  "sports": {
+    "strength": {
+      "name": "Krafttraining",
+      "image": "bilder/krafttraining-raenge.png",
+      "ranks": [
+        "Holz",
+        "Bronze",
+        "Silber",
+        "Gold",
+        "Platin",
+        "Diamant",
+        "Meister",
+        "Titan",
+        "Olympier"
+      ]
+    },
+    "run": {
+      "name": "Laufen",
+      "accent": "#64df74",
+      "image": "bilder/laufen-raenge.png",
+      "ranks": [
+        "Einsteiger",
+        "Schrittmacher",
+        "Tempomacher",
+        "Sprinter",
+        "Dauerläufer",
+        "Zielbezwinger",
+        "Marathonläufer",
+        "Rekordbrecher",
+        "Lauflegende"
+      ]
+    },
+    "bike": {
+      "name": "Radfahren",
+      "accent": "#e4bc4e",
+      "image": "bilder/radfahren-raenge.png",
+      "ranks": [
+        "Freiläufer",
+        "Taktgeber",
+        "Kettenmeister",
+        "Windschatten",
+        "Ausreißer",
+        "Sprinter",
+        "Bergbezwinger",
+        "Rundfahrtsmeister",
+        "Radsportlegende"
+      ]
+    },
+    "swim": {
+      "name": "Schwimmen",
+      "accent": "#48b9ec",
+      "image": "bilder/schwimmen-raenge.png",
+      "ranks": [
+        "Wellenstarter",
+        "Gleiter",
+        "Stromgleiter",
+        "Krauler",
+        "Dauerschwimmer",
+        "Wettkämpfer",
+        "Wassermeister",
+        "Rekordbrecher",
+        "Meereslegende"
+      ]
+    }
+  }
+}

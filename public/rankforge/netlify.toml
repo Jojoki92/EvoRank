@@ -1,0 +1,77 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/garmin/connect"
+  to = "/.netlify/functions/garmin-connect"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/garmin/status"
+  to = "/.netlify/functions/garmin-status"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/garmin/sync"
+  to = "/.netlify/functions/garmin-sync"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/garmin/disconnect"
+  to = "/.netlify/functions/garmin-disconnect"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/garmin/callback"
+  to = "/.netlify/functions/garmin-callback"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/garmin/webhook"
+  to = "/.netlify/functions/garmin-webhook"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[redirects]]
+  from = "/api/strava/connect"
+  to = "/.netlify/functions/strava-connect"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/strava/callback"
+  to = "/.netlify/functions/strava-callback"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/strava/status"
+  to = "/.netlify/functions/strava-status"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/strava/sync"
+  to = "/.netlify/functions/strava-sync"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/strava/disconnect"
+  to = "/.netlify/functions/strava-disconnect"
+  status = 200
+  force = true

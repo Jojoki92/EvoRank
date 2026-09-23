@@ -1,0 +1,913 @@
+/* RANKFORGE 9.2.0 — scoped visual changes requested for this release */
+
+/* Public 9.2 builds open one private-on-device profile directly. Legacy
+   account-switch actions would only reload that same profile, so hide them. */
+:root[data-access-mode="public"] [data-action="rf75-logout"],
+:root[data-access-mode="public"] [data-action="v7-switch-account"],
+:root[data-access-mode="public"] [data-action="account-select"] {
+  display: none !important;
+}
+
+/* One neutral Wood state for every muscle until the first valid rank exists. */
+.muscle-region.is-unranked {
+  --muscle-color: #e7a05d !important;
+}
+.rf80-muscle-key__grid button {
+  --muscle: #e7a05d !important;
+}
+
+/* Pixel-aligned male bodygraph. The neutral base and every mask share the exact
+   same 1000 × 2048 coordinate system, so overlays can no longer drift. */
+.body-figure--male-v920 {
+  min-width: 0;
+  text-align: center;
+}
+.body-figure--male-v920 > span {
+  color: var(--dim);
+  font-size: .52rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+.body-figure--male-v920 svg {
+  width: min(100%, 210px);
+  height: auto;
+  aspect-ratio: 17 / 46;
+  margin: 4px auto 0;
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+  filter: drop-shadow(0 14px 21px rgba(0, 0, 0, .14));
+}
+.bodygraph-card--home .body-figure--male-v920 svg {
+  width: min(50vw, 182px);
+}
+.rf920-male-base {
+  pointer-events: none;
+  user-select: none;
+}
+.rf920-male-base--light {
+  display: none;
+}
+.rf920-male-base--dark {
+  display: block;
+}
+:root[data-theme="light"] .rf920-male-base--light {
+  display: block;
+}
+:root[data-theme="light"] .rf920-male-base--dark {
+  display: none;
+}
+.rf920-muscle-region {
+  outline: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+.rf920-muscle-fill {
+  fill: var(--muscle-color) !important;
+  stroke: none !important;
+  opacity: .94;
+  mix-blend-mode: normal;
+  pointer-events: none;
+  transition: opacity .16s ease, filter .16s ease;
+}
+.rf920-muscle-region.has-rank .rf920-muscle-fill {
+  opacity: .94;
+}
+.rf920-muscle-region:is(:hover, :focus-visible, .is-selected) .rf920-muscle-fill {
+  opacity: 1;
+  filter: brightness(1.1) saturate(1.12) drop-shadow(0 0 9px var(--muscle-color));
+}
+.rf920-muscle-hit {
+  fill: transparent !important;
+  fill-opacity: 0 !important;
+  stroke: transparent !important;
+  stroke-width: 8 !important;
+  pointer-events: all !important;
+}
+:root[data-theme="light"] .body-figure--male-v920 svg {
+  filter: drop-shadow(0 12px 20px rgba(71, 85, 105, .17)) drop-shadow(0 0 1.25px rgba(71, 85, 105, .26));
+}
+:root[data-theme="light"] .rf920-male-base--light {
+  filter: brightness(.985) contrast(1.1) saturate(.9) drop-shadow(0 0 1.1px rgba(71, 85, 105, .24));
+}
+:root[data-theme="light"] .rf920-muscle-fill {
+  fill: color-mix(in srgb, var(--muscle-color) 86%, #fff) !important;
+  opacity: .9;
+  mix-blend-mode: normal;
+}
+:root[data-theme="light"] .rf920-muscle-region.has-rank .rf920-muscle-fill {
+  opacity: .9;
+}
+
+/* The old mirrored raster patch caused the visible right-lat overlap. Version
+   9.2 uses a separate fitted vector on that side instead. */
+.rf912-female-lat-correction {
+  display: none !important;
+}
+.body-figure--female-893 .muscle-region path:not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines),
+.body-figure--female-892 .muscle-region path:not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines) {
+  fill: var(--muscle-color) !important;
+  fill-opacity: .92 !important;
+  mix-blend-mode: normal !important;
+  filter: saturate(1.01) brightness(1.02) !important;
+}
+:root[data-theme="light"] .body-figure--female-893 svg,
+:root[data-theme="light"] .body-figure--female-892 svg {
+  filter: drop-shadow(0 12px 20px rgba(71, 85, 105, .17)) drop-shadow(0 0 1.25px rgba(71, 85, 105, .26)) !important;
+}
+:root[data-theme="light"] .body-figure--female-893 .rf893-female-art,
+:root[data-theme="light"] .body-figure--female-892 .rf892-female-art {
+  filter: brightness(.985) contrast(1.1) saturate(.9) drop-shadow(0 0 1.1px rgba(71, 85, 105, .24));
+}
+:root[data-theme="light"] :is(.body-figure--female-893, .body-figure--female-892, .body-figure--male-v920) {
+  position: relative;
+  isolation: isolate;
+}
+:root[data-theme="light"] :is(.body-figure--female-893, .body-figure--female-892, .body-figure--male-v920)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 54%;
+  width: min(94%, 250px);
+  height: 78%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(148, 163, 184, .17) 0%, rgba(148, 163, 184, .08) 49%, transparent 75%);
+  filter: blur(9px);
+  pointer-events: none;
+}
+:root[data-theme="light"] :is(.body-figure--female-893, .body-figure--female-892, .body-figure--male-v920)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: 1.5%;
+  width: min(68%, 180px);
+  height: 11%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(100, 116, 139, .17) 0%, rgba(148, 163, 184, .08) 48%, transparent 74%);
+  filter: blur(7px);
+  pointer-events: none;
+}
+:root[data-theme="light"] .body-figure--female-893 .muscle-region path:not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines),
+:root[data-theme="light"] .body-figure--female-892 .muscle-region path:not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines) {
+  fill: color-mix(in srgb, var(--muscle-color) 86%, #fff) !important;
+  fill-opacity: .9 !important;
+  mix-blend-mode: normal !important;
+  filter: saturate(.98) brightness(1.04) !important;
+  stroke: rgba(255, 255, 255, .78) !important;
+  stroke-width: 1.18 !important;
+}
+:root[data-theme="light"] .body-figure--female-893 .rf911-anatomy-lines,
+:root[data-theme="light"] .body-figure--female-892 .rf911-anatomy-lines {
+  stroke: rgba(255, 255, 255, .58) !important;
+  opacity: .7 !important;
+}
+
+/* The selected bottom-navigation item uses the same clean accent-only treatment
+   in light and dark mode. */
+:root[data-theme="light"] .bottom-nav {
+  background: rgba(250, 252, 255, .96) !important;
+  border-color: #d9e0ea !important;
+}
+:root[data-theme="light"] .bottom-nav .nav-item.is-active {
+  color: var(--accent) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+:root[data-theme="light"] .bottom-nav .nav-item.is-active svg,
+:root[data-theme="light"] .bottom-nav .nav-item.is-active span {
+  color: var(--accent) !important;
+}
+
+/* Header mark follows the selected design accent in both themes. */
+.brand__mark.rf82-brand-mark {
+  color: var(--accent) !important;
+  background: #07090e !important;
+  border-color: color-mix(in srgb, var(--accent) 34%, rgba(255, 255, 255, .13)) !important;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 18%, rgba(0, 0, 0, .2)), inset 0 1px rgba(255, 255, 255, .06) !important;
+}
+:root[data-theme="light"] .brand__mark.rf82-brand-mark {
+  color: var(--accent) !important;
+  background: #fff !important;
+  border-color: color-mix(in srgb, var(--accent) 26%, #d9e0e9) !important;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 14%, rgba(35, 50, 75, .12)), inset 0 1px #fff !important;
+}
+:root[data-theme="light"] .brand__mark.rf82-brand-mark .rf82-mark-cut {
+  fill: #fff !important;
+}
+
+/* Progressive onboarding: one compact question per screen. */
+.rf920-onboarding {
+  min-height: 100dvh;
+  padding: calc(22px + var(--safe-top)) 16px calc(22px + var(--safe-bottom));
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% -5%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 38rem),
+    var(--bg);
+}
+.rf920-onboarding__card {
+  width: min(100%, 560px);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  box-shadow: 0 24px 75px rgba(0, 0, 0, .22);
+}
+.rf920-onboarding__brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.rf920-onboarding__brand .brand__mark {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border-radius: 13px;
+}
+.rf920-onboarding__brand strong,
+.rf920-onboarding__brand small {
+  display: block;
+}
+.rf920-onboarding__brand strong {
+  font-size: .9rem;
+  letter-spacing: .09em;
+}
+.rf920-onboarding__brand small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .58rem;
+}
+.rf920-onboarding__progress {
+  margin-top: 20px;
+  display: block;
+}
+.rf920-onboarding__progress > i {
+  display: block;
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--surface-3);
+}
+.rf920-onboarding__progress b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width .25s ease;
+}
+.rf920-onboarding__intro {
+  margin-top: 22px;
+}
+.rf920-onboarding__intro small {
+  color: var(--accent);
+  font-size: .52rem;
+  font-weight: 950;
+  letter-spacing: .15em;
+}
+.rf920-onboarding__intro p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: .65rem;
+}
+.rf920-onboarding__form h1 {
+  margin: 10px 0 18px;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+.rf920-onboarding__question {
+  min-height: 214px;
+  display: grid;
+  align-content: start;
+}
+.rf920-onboarding__choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.rf920-onboarding__choices label,
+.rf920-onboarding__days label {
+  position: relative;
+  cursor: pointer;
+}
+.rf920-onboarding__choices input,
+.rf920-onboarding__days input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.rf920-onboarding__choices label > span {
+  min-height: 66px;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  color: var(--text);
+  background: var(--surface-2);
+  transition: border-color .16s ease, background .16s ease, transform .16s ease;
+}
+.rf920-onboarding__choices label > span > b {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-size: .75rem;
+}
+.rf920-onboarding__choices strong {
+  font-size: .7rem;
+  line-height: 1.25;
+}
+.rf920-onboarding__choices input:checked + span,
+.rf920-onboarding__days input:checked + span {
+  border-color: color-mix(in srgb, var(--accent) 66%, var(--line));
+  background: var(--accent-faint);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 11%, transparent);
+}
+.rf920-onboarding__choices input:focus-visible + span,
+.rf920-onboarding__days input:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.rf920-onboarding__choices--languages label > span {
+  min-height: 62px;
+}
+.rf920-onboarding__choices--sessions {
+  grid-template-columns: repeat(4, 1fr);
+}
+.rf920-onboarding__choices--sessions label > span {
+  min-height: 66px;
+  padding: 8px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
+.rf920-onboarding__choices--sessions label > span > b {
+  width: auto;
+  height: auto;
+  background: transparent;
+  font-size: .54rem;
+  order: 2;
+}
+.rf920-onboarding__choices--sessions strong {
+  font-size: 1.05rem;
+}
+.rf920-onboarding__number,
+.rf920-onboarding__weight > label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .63rem;
+  font-weight: 800;
+}
+
+/* The rolling seven-day streak uses a bold filled flame once the first
+   completed workout has started the timer. */
+.header-stat[data-action="open-streak"] .icon,
+.week-section .section-heading > span .icon,
+.streak-big .icon {
+  color: var(--muted) !important;
+  filter: none;
+}
+.rf920-flame-icon {
+  overflow: visible;
+}
+.rf920-flame-shell {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
+}
+.rf920-flame-core {
+  fill: transparent;
+  stroke: none;
+}
+.header-stat[data-action="open-streak"].is-streak-active .icon,
+.week-section .section-heading > span.is-streak-active .icon,
+.streak-big.is-streak-active .icon {
+  color: #ff3b4f !important;
+  filter: drop-shadow(0 0 8px rgba(255, 59, 79, .48));
+}
+.is-streak-active .rf920-flame-shell {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.1;
+}
+.is-streak-active .rf920-flame-core {
+  fill: #ff9aa6;
+}
+.header-stat[data-action="open-streak"].is-streak-active .rf920-flame-icon {
+  transform: scale(1.06);
+}
+.rf920-streak-window {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  margin: 4px 0 16px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-2);
+  text-align: left;
+}
+.rf920-streak-window strong {
+  color: var(--text);
+  font-size: .84rem;
+}
+.rf920-streak-window span {
+  color: var(--muted);
+  font-size: .67rem;
+  line-height: 1.45;
+}
+.rf920-streak-window.is-active {
+  border-color: color-mix(in srgb, #ff3b4f 34%, var(--line));
+  background: color-mix(in srgb, #ff3b4f 8%, var(--surface-2));
+}
+.rf920-onboarding__number input,
+.rf920-onboarding__weight select {
+  width: 100%;
+  min-height: 62px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 17px;
+  color: var(--text);
+  background: var(--surface-2);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 850;
+}
+.rf920-onboarding__number em {
+  color: var(--dim);
+  font-size: .55rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.rf920-onboarding__weight {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 116px;
+  gap: 10px;
+}
+.rf920-onboarding__days {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.rf920-onboarding__days label > span {
+  min-height: 47px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--text);
+  background: var(--surface-2);
+  font-size: .64rem;
+  font-weight: 800;
+}
+.rf920-onboarding__form footer {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  gap: 10px;
+}
+.rf920-onboarding__form footer .button {
+  min-height: 50px;
+  padding-inline: 17px;
+}
+.rf920-onboarding__privacy {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  color: var(--dim);
+  font-size: .52rem;
+  text-align: center;
+}
+
+/* Language controls on auth/onboarding and in profile settings. */
+.rf920-language-quick {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: 14px;
+  z-index: 500;
+  min-height: 42px;
+  padding: 5px 7px 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .15);
+  backdrop-filter: blur(16px);
+}
+.rf920-language-quick select {
+  max-width: 112px;
+  min-height: 30px;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  font-size: .6rem;
+  font-weight: 850;
+}
+.rf920-language-card {
+  min-height: 82px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+.rf920-language-card > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.rf920-language-card strong,
+.rf920-language-card small {
+  display: block;
+}
+.rf920-language-card strong {
+  font-size: .7rem;
+}
+.rf920-language-card small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .54rem;
+  line-height: 1.35;
+}
+.rf920-language-card select {
+  min-width: 104px;
+  min-height: 42px;
+  padding: 0 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--surface-2);
+  font-size: .59rem;
+  font-weight: 800;
+}
+
+html[dir="rtl"] .screen,
+html[dir="rtl"] .modal,
+html[dir="rtl"] .rf920-onboarding__card {
+  text-align: right;
+}
+html[dir="rtl"] .rf920-language-quick {
+  right: auto;
+  left: 14px;
+}
+
+@media (max-width: 420px) {
+  .body-figure--male-v920 svg {
+    width: min(100%, 204px);
+  }
+  .bodygraph-card--home .body-figure--male-v920 svg {
+    width: min(52vw, 178px);
+  }
+  .rf920-onboarding__card {
+    padding: 19px 16px;
+    border-radius: 24px;
+  }
+  .rf920-onboarding__question {
+    min-height: 224px;
+  }
+  .rf920-onboarding__choices label > span {
+    min-height: 62px;
+    padding: 9px;
+  }
+  .rf920-onboarding__choices--compact strong {
+    font-size: .63rem;
+  }
+  .rf920-language-card {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+  .rf920-language-card select {
+    grid-column: 2;
+    width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  .rf920-onboarding__choices {
+    grid-template-columns: 1fr;
+  }
+  .rf920-onboarding__choices--sessions {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .rf920-onboarding__question {
+    min-height: 270px;
+  }
+}
+
+/* RANKFORGE 9.2.0 R9 — iPhone wide-layout pass.
+   The desktop composition stays untouched. On a phone we reclaim the unused
+   outer gutters, keep calm vertical spacing, and let the bodygraph use the
+   available canvas instead of shrinking inside several nested paddings. */
+@media (max-width: 600px) {
+  .app-shell,
+  .bottom-nav,
+  .workout-shell,
+  .workout-bottom {
+    width: 100%;
+    max-width: none;
+  }
+
+  .app-header {
+    padding-inline: 10px;
+    gap: 8px;
+  }
+
+  .screen {
+    padding: 18px 8px calc(112px + var(--safe-bottom));
+  }
+
+  .screen > * + * {
+    margin-top: 28px;
+  }
+
+  .screen-title,
+  .home-title,
+  .section-heading {
+    padding-inline: 6px;
+  }
+
+  .home-rank-card {
+    padding: 19px 15px;
+    gap: 13px;
+  }
+
+  .home-rank-card h2 {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+
+  .home-rank-card__mark {
+    margin-right: -5px;
+  }
+
+  .home-rank-card__mark .rank-mark {
+    width: 120px;
+    height: 120px;
+  }
+
+  .bodygraph-card--home,
+  html[data-ui-style="minimal"] .bodygraph-card--home {
+    padding: 0;
+    border-radius: 22px;
+  }
+
+  .bodygraph-card header {
+    padding: 20px 14px 0;
+  }
+
+  .bodygraph-stage--home {
+    min-height: 0;
+    padding: 10px 2px 0;
+  }
+
+  .bodygraph-card--home .body-figure--male-v920 svg {
+    width: min(59vw, 210px);
+  }
+
+  .bodygraph-card--home .body-figure--female-893 svg,
+  .bodygraph-card--home .body-figure--female-892 svg {
+    width: min(57vw, 202px);
+  }
+
+  .bodygraph-home-summary {
+    width: calc(100% - 20px);
+    margin-inline: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bottom-nav,
+  html[data-ui-style="minimal"] .bottom-nav {
+    height: calc(74px + var(--safe-bottom));
+    padding: 6px 6px var(--safe-bottom);
+    grid-template-columns: 1fr 1fr 68px 1fr 1fr;
+  }
+
+  .nav-item,
+  html[data-ui-style="minimal"] .nav-item {
+    min-width: 0 !important;
+    height: 56px;
+    padding-inline: 2px;
+    gap: 3px;
+    font-size: .6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .screen {
+    padding-inline: 7px;
+  }
+
+  .screen-title,
+  .home-title,
+  .section-heading {
+    padding-inline: 4px;
+  }
+
+  .home-rank-card__mark .rank-mark {
+    width: 108px;
+    height: 108px;
+  }
+
+  .bodygraph-card--home .body-figure--male-v920 svg {
+    width: min(61vw, 200px);
+  }
+
+  .bodygraph-card--home .body-figure--female-893 svg,
+  .bodygraph-card--home .body-figure--female-892 svg {
+    width: min(59vw, 192px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rf920-muscle-fill,
+  .rf920-onboarding__progress b,
+  .rf920-onboarding__choices label > span {
+    transition: none;
+  }
+}
+/* end-rankforge-v920-visuals */
+
+/* rankforge-v960-timer-and-rank-controls */
+.rf960-timer-setup .v73-rest-scroll {
+  gap: 14px;
+}
+
+.rf960-timer-toggle {
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+  border-radius: 18px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface-2));
+}
+
+.rf960-timer-options {
+  display: grid;
+  gap: 13px;
+}
+
+.rf960-timer-options[hidden],
+.rf960-no-timer-note[hidden] {
+  display: none !important;
+}
+
+.rf960-no-timer-note {
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.rf960-no-timer-note > svg {
+  width: 42px;
+  height: 42px;
+  padding: 11px;
+  border-radius: 14px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.rf960-no-timer-note strong,
+.rf960-no-timer-note small {
+  display: block;
+}
+
+.rf960-no-timer-note strong {
+  color: var(--text);
+  font-size: .76rem;
+}
+
+.rf960-no-timer-note small {
+  margin-top: 4px;
+  font-size: .57rem;
+  line-height: 1.45;
+}
+
+.rf960-timer-off-strip {
+  border-style: dashed;
+}
+
+.rf960-timer-off-strip > span,
+.rf960-timer-off-strip small,
+.rf960-timer-off-strip em {
+  color: var(--muted) !important;
+  background: var(--surface-2) !important;
+}
+
+.rf960-exercise-timer-off {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .56rem;
+  font-weight: 850;
+}
+
+.rf960-custom-mode {
+  margin: 0;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--surface-2);
+}
+
+.rf960-custom-mode legend {
+  padding: 0 6px;
+  color: var(--muted);
+  font-size: .52rem;
+  font-weight: 950;
+  letter-spacing: .12em;
+}
+
+.rf960-custom-mode > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.rf960-custom-mode label {
+  position: relative;
+}
+
+.rf960-custom-mode input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rf960-custom-mode label > span {
+  min-height: 68px;
+  display: grid;
+  place-content: center;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-align: center;
+  font-size: .68rem;
+  font-weight: 900;
+  background: var(--surface);
+}
+
+.rf960-custom-mode label small {
+  color: var(--muted);
+  font-size: .49rem;
+  font-weight: 700;
+}
+
+.rf960-custom-mode input:checked + span {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 11%, transparent);
+}
+
+.rf960-custom-mode > p {
+  margin: 10px 2px 0;
+  color: var(--muted);
+  font-size: .53rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 420px) {
+  .rf960-timer-toggle,
+  .rf960-custom-mode {
+    border-radius: 15px;
+  }
+
+  .rf960-custom-mode label > span {
+    min-height: 62px;
+  }
+}
+/* end-rankforge-v960-timer-and-rank-controls */

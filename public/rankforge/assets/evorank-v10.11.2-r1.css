@@ -1,0 +1,169 @@
+/* EvoRank 10.11.2 — fitted bodygraph, larger touch targets and iPhone-safe cards. */
+
+html,body,#app,.app-shell,.screen,.modal-backdrop,.modal,.modal-scroll{
+  max-width:100%;
+  overflow-x:clip;
+}
+
+/* Female and male muscle feedback now use the same unmistakable state. */
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region:is(:hover,:focus-visible,.is-selected,.is-pressed)
+  path:not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines),
+.body-figure--male-v920 .rf920-muscle-region:is(:hover,:focus-visible,.is-selected,.is-pressed) .rf920-muscle-fill{
+  opacity:1!important;
+  fill-opacity:1!important;
+  stroke:rgba(255,255,255,.98)!important;
+  stroke-width:2!important;
+  paint-order:stroke fill!important;
+  filter:brightness(1.26) saturate(1.48) contrast(1.08)
+    drop-shadow(0 0 5px var(--muscle-color))
+    drop-shadow(0 0 14px var(--muscle-color))!important;
+}
+
+/* Invisible hit contours are deliberately wider than the painted anatomy. */
+.body-figure--male-v920 :is(.muscle-region--shoulders,.muscle-region--forearms) .rf920-muscle-hit{
+  stroke:transparent!important;
+  stroke-width:34!important;
+  pointer-events:all!important;
+}
+.body-figure--male-v920 .muscle-region--forearms .rf920-muscle-hit{stroke-width:42!important}
+:is(.body-figure--female-893,.body-figure--female-892)
+  :is(.muscle-region--shoulders,.muscle-region--forearms) :is(.rf911-muscle-hit,.rf910-muscle-hit){
+  stroke:transparent!important;
+  stroke-width:38!important;
+  pointer-events:all!important;
+}
+:is(.body-figure--female-893,.body-figure--female-892)
+  .muscle-region--forearms :is(.rf911-muscle-hit,.rf910-muscle-hit){stroke-width:46!important}
+
+/* Rank cards: every descendant stays inside its own box on iPhone. */
+.rf103-ranks-screen,.rf103-rank-switcher,.rf103-rank-switcher>div:last-child,
+.rf103-rank-card,.rf103-sport-rank-view,.rf103-sport-rank-hero,.rf103-sport-ladder,
+.rf103-sport-rank-hero__main,.rf103-sport-rank-hero__main>div{
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+}
+.rf103-rank-switcher>div:last-child>button,
+.rf103-sport-rank-hero,.rf103-sport-ladder{overflow:hidden}
+.rf103-rank-switcher>div:last-child>button>span,
+.rf103-sport-rank-hero__main>span{
+  flex:0 0 auto;
+  overflow:hidden;
+  line-height:1;
+}
+.rf103-sport-rank-hero h2{
+  max-width:100%;
+  font-size:clamp(1.38rem,7.2vw,1.85rem);
+  line-height:1.05;
+  overflow-wrap:anywhere;
+}
+.rf103-sport-ladder>article>*{min-width:0}
+.rf103-sport-ladder article strong,.rf103-sport-ladder article small{
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Exercise picker: stable width, calm hierarchy and finger-sized controls. */
+.modal:has(.rf77-picker-list){width:min(100% - 14px,720px)!important;overflow:hidden}
+.modal:has(.rf77-picker-list) :is(.v7-picker-tabs,.rf77-picker-search,.exercise-filter-chips,
+  .exercise-equipment-picker,.rf77-picker-list){min-width:0;max-width:100%;box-sizing:border-box}
+.modal:has(.rf77-picker-list) .v7-picker-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+  padding:0 14px 11px;
+  overflow:visible;
+}
+.modal:has(.rf77-picker-list) .v7-picker-tabs button{
+  width:100%;
+  min-width:0;
+  min-height:42px;
+  padding:7px 5px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.modal:has(.rf77-picker-list) .rf77-picker-search{
+  width:auto!important;
+  margin-inline:14px;
+  grid-template-columns:minmax(0,1fr) 56px!important;
+}
+.modal:has(.rf77-picker-list) .rf77-picker-search .modal-search{margin:0!important;width:100%}
+.modal:has(.rf77-picker-list) .exercise-filter-chips{
+  width:100%;
+  margin:0;
+  padding:2px 14px 8px;
+  overscroll-behavior-x:contain;
+}
+.modal:has(.rf77-picker-list) .exercise-equipment-picker{margin:0 14px 10px}
+.modal:has(.rf77-picker-list) .exercise-equipment-picker__menu{left:0;right:0;max-width:100%}
+.modal:has(.rf77-picker-list) .rf77-picker-list{
+  width:100%;
+  padding:2px 14px 16px;
+  gap:9px;
+  overflow-x:hidden;
+  scrollbar-gutter:auto;
+}
+.modal:has(.rf77-picker-list) .rf77-picker-row{
+  width:100%;
+  min-width:0;
+  grid-template-columns:minmax(0,1fr) 44px;
+  gap:7px;
+  align-items:stretch;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+.modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__main{
+  width:100%;
+  min-width:0;
+  grid-template-columns:46px minmax(0,1fr) 18px!important;
+  gap:9px!important;
+  padding:10px!important;
+  border-color:color-mix(in srgb,var(--accent) 24%,var(--line));
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 6%,var(--surface)),var(--surface));
+}
+.modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__copy{min-width:0}
+.modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__copy strong{
+  white-space:normal!important;
+  overflow:hidden!important;
+  display:-webkit-box!important;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__copy small,
+.modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__copy em{
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.modal:has(.rf77-picker-list) .v7-picker-row__star{
+  width:44px;
+  min-width:44px;
+  min-height:52px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--surface);
+}
+
+@media(max-width:420px){
+  .rf103-rank-switcher>div:last-child{gap:7px}
+  .rf103-rank-switcher>div:last-child>button{grid-template-columns:34px minmax(0,1fr);gap:7px;padding:8px}
+  .rf103-rank-switcher>div:last-child>button>span{width:34px;height:34px;font-size:1.12rem}
+  .rf103-sport-rank-hero{padding:18px;min-height:244px}
+  .rf103-sport-rank-hero__main{gap:13px}
+  .rf103-sport-rank-hero__main>span{width:72px;height:72px;border-radius:21px;font-size:2.45rem}
+  .rf103-sport-ladder{padding:15px}
+  .rf103-sport-ladder>article{grid-template-columns:34px minmax(0,1fr) auto;padding-inline:5px}
+}
+
+@media(max-width:350px){
+  .modal:has(.rf77-picker-list) .rf77-picker-row{grid-template-columns:minmax(0,1fr) 42px}
+  .modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__main{grid-template-columns:42px minmax(0,1fr)!important;padding:9px!important}
+  .modal:has(.rf77-picker-list) .rf77-picker-row .v7-picker-row__main>.icon:last-child{display:none}
+  .modal:has(.rf77-picker-list) .v7-picker-row__star{width:42px;min-width:42px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .muscle-region path,.rf920-muscle-fill{transition:none!important}
+}

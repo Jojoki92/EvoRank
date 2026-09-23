@@ -1,0 +1,46 @@
+/* EvoRank 10.11 — iPhone-safe workout controls and stable exercise library. */
+html,body,#app,.app-shell,.workout-shell{max-width:100%;overflow-x:clip}
+.modal-backdrop,.modal,.modal-scroll{max-width:100%;box-sizing:border-box}
+.rf77-picker-list,.rf77-picker-row,.v7-picker-row__main,.v7-picker-row__copy,.rf77-picker-search,.modal-search{min-width:0;max-width:100%;box-sizing:border-box}
+.rf77-picker-list{scrollbar-gutter:stable;overscroll-behavior-x:none}
+.rf77-picker-row .v7-picker-row__main{align-items:center;grid-template-columns:56px minmax(0,1fr) 20px}
+.rf77-exercise-preview,.exercise-glyph.rf78-exercise-glyph{display:grid!important;place-items:center!important;align-self:center!important;margin-block:auto!important;background-position:center!important}
+.rf77-exercise-preview>svg,.rf77-exercise-preview>.icon{margin:auto}
+.rf111-aliases{margin:0 0 13px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);color:var(--muted);font-size:.6rem;line-height:1.45}
+.rf111-aliases strong{color:var(--text)}
+.rf111-birthday{margin:0;padding:14px;border:1px solid var(--line);border-radius:17px;background:var(--surface-2)}
+.rf111-birthday legend{padding:0 5px;font-size:.7rem;font-weight:900}
+.rf111-birthday>p{margin:0 0 11px;color:var(--muted);font-size:.57rem;line-height:1.45}
+.rf111-birthday>div{display:grid;grid-template-columns:.75fr 1fr 1.15fr;gap:8px}
+.rf111-birthday label{display:grid;gap:5px;min-width:0}
+.rf111-birthday label>span{color:var(--muted);font-size:.5rem;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+.rf111-birthday select{width:100%;min-width:0;height:48px;padding:0 8px;border:1px solid var(--line-strong);border-radius:12px;background:var(--surface);color:var(--text);font:inherit;font-size:16px;font-weight:800}
+.rf111-birthday>[data-birth-age]{display:block;margin-top:9px;color:var(--accent);font-size:.58rem;font-weight:850}
+.rf111-exercise-replace{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:38px;padding:0 10px;border:1px solid color-mix(in srgb,var(--accent) 42%,var(--line));border-radius:11px;background:var(--accent-soft);color:var(--accent);font-size:.53rem;font-weight:900;white-space:nowrap}
+.rf111-exercise-replace .icon{width:16px;height:16px}
+.rf103-rank-switcher>div:last-child>button>span>.rank-mark{width:34px!important;height:34px!important}
+.rf111-safety-entry{margin-bottom:calc(22px + var(--safe-bottom))!important}
+.rf111-safety-entry>button{border-color:color-mix(in srgb,var(--accent) 38%,var(--line))!important;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 13%,var(--surface)),var(--surface))!important}
+.rf111-safety-entry>button>span{display:grid!important;place-items:center!important;color:var(--accent)!important;background:var(--accent-soft)!important;font-size:0!important}
+.rf111-safety-entry>button>span .icon{width:27px;height:27px}
+
+@media(max-width:760px){
+  html[data-ui-style="minimal"] .workout-header,.workout-header{min-height:calc(66px + max(env(safe-area-inset-top,0px),44px))!important;padding:calc(9px + max(env(safe-area-inset-top,0px),44px)) 11px 9px!important;gap:8px!important;z-index:140!important}
+  .workout-header>.icon-button{flex:0 0 40px}
+  .workout-header>.button--finish{display:inline-flex!important;visibility:visible!important;flex:0 0 auto;min-width:88px;min-height:40px;padding-inline:11px;position:relative;z-index:2}
+  .workout-header>.rf82-workout-duration{display:none!important}
+  .workout-header>div h1{max-width:38vw;margin-inline:auto}
+  .workout-bottom{z-index:150!important;bottom:0!important;padding-bottom:max(12px,env(safe-area-inset-bottom,0px))!important}
+  .workout-shell{padding-bottom:calc(120px + max(env(safe-area-inset-bottom,0px),12px))!important}
+  .rf111-exercise-replace span{display:none}
+  .rf111-exercise-replace{width:38px;padding:0}
+  .workout-exercise>header{gap:8px}
+  .rf77-picker-search{grid-template-columns:minmax(0,1fr) auto!important;width:100%}
+  .rf77-camera-button{min-width:54px}
+}
+
+@media(max-width:370px){
+  .workout-header>.button--finish{min-width:76px;font-size:.58rem}
+  .workout-header>div h1{max-width:30vw}
+  .rf111-birthday>div{grid-template-columns:1fr}
+}

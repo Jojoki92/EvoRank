@@ -1,0 +1,365 @@
+{
+  "method": "Individual imagegen recreation from the supplied X5.1 rank sheets; PNG app-size export preserving alpha. No browser background masks. Source-image rights still require confirmation.",
+  "icons": [
+    {
+      "file": "bike-0.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 146282,
+      "sha256": "260aa92d9b42b367a6693d33d7ab1e86297f49737c6753c410bbc3fd5b5ca5c3",
+      "masterBytes": 768692,
+      "generatedMaster": "exec-d68a9126-90ce-4852-b692-aff28e609bdc.png"
+    },
+    {
+      "file": "bike-1.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 167052,
+      "sha256": "f343fc4c20aa1ac17d4a6ce6fe0fb105509f992b972ff940dcd9d05ee48c08f6",
+      "masterBytes": 888584,
+      "generatedMaster": "exec-5c98f8f5-c62a-48c8-a580-1c11e23df028.png"
+    },
+    {
+      "file": "bike-2.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 196291,
+      "sha256": "ebb0f68efa119cd9c039df20c1f5dd5d83001574dbd0e29e960852ff81a55385",
+      "masterBytes": 1068945,
+      "generatedMaster": "exec-ada17ecc-d558-4a0e-9e7e-bfd15dcdf368.png"
+    },
+    {
+      "file": "bike-3.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 115642,
+      "sha256": "f4716d8ae1c1e37a3feb3a0ec0178e3a284c4654a7907818a77c7dcac46225a3",
+      "masterBytes": 627754,
+      "generatedMaster": "exec-23489efb-1987-48e3-83f8-549aaad7aa28.png"
+    },
+    {
+      "file": "bike-4.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 159314,
+      "sha256": "016e38b4a902d996d2b5c58db2de3389aa3a1601f581dfbf0217b9f225f2f828",
+      "masterBytes": 812030,
+      "generatedMaster": "exec-00207f33-7af3-4b2d-9951-dd109849cf56.png"
+    },
+    {
+      "file": "bike-5.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 136399,
+      "sha256": "043ef6e52fb3bfb233766cd00beb18b861ee6e881aaabf6a04293ebd92e44b53",
+      "masterBytes": 742910,
+      "generatedMaster": "exec-f8b8dae5-115d-48fb-b2ca-6d76a69c2557.png"
+    },
+    {
+      "file": "bike-6.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 136489,
+      "sha256": "968c0f1974e0b2043a7306db26f14386087fd17e69d6391b5c88f0df1a2888c1",
+      "masterBytes": 715614,
+      "generatedMaster": "exec-943ecf49-5d75-40b2-9054-23c331ee0a33.png"
+    },
+    {
+      "file": "bike-7.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 175692,
+      "sha256": "53d2fd4adeb82741498a04963273e4036e2e598ce7d10890ca747c06b5ceae3c",
+      "masterBytes": 918178,
+      "generatedMaster": "exec-8eb53cdb-e963-4b66-a795-202f8f61b997.png"
+    },
+    {
+      "file": "bike-8.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 245493,
+      "sha256": "cc4b0b202136d485a6aa9ca0cd5b6eb8bf3e41d1bd1c4b097d236428c4bee2fa",
+      "masterBytes": 1228104,
+      "generatedMaster": "exec-db003451-d2eb-40c6-a2b0-4b40858b2b92.png"
+    },
+    {
+      "file": "run-0.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 138621,
+      "sha256": "b549e287fdba8e191ad5a0fea5df5b8fa1a3391b51bc7a0f75b2a3a9a38fe27e",
+      "masterBytes": 773149,
+      "generatedMaster": "exec-19f29473-8d2b-4143-9454-13b917f3eee8.png"
+    },
+    {
+      "file": "run-1.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 167742,
+      "sha256": "17e9c7441bc62a149a6fe2370cb28cefd03ee231c223d07d2072e3fb5576bc2f",
+      "masterBytes": 907027,
+      "generatedMaster": "exec-9ccfffaa-e2fe-43a5-8a82-8e87a5d6fc51.png"
+    },
+    {
+      "file": "run-2.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 156533,
+      "sha256": "a3ec44086925c9379af8e1e01adb7a7caaf37e5db6c3066feb990b5faec7424d",
+      "masterBytes": 845441,
+      "generatedMaster": "exec-91fa2969-6137-4cf8-9656-36d0d9a305ae.png"
+    },
+    {
+      "file": "run-3.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 114840,
+      "sha256": "3d96e987550d851b23796c215fa7b5627f4757ba3bbf814554fdb6a32ce2d5a9",
+      "masterBytes": 612419,
+      "generatedMaster": "exec-a159a25a-dca5-4579-a796-cbed23e0e5f9.png"
+    },
+    {
+      "file": "run-4.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 148483,
+      "sha256": "a197d940a40692f3afc89289462948aff29c0982e80237b0b6bbef666cc93680",
+      "masterBytes": 803750,
+      "generatedMaster": "exec-f91f76ba-adbc-450f-9b91-54c0dccd8355.png"
+    },
+    {
+      "file": "run-5.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 144747,
+      "sha256": "a30bd17df4ced448e397e6f55420e225e2acc9e49a9fb87554c9a468b53c8c03",
+      "masterBytes": 739699,
+      "generatedMaster": "exec-eb03f480-b39a-4200-b002-959fbad80bd7.png"
+    },
+    {
+      "file": "run-6.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 145208,
+      "sha256": "49609b2c25252d057b8f2f4d10990fb56b6485d887f5b66b76885f0dd651580e",
+      "masterBytes": 770695,
+      "generatedMaster": "exec-095fa182-36bd-4d62-8c8a-221cf582dc9c.png"
+    },
+    {
+      "file": "run-7.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 157945,
+      "sha256": "f05e05551f2cde05ce704c0680e3dc2a87fb7bd87fb2096e2afede9ba956283a",
+      "masterBytes": 850066,
+      "generatedMaster": "exec-a42d6742-97ba-4f00-8a4d-b3d9b536c49a.png"
+    },
+    {
+      "file": "run-8.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 199054,
+      "sha256": "82127af001f2dab2cdd9628d4f3f781f93eba2bd8e070095dda6e8417bb869a0",
+      "masterBytes": 1024291,
+      "generatedMaster": "exec-8ec17bdf-49e2-49b9-b935-3e404614792e.png"
+    },
+    {
+      "file": "strength-0.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 162242,
+      "sha256": "a11822212eecec946d699bc86dbf3eea04c6f22ae4cd850fed5a32b35bb91947",
+      "masterBytes": 897106,
+      "generatedMaster": "exec-b7d3e438-871d-4d0e-9b3b-0abae1ba446d.png"
+    },
+    {
+      "file": "strength-1.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 172479,
+      "sha256": "ca0eed8871a8cd72cf47df89cfa06584ddddf140b4b7ab1f27ae4d61800532d1",
+      "masterBytes": 962824,
+      "generatedMaster": "exec-70f8a07f-b788-4f17-bb87-58cd95dfd482.png"
+    },
+    {
+      "file": "strength-2.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 184511,
+      "sha256": "4fd9ef4634d498019a1faabe634fee61a00d424b2306b8740d23fc254b0877dd",
+      "masterBytes": 998361,
+      "generatedMaster": "exec-fd3486ad-6dfd-42d7-a812-72e33315c52f.png"
+    },
+    {
+      "file": "strength-3.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 206871,
+      "sha256": "61aee885277cfae937ae936563c6823327a024952939b8597c3f2f2db4b6b506",
+      "masterBytes": 1098031,
+      "generatedMaster": "exec-811c2579-9e01-41dc-9c88-c813ad790045.png"
+    },
+    {
+      "file": "strength-4.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 184250,
+      "sha256": "9d392c18f70937bf477e5ff7f444dab1895783d9401667836d30b21654f34aeb",
+      "masterBytes": 967830,
+      "generatedMaster": "exec-3f690a8b-1662-408f-b62c-c577c153c042.png"
+    },
+    {
+      "file": "strength-5.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 214413,
+      "sha256": "6dce329a5531b80eb29d82f57ecebfbf802a407c41d1e7d2d1bb3a1ce0f56b2a",
+      "masterBytes": 1105107,
+      "generatedMaster": "exec-8835153b-9336-40a5-b83e-e89e9b5a507d.png"
+    },
+    {
+      "file": "strength-6.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 183271,
+      "sha256": "d789022491f5d5da2da7e02e2563760f48856c05afb6328b29dd4b33d6f18c05",
+      "masterBytes": 923031,
+      "generatedMaster": "exec-1d385c1b-507c-413e-b6cb-abd0e92d0a32.png"
+    },
+    {
+      "file": "strength-7.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 189001,
+      "sha256": "056a1e1e349a3c929c9c8b14c7da918f4de0e39803a42561e77e5bb4c43e4f58",
+      "masterBytes": 995326,
+      "generatedMaster": "exec-d43a1395-caf8-4b62-b7cb-4a34bf9e1cf8.png"
+    },
+    {
+      "file": "strength-8.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 251086,
+      "sha256": "8b456383cd9fcfcab12dd71ae1a244a24bf1e3621d6f69d23bdfef95d1a8c478",
+      "masterBytes": 1310250,
+      "generatedMaster": "exec-da37f2d1-d36f-4d18-8803-3a155ea56d40.png"
+    },
+    {
+      "file": "swim-0.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 90721,
+      "sha256": "ac62102df49e2c8898b169f33c6f933db928fc3f5363a7d60f89b16b7702b3ed",
+      "masterBytes": 500515,
+      "generatedMaster": "exec-98251188-4105-4a43-8a4e-25a015d0b857.png"
+    },
+    {
+      "file": "swim-1.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 70956,
+      "sha256": "7957deb9ed241eac65d7575d37bd7d7ca880566e43d7ed94a6780bd89886a81f",
+      "masterBytes": 383629,
+      "generatedMaster": "exec-fb59fafe-d509-4ff0-b321-9e2229781d3e.png"
+    },
+    {
+      "file": "swim-2.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 193791,
+      "sha256": "ad18ecbc5fb980fc2653b87aa8a1aa3a8d74f258eef2a89d4cb7ae347937684b",
+      "masterBytes": 1013552,
+      "generatedMaster": "exec-a813612a-1781-4995-b6e1-5fc51884db47.png"
+    },
+    {
+      "file": "swim-3.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 182861,
+      "sha256": "10158ea6f1b736f295a7c9148995e4344942d7c0419fc05fb1bfc51b5934b2c0",
+      "masterBytes": 1012838,
+      "generatedMaster": "exec-1d8ebca0-8f94-4f11-9d1c-0ffabf922601.png"
+    },
+    {
+      "file": "swim-4.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 155674,
+      "sha256": "c328ef39dee46ee1b8f00448dabe7da2a5bd1011e3e0796d4e98a2e97e51f8c1",
+      "masterBytes": 813254,
+      "generatedMaster": "exec-d5c2b3d0-626c-43b8-900f-d22b621b0624.png"
+    },
+    {
+      "file": "swim-5.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 129107,
+      "sha256": "9ea5e622aa09dd2982cbadfd5b79eb2199388fd50af546150918a52bcdd4d7a1",
+      "masterBytes": 691936,
+      "generatedMaster": "exec-baad8b19-6c07-4724-955d-58e5e002f4d0.png"
+    },
+    {
+      "file": "swim-6.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 156133,
+      "sha256": "a538ce7ef3a137554e8fd6cb17b55c66331735841caf86689af8f0ac8709bbf9",
+      "masterBytes": 836462,
+      "generatedMaster": "exec-43dc2745-153c-44bb-9570-62d6de479aa5.png"
+    },
+    {
+      "file": "swim-7.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 141424,
+      "sha256": "18babde98ecdd0768b415f9416c8d5e5df75b71ef1aa4dfd4b57f8e5c8c1eb93",
+      "masterBytes": 777582,
+      "generatedMaster": "exec-8d6d9069-0ac8-45c2-ad82-f50c420358ad.png"
+    },
+    {
+      "file": "swim-8.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "bytes": 231597,
+      "sha256": "d9f363b3252197f72658a4724bdd28ac39a804186f9ff15f1e850c8717754524",
+      "masterBytes": 1205807,
+      "generatedMaster": "exec-2b0362fb-b737-4630-8239-3ce7361b8234.png"
+    }
+  ]
+}

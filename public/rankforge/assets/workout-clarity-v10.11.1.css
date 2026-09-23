@@ -1,0 +1,66 @@
+/* EvoRank 10.11.1 — clear visual boundaries between exercises. */
+.workout-content{counter-reset:evorank-exercise}
+.workout-content>.workout-exercise{
+  counter-increment:evorank-exercise;
+  position:relative;
+  isolation:isolate;
+  margin-bottom:30px;
+  border:2px solid color-mix(in srgb,var(--accent) 58%,var(--line))!important;
+  border-radius:22px!important;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 7%,var(--surface)) 0 82px,var(--surface) 160px)!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.22),0 0 0 1px color-mix(in srgb,var(--accent) 14%,transparent)!important;
+}
+.workout-content>.workout-exercise::before{
+  content:"";
+  position:absolute;
+  z-index:3;
+  inset:0 18px auto;
+  height:4px;
+  border-radius:0 0 999px 999px;
+  background:var(--accent);
+  box-shadow:0 0 18px rgba(var(--accent-rgb),.58);
+}
+.workout-content>.workout-exercise>header{
+  min-height:92px;
+  padding:18px 15px 15px!important;
+  border-bottom:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));
+  background:linear-gradient(105deg,rgba(var(--accent-rgb),.14),rgba(var(--accent-rgb),.035) 62%,transparent);
+}
+.workout-content>.workout-exercise>header>div:first-of-type::before{
+  content:"ÜBUNG " counter(evorank-exercise);
+  display:block;
+  margin-bottom:5px;
+  color:var(--accent);
+  font-size:.52rem;
+  font-weight:950;
+  letter-spacing:.16em;
+  line-height:1;
+}
+.workout-content>.workout-exercise>header h2{font-size:1.04rem;line-height:1.15}
+.workout-content>.workout-exercise>header p{margin-top:6px}
+.workout-content>.workout-exercise .rf78-exercise-glyph{
+  border:1px solid color-mix(in srgb,var(--accent) 48%,var(--line));
+  box-shadow:0 0 0 5px rgba(var(--accent-rgb),.075);
+}
+.workout-content>.workout-exercise>.v72-set-stack{padding-top:13px}
+.workout-content>.workout-exercise>.exercise-note{margin-top:13px}
+.workout-content>.workout-exercise>footer{
+  border-top-color:color-mix(in srgb,var(--accent) 18%,var(--line));
+  background:rgba(var(--accent-rgb),.028);
+}
+.workout-content>.workout-exercise+.workout-exercise::after{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:50%;
+  width:42px;
+  height:3px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--accent) 38%,var(--line));
+}
+@media(max-width:600px){
+  .workout-content>.workout-exercise{margin-bottom:26px;border-radius:19px!important}
+  .workout-content>.workout-exercise>header{min-height:88px;padding:16px 12px 13px!important}
+  .workout-content>.workout-exercise>header h2{font-size:1rem}
+}

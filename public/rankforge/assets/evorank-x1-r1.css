@@ -1,0 +1,50 @@
+/* EvoRank X1 — exact visible masks, generous but invisible touch areas. */
+
+/* Male hit geometry must never become a visible white outline. */
+.body-figure--male-v920 .rf920-muscle-region .rf920-muscle-hit,
+.body-figure--male-v920 .rf920-muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible) .rf920-muscle-hit{
+  fill:transparent!important;
+  fill-opacity:0!important;
+  stroke:transparent!important;
+  stroke-width:34px!important;
+  paint-order:normal!important;
+  filter:none!important;
+  pointer-events:all!important;
+  cursor:pointer!important;
+}
+
+/* Only the proportional image mask supplies the male selection feedback. */
+.body-figure--male-v920 .rf920-muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible) .rf920-muscle-fill{
+  opacity:1!important;
+  fill-opacity:1!important;
+  stroke:none!important;
+  filter:brightness(1.11) saturate(1.2) drop-shadow(0 0 6px var(--muscle-color))!important;
+}
+
+/* The female lat ends at the torso and never follows the upper or lower arm. */
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region--lats .rfx1-lat-shape{
+  fill:var(--muscle-color)!important;
+  fill-opacity:.9!important;
+  stroke:rgba(255,255,255,.2)!important;
+  stroke-width:.8!important;
+  filter:saturate(1.04) brightness(1.02)!important;
+  pointer-events:all!important;
+}
+
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region--lats:is(.is-selected,.is-pressed,:hover,:focus-visible) .rfx1-lat-shape{
+  fill-opacity:1!important;
+  stroke:rgba(255,255,255,.92)!important;
+  stroke-width:1.45!important;
+  filter:brightness(1.1) saturate(1.18) drop-shadow(0 0 6px var(--muscle-color))!important;
+}
+
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region--lats .rfx1-muscle-hit,
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region--lats:is(.is-selected,.is-pressed,:hover,:focus-visible) .rfx1-muscle-hit{
+  fill:transparent!important;
+  fill-opacity:0!important;
+  stroke:transparent!important;
+  stroke-width:22px!important;
+  filter:none!important;
+  pointer-events:all!important;
+  cursor:pointer!important;
+}

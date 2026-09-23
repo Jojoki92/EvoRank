@@ -1,0 +1,139 @@
+/* X3: neutral set separation. Colour is never needed to identify a set. */
+#app .rfx3-workout-exercise {
+  --x3-surface:#111111; --x3-header:#191919; --x3-row:#202020;
+  --x3-row-alt:#303030; --x3-input:#101010; --x3-text:#f5f5f5;
+  --x3-muted:#bdbdbd; --x3-line:#515151; --x3-button:#e5e5e5;
+  --x3-button-text:#151515;
+  background:var(--x3-surface)!important; color:var(--x3-text)!important;
+  border:1px solid var(--x3-line)!important; border-radius:20px!important;
+  box-shadow:0 12px 30px #00000024!important; margin-bottom:28px;
+}
+:root[data-theme="light"] #app .rfx3-workout-exercise {
+  --x3-surface:#ffffff; --x3-header:#f3f3f3; --x3-row:#f5f5f5;
+  --x3-row-alt:#dddddd; --x3-input:#ffffff; --x3-text:#181818;
+  --x3-muted:#505050; --x3-line:#9b9b9b; --x3-button:#262626;
+  --x3-button-text:#ffffff;
+}
+#app .rfx3-workout-exercise::before,
+#app .rfx3-workout-exercise::after { display:none!important }
+#app .rfx3-workout-exercise>header {
+  background:var(--x3-header)!important; border-bottom:1px solid var(--x3-line)!important;
+  padding:16px!important; margin-bottom:14px;
+}
+#app .rfx3-workout-exercise>header>div:first-of-type::before {
+  color:var(--x3-muted)!important; font-size:12px; letter-spacing:.1em;
+}
+#app .rfx3-workout-exercise :is(.rf78-exercise-glyph,.rf82-execution-badge) {
+  color:var(--x3-text)!important; background:var(--x3-row)!important;
+  border-color:var(--x3-line)!important; box-shadow:none!important;
+}
+#app .rfx3-workout-exercise .v72-set-stack { gap:14px!important; padding:2px 12px 16px!important }
+#app .rfx3-workout-exercise .v72-set-card {
+  background:var(--x3-row)!important; border:1px solid var(--x3-line)!important;
+  border-radius:14px!important; padding:14px!important; box-shadow:none!important;
+  opacity:1!important;
+}
+#app .rfx3-workout-exercise .v72-set-card:nth-child(even) { background:var(--x3-row-alt)!important }
+#app .rfx3-workout-exercise .v72-set-card__head {
+  display:grid!important; grid-template-columns:auto 1fr auto auto!important;
+  gap:8px!important; align-items:center!important;
+}
+#app .rfx3-workout-exercise .v72-set-card__number {
+  grid-column:1; grid-row:1; min-width:64px; min-height:44px; height:auto;
+  background:var(--x3-button)!important; color:var(--x3-button-text)!important;
+  border-radius:9px; gap:6px;
+}
+#app .rfx3-workout-exercise .v72-set-card__number small { color:inherit!important; font-size:12px!important }
+#app .rfx3-workout-exercise .v72-set-card__number strong { color:inherit!important; font-size:19px!important; font-variant-numeric:tabular-nums }
+#app .rfx3-workout-exercise .v72-set-card__previous {
+  grid-column:1/-1!important; grid-row:2!important; white-space:normal!important;
+  color:var(--x3-muted)!important; font-size:12px!important; line-height:1.45;
+}
+#app .rfx3-workout-exercise .v72-set-card__done {
+  grid-column:3!important; grid-row:1!important; min-height:44px; height:auto;
+  min-width:64px; background:var(--x3-input)!important; color:var(--x3-text)!important;
+  border:1px solid var(--x3-line)!important; font-size:14px!important;
+}
+#app .rfx3-workout-exercise .v72-set-card.is-done .v72-set-card__done {
+  background:var(--x3-button)!important; color:var(--x3-button-text)!important;
+  border-color:var(--x3-button)!important;
+}
+#app .rfx3-workout-exercise .rf893-set-remove {
+  grid-column:4!important; grid-row:1!important; min-width:44px; min-height:44px;
+  color:var(--x3-muted)!important; background:transparent!important;
+}
+#app .rfx3-workout-exercise .v72-set-card__copy {
+  grid-column:1/-1!important; grid-row:3!important; justify-self:start;
+  min-height:36px; font-size:14px!important; padding:5px 0;
+  background:transparent!important; color:var(--x3-muted)!important;
+  text-decoration:underline; text-underline-offset:3px;
+}
+#app .rfx3-workout-exercise .v72-set-card__fields { gap:10px!important; margin-top:12px!important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px!important }
+#app .rfx3-workout-exercise .v72-set-field>span { font-size:14px!important; line-height:1.4; letter-spacing:0; color:var(--x3-muted)!important }
+#app .rfx3-workout-exercise .v72-set-input {
+  min-height:54px!important; background:var(--x3-input)!important;
+  border:1px solid var(--x3-line)!important;
+}
+#app .rfx3-workout-exercise .v72-set-input input {
+  color:var(--x3-text)!important; font-size:23px!important; font-weight:750!important;
+  font-variant-numeric:tabular-nums; min-height:52px!important; padding:8px 10px!important;
+}
+#app .rfx3-workout-exercise .v72-set-input em { color:var(--x3-muted)!important; font-size:12px!important; padding-right:8px }
+#app .rfx3-workout-exercise .v72-set-detail { min-height:44px; color:var(--x3-muted)!important; background:transparent!important; border-color:var(--x3-line)!important }
+#app .rfx3-workout-exercise .v72-set-card__hint { margin-top:12px!important; padding-top:10px; border-top:1px solid var(--x3-line); color:var(--x3-muted)!important; font-size:12px!important; line-height:1.4 }
+#app .rfx3-workout-exercise .v72-set-card__hint span { color:inherit!important }
+#app .rfx3-workout-exercise .v72-set-input:focus-within { border-color:var(--x3-text)!important; box-shadow:0 0 0 2px var(--x3-line)!important }
+#app .rfx3-workout-exercise :is(button,select,input):focus-visible { outline:2px solid var(--x3-text)!important; outline-offset:3px }
+#app .rfx3-workout-exercise.rfx2-dragging { outline:2px solid var(--x3-text)!important }
+#app .rfx3-workout-exercise>footer { background:var(--x3-header)!important; border-top-color:var(--x3-line)!important }
+#app .rfx3-workout-exercise>footer button { color:var(--x3-text)!important; background:var(--x3-row)!important; border-color:var(--x3-line)!important }
+#app .rfx3-workout-exercise .v72-set-card__fields.rf93-uni { grid-template-columns:minmax(0,1fr)!important; border-color:var(--x3-line)!important; background:transparent!important; color:var(--x3-text)!important }
+#app .rfx3-workout-exercise :is(.rf93-uni__side,.rf93-uni__mirror,.rf93-uni-flag) { background:var(--x3-row-alt)!important; color:var(--x3-text)!important; border-color:var(--x3-line)!important; box-shadow:none!important }
+#app .rfx3-workout-exercise .rf93-uni input { color:var(--x3-text)!important; background:var(--x3-input)!important; border-color:var(--x3-line)!important; font-size:20px!important; min-height:48px }
+#app .rfx3-workout-exercise .rf93-uni :is(label,span,small,b) { color:var(--x3-muted)!important }
+@media(max-width:380px) {
+  #app .rfx3-workout-exercise .v72-set-card { padding:10px!important }
+  #app .rfx3-workout-exercise .v72-set-card__fields { gap:6px!important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) 28px!important }
+  #app .rfx3-workout-exercise .v72-set-input input { padding-inline:7px!important; font-size:21px!important }
+  #app .rfx3-workout-exercise .v72-set-field>span { font-size:13px!important }
+}
+#app .rfx3-design-link { display:block; margin:16px 0; padding:16px; color:var(--text); background:var(--surface-2); border:1px solid var(--line); border-radius:14px; font-size:16px; font-weight:700; text-decoration:none }
+#app .rfx3-design-link span { display:block; margin-top:6px; color:var(--muted); font-size:13px; font-weight:400; line-height:1.5 }
+
+/* A real responsive launch layout; the logo is never stretched to cover. */
+#rf-splash {
+  box-sizing:border-box; background:#080808!important;
+  padding:calc(28px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom))!important;
+}
+#rf-splash .rf83-splash__logo-wrap {
+  visibility:visible!important; width:96px!important; height:96px!important;
+  margin:0 0 24px!important; flex-shrink:0;
+}
+#rf-splash .rf83-splash__logo {
+  width:96px!important; height:96px!important; object-fit:contain!important;
+  border:0!important; border-radius:24px!important; box-shadow:none!important;
+}
+#rf-splash .rf83-splash__brand {
+  visibility:visible!important; display:block!important; margin:0!important;
+  color:#f5f5f5!important; font:750 30px/1.15 system-ui,sans-serif!important; letter-spacing:-.8px!important;
+}
+#rf-splash .rf83-splash__tagline {
+  visibility:visible!important; margin:12px 0 0!important; max-width:280px;
+  color:#adadad!important; font:400 14px/1.55 system-ui,sans-serif!important;
+  letter-spacing:0!important; text-transform:none!important;
+}
+#rf-splash :is(.rf83-splash__progress,.rf83-splash__status,.rf83-splash__steps,.rf83-splash__retry) {
+  position:relative!important; top:auto!important; bottom:auto!important; left:auto!important;
+  transform:none!important; width:min(260px,100%)!important;
+}
+#rf-splash .rf83-splash__progress { margin:40px 0 0!important; height:4px!important; background:#303030!important; box-shadow:none!important }
+#rf-splash .rf83-splash__progress i { background:#e8e8e8!important; box-shadow:none!important }
+#rf-splash .rf83-splash__status { margin:12px 0 0!important; color:#bdbdbd!important }
+#rf-splash .rf83-splash__status :is(strong,span) { color:inherit!important; font-size:12px!important; font-weight:500!important }
+#rf-splash .rf83-splash__steps { display:none!important }
+#rf-splash .rf83-splash__retry { margin-top:20px!important; min-height:44px; color:#151515!important; background:#ededed!important; font-size:14px!important }
+@media(max-height:480px) {
+  #rf-splash .rf83-splash__logo-wrap,#rf-splash .rf83-splash__logo { width:64px!important; height:64px!important }
+  #rf-splash .rf83-splash__logo-wrap { margin-bottom:14px!important }
+  #rf-splash .rf83-splash__progress { margin-top:20px!important }
+}

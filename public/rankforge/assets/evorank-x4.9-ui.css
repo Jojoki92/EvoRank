@@ -1,0 +1,45 @@
+/* Shared product tokens; a material layer rather than a separate app. */
+:root[data-interface='apple'] #app{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;font-optical-sizing:auto}
+:root[data-interface='apple'] #app :is(button,input,select,textarea){font-family:inherit}
+:root[data-interface='apple'] #app :is(h1,h2){letter-spacing:-.025em;line-height:1.15;font-weight:750}
+:root[data-interface='apple'] #app :is(.modal-header h2,.rfx48-week-summary h2){font-size:1.375rem}
+:root[data-interface='apple'] #app .modal-header small{font-size:.75rem;letter-spacing:.07em}
+:root[data-interface='apple'] #app :is(.modal-field,.modal-field input,.modal-field select,.modal-field textarea){font-size:1rem;line-height:1.5}
+:root[data-interface='apple'] #app :is(.modal p,.modal li){font-size:1rem;line-height:1.55}
+:root[data-interface='apple'] #app :is(.button,.circle-button,.nav-item){touch-action:manipulation}
+:root[data-interface='apple'] #app .button--primary{background:var(--accent);color:var(--x49-accent-ink,#fff)}
+:root[data-interface='apple'] #app :is(.button,.circle-button):not(:disabled):active{scale:.97;filter:brightness(.91);transition:scale 70ms ease-out}
+:root[data-interface='apple'] #app .bottom-nav{background:color-mix(in srgb,var(--surface) 88%,transparent)!important;backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-top:1px solid var(--line);box-shadow:0 -8px 28px #0000000d}
+:root[data-interface='apple'] #app .bottom-nav .nav-item{min-height:44px;font-size:.75rem}
+:root[data-interface='apple'] #app .bottom-nav .nav-item span{font-size:.75rem!important;line-height:1.2;max-width:none}
+:root[data-interface='apple'] #app .modal{background:color-mix(in srgb,var(--surface) 96%,transparent);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:var(--line);box-shadow:0 -12px 50px #00000026}
+:root[data-interface='apple'] #app .modal--sheet{border-radius:var(--radius,24px) var(--radius,24px) 0 0}
+:root[data-interface='apple'] #app .modal-backdrop{background:#0007;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+:root[data-interface='apple'] #app .modal-header{padding-block:.75rem;min-height:4.5rem}
+:root[data-interface='apple'] #app .rfx49-motion-sheet{display:flex;flex-direction:column;animation:none!important;transition:none!important}
+:root[data-interface='apple'] #app .rfx49-motion-sheet>:is(.sheet-handle,.modal-header){flex:none}
+:root[data-interface='apple'] #app .rfx49-motion-sheet>.modal-scroll{flex:1 1 auto;min-height:0;max-height:none!important;overflow-y:auto}
+:root[data-interface='apple'] #app [data-x49-handle]{width:100%;height:44px;min-height:44px;margin:0;background:transparent;display:grid;place-items:center;touch-action:none;cursor:grab;border-radius:inherit;outline-offset:-5px}
+:root[data-interface='apple'] #app [data-x49-handle]::after{content:'';width:36px;height:4px;border-radius:99px;background:var(--muted);opacity:.5}
+:root[data-interface='apple'] #app [data-x49-handle]:active{cursor:grabbing}
+.rfx49-style-choice{padding:1rem 0;border-top:1px solid var(--line);margin-top:1rem}
+.rfx49-style-choice h3{font-size:1rem;margin:0 0 .75rem}
+.rfx49-style-choice p{color:var(--muted);font-size:.875rem!important}
+.rfx49-choice-buttons{display:flex;flex-wrap:wrap;gap:.625rem}
+.rfx49-choice-buttons .button{flex:1;min-width:9rem;min-height:44px}
+.rfx49-choice-buttons [aria-pressed='true']{background:color-mix(in srgb,var(--accent) 15%,var(--surface));border-color:var(--accent);color:var(--text)}
+/* All styles benefit from keyboard and text-size fixes. */
+#app :is(button,a,input,select,textarea,summary,[tabindex]):focus-visible,.rf92 :is(input,button,a):focus-visible{outline:2px solid var(--accent,#ff3762);outline-offset:3px}
+.rf92__consent:has(input:focus-visible){outline:2px solid var(--accent,#ff3762);outline-offset:3px}
+.rf92 .rf92__consent strong{font-size:.875rem}
+.rf92 .rf92__consent small{font-size:.875rem;line-height:1.5}
+.rf92 .rf92__legal{font-size:.875rem;line-height:1.5;color:#b9c3d3}
+.rf92 .rf92__legal a{color:#9bc5ff;text-decoration:underline}
+#app .rfx49-legal-links{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+#app .rfx49-legal-links a{color:var(--muted);font-size:.875rem;min-height:44px;display:flex;align-items:center;padding:.5rem;text-decoration:underline}
+@supports not (backdrop-filter:blur(1px)){:root[data-interface='apple'] #app :is(.modal,.bottom-nav){background:var(--surface)!important}}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){:root[data-interface='apple'] #app :is(.modal,.bottom-nav){background:var(--surface)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:1px solid var(--text)}:root[data-interface='apple'] #app .modal-backdrop{backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(prefers-reduced-motion:reduce){:root[data-interface='apple'] #app :is(.modal,.modal-backdrop){animation:none!important}:root[data-interface='apple'] #app :is(.button,.circle-button):active{scale:1;transition:none}}
+:root[data-reduced-motion='true'] #app :is(.rfx49-motion-sheet,.modal-backdrop){animation:none!important}
+:root[data-reduced-motion='true'] #app :is(.button,.circle-button):active{scale:1;transition:none}
+@media(prefers-contrast:more){#app .rfx49-style-choice .button{border:1px solid currentColor}}

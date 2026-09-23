@@ -1,0 +1,22 @@
+{
+  "version": "9.9",
+  "build": "990-r2",
+  "runAt": "2026-08-26",
+  "passed": 114,
+  "failed": 0,
+  "ok": true,
+  "suites": [
+    { "name": "Build und Release", "passed": 30, "failed": 0 },
+    { "name": "Konten-Synchronisierung", "passed": 29, "failed": 0 },
+    { "name": "App-Bridge", "passed": 9, "failed": 0 },
+    { "name": "Konten-Oberfläche", "passed": 21, "failed": 0 },
+    { "name": "Sicherheitsprüfung", "passed": 25, "failed": 0 }
+  ],
+  "notes": [
+    "Die Funktionen der Entwicklungslinien 9.7 und 9.8 werden gemeinsam geladen und offline gespeichert.",
+    "Triathlon, Konto, Freunde und Links-/Rechts-Erfassung besitzen getrennte Zustands- und Laufzeitbereiche.",
+    "Timer, rollende Sieben-Tage-Streak, Bodygraph und Hell-/Dunkelmodus des stabilen Grunddesigns bleiben erhalten.",
+    "Lokaler Garmin-Import funktioniert ohne OAuth; die direkte Synchronisierung benötigt eine freigeschaltete Serverkonfiguration.",
+    "Passwort-Recovery bleibt bis zum Speichern oder Abbrechen in der Ansicht Neues Passwort und öffnet nicht vorzeitig das alte Konto."
+  ]
+}

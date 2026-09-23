@@ -1,0 +1,14 @@
+{
+  "version": "X2",
+  "build": "passed",
+  "behavioralTests": 12,
+  "catalogEntries": 1500,
+  "bodyweightSamples": [
+    45,
+    75,
+    120
+  ],
+  "javascriptFilesSyntaxChecked": 34,
+  "deviceBrowserTesting": "not performed",
+  "deployment": "not performed"
+}

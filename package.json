@@ -1,0 +1,63 @@
+{
+  "name": "evorank-app",
+  "version": "10.13.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "install:ci": "bash scripts/install-ci.sh",
+    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vite",
+    "build": "bash scripts/build-verified.sh",
+    "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
+    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
+    "test:x2": "node --test tests/evorank-x2.test.mjs",
+    "preview:app": "node packaging/windows/EVORANK-NODE-SERVER.mjs",
+    "test:x4": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs tests/evorank-x4.8.test.mjs tests/evorank-x4.9.test.mjs",
+    "test:x4.2": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs",
+    "audit:x4.2": "node scripts/audit-x4.2.mjs",
+    "test:x4.3": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs",
+    "test:x4.4": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs",
+    "release:prepare": "node scripts/prepare-leaderboards-x5.4.mjs && node scripts/save-release.mjs",
+    "release:save": "node scripts/save-release.mjs --publish",
+    "test:x4.5": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs",
+    "test:x4.6": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs",
+    "test:x4.7": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs",
+    "test:x4.8": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs tests/evorank-x4.8.test.mjs",
+    "test:x4.9": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs tests/evorank-x4.8.test.mjs tests/evorank-x4.9.test.mjs",
+    "legal:generate": "node scripts/build-legal-pages.mjs",
+    "release:cleanup": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/cleanup-delivery.ps1 -Apply",
+    "postrelease:save": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/cleanup-delivery.ps1 -Apply",
+    "test:x5": "node --test tests/evorank-x2.test.mjs tests/evorank-x4.2.test.mjs tests/evorank-x4.3.test.mjs tests/evorank-x4.4.test.mjs tests/evorank-x4.5.test.mjs tests/strava-x4.5.test.mjs tests/evorank-x4.6.test.mjs tests/evorank-x4.7.test.mjs tests/evorank-x4.8.test.mjs tests/evorank-x4.9.test.mjs tests/evorank-x5.1.test.mjs tests/evorank-startup.test.mjs tests/evorank-x5.3.test.mjs tests/evorank-x5.4.test.mjs tests/leaderboards-x5.4.test.mjs tests/evorank-x5.5.test.mjs tests/evorank-x5.6.test.mjs tests/evorank-x5.7.test.mjs"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.2",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.37.1",
+    "@electric-sql/pglite": "0.5.8",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.26",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "jsdom": "^26.1.0",
+    "react-server-dom-webpack": "19.2.6",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vinext": "0.0.50",
+    "vite": "8.0.13",
+    "wrangler": "4.92.0"
+  },
+  "type": "module",
+  "displayName": "EvoRank X5.7"
+}

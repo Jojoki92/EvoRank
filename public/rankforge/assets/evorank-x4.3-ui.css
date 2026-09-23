@@ -1,0 +1,25 @@
+/* Restore the softly feathered X1/X3 light-mode backdrop around the figure. */
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-891,.body-figure--female-892,.body-figure--female-893) {
+  background:transparent; border:0; border-radius:0; padding:0; overflow:visible;
+}
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-891,.body-figure--female-892,.body-figure--female-893)::before,
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-891,.body-figure--female-892,.body-figure--female-893)::after { display:block; }
+
+#app .rfx43-family { margin:0; min-width:0; border:1px solid var(--line); border-radius:16px; background:var(--surface); overflow:hidden; }
+#app .rfx43-family>summary { display:flex; align-items:center; gap:12px; min-height:76px; padding:12px; cursor:pointer; list-style:none; }
+#app .rfx43-family>summary::-webkit-details-marker { display:none; }
+#app .rfx43-family>summary::marker { content:''; }
+#app .rfx43-family>summary>span:nth-child(2) { display:grid; gap:5px; flex:1; min-width:0; }
+#app .rfx43-family>summary strong { color:var(--text); font-size:16px; overflow-wrap:anywhere; }
+#app .rfx43-family>summary small { color:var(--muted); font-size:12px; line-height:1.4; }
+#app .rfx43-family>summary>.icon { flex:none; transition:transform .15s ease; }
+#app .rfx43-family[open]>summary>.icon { transform:rotate(90deg); }
+#app .rfx43-family>summary:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; border-radius:16px; }
+#app .rfx43-family-glyph { display:grid; place-items:center; width:44px; height:44px; flex:none; border-radius:12px; color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,transparent); }
+#app .rfx43-family-variants { display:grid; gap:8px; padding:0 10px 10px; }
+#app .rfx43-family:not([open]) .rfx43-family-variants { display:none; }
+#app .rfx43-family-variants .rf77-picker-row { margin:0; }
+#app .rfx43-family-variants .v7-picker-row__main { padding:10px; }
+#app .rfx43-family-variants .v7-picker-row__copy strong { font-size:14px; }
+#app .rfx43-family-variants .rf77-exercise-preview { width:34px; height:40px; flex:none; }
+@media(prefers-reduced-motion:reduce) { #app .rfx43-family>summary>.icon { transition:none; } }

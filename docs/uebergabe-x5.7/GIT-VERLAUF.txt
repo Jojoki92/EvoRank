@@ -1,0 +1,11 @@
+c5e0726 | 2026-09-23T06:42:00+02:00 | Document complete X5.7 AI handover and add verified ZIP packaging
+983cefb | 2026-09-23T06:24:37+02:00 | Release X5.7: mobile layout, muscle selection and transparent rank art
+d3a3599 | 2026-09-17T08:52:36+02:00 | X5.6: clarify sport ranks, profile controls and muscle selection
+df76e19 | 2026-09-17T00:27:54+02:00 | X5.5: schneller Start, Touch-Auswahl und gemeinsame Sportstarts
+a6cf3dc | 2026-09-15T21:23:22+02:00 | X5.4: Video-Feedback, sortierbare Startseite und Ausdauer-Bestenlisten
+cdd7807 | 2026-09-15T16:09:57+02:00 | Add X5.3 sport competency profiles and unified rank views
+56f6170 | 2026-09-14T19:03:20+02:00 | Fix X5.1 startup crash and deliver X5.2 with initialization regression coverage
+e5ff487 | 2026-09-14T06:20:16+02:00 | Deliver EvoRank X5.1 sports home, progress charts and license review
+e8b6318 | 2026-09-13T23:28:49+02:00 | Preserve delivered EvoRank X5.0 baseline
+4d1881a | 2026-09-07T17:14:24+02:00 | X4.1 restore X2 workout layout and simplify in-app branding
+3b06788 | 2026-09-07T16:53:32+02:00 | Install approved D+H branding as EvoRank X4

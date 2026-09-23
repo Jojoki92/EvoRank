@@ -1,0 +1,20 @@
+EVORANK Feedback an Johannes weiterleiten
+
+ZIELADRESSE
+evorank.fitness@gmail.com
+
+EINRICHTUNG
+1. Netlify-Dashboard > dein EVORANK-Projekt > Forms.
+2. Falls erforderlich: Enable form detection aktivieren.
+3. EVORANK 8.5.0 erneut deployen, damit rankforge-feedback erkannt wird.
+4. Project configuration > Notifications > Emails and webhooks.
+5. Form submission notifications > Add notification > Email notification.
+6. Formular rankforge-feedback waehlen.
+7. Empfaenger evorank.fitness@gmail.com eintragen und speichern.
+8. In EVORANK unter Profil > Hilfe & Feedback ein Testfeedback senden.
+9. In Netlify > Forms > rankforge-feedback pruefen, ob die Einsendung angekommen ist.
+
+HINWEISE
+- Ohne Schritt 4-7 werden Einsendungen im Netlify-Forms-Bereich gespeichert, aber nicht automatisch an Johannes gemailt.
+- Offline abgegebenes Feedback bleibt lokal vorgemerkt und wird beim naechsten Online-Start erneut versucht.
+- Alternativ kann der Nutzer das Feedback direkt in seiner E-Mail-App oeffnen.

@@ -1,0 +1,72 @@
+/* X4.2: one scrolling picker, quieter profile choices and clearer bodygraphs. */
+#app .rfx42-picker-sheet { display:flex; flex-direction:column; min-height:0; }
+#app .rfx42-picker-scroll { flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; }
+#app .rfx42-picker-results { overflow:visible; max-height:none; flex:none; padding-inline:0; }
+#app .rfx42-picker-results .rf77-picker-row { display:block; width:100%; }
+#app .rfx42-picker-results .v7-picker-row__main { width:100%; max-width:100%; min-width:0; }
+#app .rfx42-picker-results .v7-picker-row__copy { min-width:0; }
+#app .rfx42-picker-results .v7-picker-row__copy strong { overflow-wrap:anywhere; }
+#app .rfx42-picker-scroll .rf81-library-count { font-size:12px; margin:12px 0 6px; }
+#app .rfx42-library-extra { margin:8px 0 14px; border:0; color:var(--muted); }
+#app .rfx42-library-extra>summary { cursor:pointer; padding:10px 2px; font-size:14px; font-weight:650; }
+#app .rfx42-library-extra :is(.rf109-stretch-filter,.rf110-reviewed-filter) { margin:6px 0; min-height:52px; padding:8px; }
+#app .rfx42-library-extra :is(.rf109-stretch-filter,.rf110-reviewed-filter)>span { width:32px; height:32px; }
+#app .rfx42-picker-scroll :is(.exercise-filter-chips,.v7-picker-tabs) { flex-shrink:0; }
+@media(max-width:600px) {
+  #app .rfx42-picker-sheet { height:calc(100dvh - var(--safe-top,0px)); max-height:calc(100dvh - var(--safe-top,0px))!important; padding-bottom:var(--safe-bottom,0px); }
+  #app .rfx42-picker-sheet .modal-header { flex:none; padding-block:12px; }
+  #app .rfx42-picker-sheet .modal-header h2 { font-size:22px; }
+  #app .rfx42-picker-sheet .modal-header small { display:none; }
+  #app .rfx42-picker-scroll { padding:0 16px 20px; }
+  #app .rfx42-picker-scroll .v7-picker-tabs { gap:6px; margin:0 0 10px; }
+  #app .rfx42-picker-scroll .v7-picker-tabs button { min-height:40px; padding:8px 10px; font-size:13px; }
+  #app .rfx42-picker-scroll .rf77-picker-search { margin:0 0 10px; }
+  #app .rfx42-picker-scroll .exercise-equipment-picker { margin:8px 0; }
+}
+
+/* Selection stays visible through its fill and check, without a glowing rim. */
+#app .rf890-body-profile { min-inline-size:0; max-width:100%; box-sizing:border-box; }
+#app .rf890-body-profile__grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+#app .rf890-body-profile__grid label { position:relative; min-width:0; }
+#app .rf890-body-profile__grid label>span { width:100%; height:100%; min-width:0; box-sizing:border-box; border-color:transparent!important; box-shadow:none!important; padding:16px; }
+#app .rf890-body-profile__grid label>span>* { min-width:0; max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+#app .rf890-body-profile__grid input:checked+span { background:color-mix(in srgb,var(--accent) 12%,var(--surface)); }
+#app .rf890-body-profile__grid input:checked+span::after { content:'✓'; position:absolute; top:14px; right:14px; color:var(--accent); font-size:20px; }
+#app .rf890-body-profile__grid input:focus-visible+span { outline:2px solid var(--accent); outline-offset:2px; }
+@media(max-width:600px) { #app .rf890-body-profile__grid { grid-template-columns:1fr; } }
+
+/* Reuse the approved ER artwork; recolour only its chromatic pixels on display. */
+#app .rfx42-preview-mark { overflow:hidden; display:grid; place-items:center; padding:0; }
+#app .rfx42-preview-mark img { width:100%; height:100%; object-fit:contain; transform:scale(1.28); mix-blend-mode:screen; }
+#app :is(.rfx41-brand-mark,.rfx42-preview-mark) .rfx41-logo-flat { filter:hue-rotate(calc(var(--rfx42-accent-hue,330deg) - 330deg)) saturate(var(--rfx42-accent-saturation,1)); }
+:root[data-theme='light'] #app :is(.rfx41-brand-mark,.rfx42-preview-mark) .rfx41-logo-flat { filter:invert(1) hue-rotate(calc(var(--rfx42-accent-hue,330deg) - 150deg)) saturate(var(--rfx42-accent-saturation,1)); mix-blend-mode:multiply; }
+
+/* Neutral grey separates the pale figures from the light interface. */
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-891,.body-figure--female-892,.body-figure--female-893) { background:linear-gradient(135deg,#dce1e7,#c8d0d9); border-radius:20px; padding:12px 8px; }
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-891,.body-figure--female-892,.body-figure--female-893)::before,
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-891,.body-figure--female-892,.body-figure--female-893)::after { display:none; }
+#app .body-figure--male-v920 .muscle-region--core.is-selected .rf920-muscle-fill { filter:none!important; stroke:none!important; opacity:1!important; }
+#app .rfx42-machine input { width:100%; min-width:0; }
+#app .rfx42-machine .rfx2-cable-panel p { line-height:1.5; }
+
+#app .rfx42-tracker { display:grid; gap:16px; margin:16px 0; padding:20px; border:1px solid var(--line); border-radius:20px; background:var(--surface); }
+#app .rfx42-tracker>header { display:flex; align-items:center; justify-content:space-between; }
+#app .rfx42-tracker h2 { margin:4px 0 0; font-size:22px; }
+#app .rfx42-tracker small { font-size:12px; color:var(--muted); letter-spacing:.1em; }
+#app .rfx42-tracker p,#app .rfx42-tracker-summary p { margin:0; color:var(--muted); font-size:14px; line-height:1.5; }
+#app .rfx42-tracker form,#app .rfx42-tracker-summary { display:grid; gap:16px; }
+#app :is(.rfx42-tracker,.rfx42-tracker-summary) label { display:grid; gap:8px; min-width:0; color:var(--text); font-size:14px; }
+#app :is(.rfx42-tracker,.rfx42-tracker-summary) :is(input:not([type='range']),select) { width:100%; min-width:0; min-height:46px; box-sizing:border-box; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:var(--surface-2); color:var(--text); font:inherit; font-size:16px; }
+#app .rfx42-tracker-values { display:grid; gap:4px; font-variant-numeric:tabular-nums; }
+#app .rfx42-tracker-values strong { font-size:clamp(32px,9vw,48px); line-height:1.1; letter-spacing:.02em; }
+#app .rfx42-tracker-values>span { font-size:24px; color:var(--accent); }
+#app .rfx42-tracker-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+#app .rfx42-tracker-actions .button { min-width:0; white-space:normal; min-height:48px; }
+#app .rfx42-record-dot { width:12px; height:12px; border-radius:50%; background:var(--accent); }
+#app .rfx42-record-dot.is-paused { background:var(--muted); }
+#app .rfx42-laps { display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:14px; }
+#app .rfx42-laps button { width:48px; height:48px; border:1px solid var(--line); border-radius:12px; background:var(--surface-2); color:var(--text); font-size:26px; }
+#app .rfx42-laps button:disabled { opacity:.4; }
+#app .rfx42-discard { justify-self:start; border:0; padding:8px 0; background:none; color:var(--muted); font-size:14px; }
+#app .rfx42-tracker-return { position:fixed; z-index:90; left:50%; bottom:calc(88px + var(--safe-bottom,0px)); transform:translateX(-50%); max-width:calc(100vw - 32px); min-height:44px; padding:10px 18px; border:1px solid var(--accent); border-radius:999px; color:var(--text); background:var(--surface); box-shadow:0 4px 18px #0003; font-size:14px; font-weight:700; white-space:nowrap; }
+@media(min-width:900px) { #app .rfx42-tracker-return { bottom:24px; } }

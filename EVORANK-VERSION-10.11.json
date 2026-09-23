@@ -1,0 +1,19 @@
+{
+  "product": "EvoRank",
+  "version": "10.11.0",
+  "build": "1110-r1",
+  "schemaVersion": 25,
+  "releaseDate": "2026-08-30",
+  "birthdayCoins": 20,
+  "features": [
+    "persistent explicit logout",
+    "birth date and calculated age onboarding",
+    "automatic cloud and device state merge",
+    "direct in-workout exercise replacement",
+    "reliable elapsed workout timer",
+    "weighted secondary-muscle ranks",
+    "exercise aliases",
+    "iPhone safe-area workout controls",
+    "verified-domain birthday email workflow"
+  ]
+}

@@ -1,0 +1,42 @@
+/* X4.6: restrained detail work, with the established theme and anatomy. */
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-892,.body-figure--female-893)::before {
+  background:radial-gradient(ellipse,rgba(112,124,141,.36) 0%,rgba(124,136,152,.2) 49%,transparent 75%);
+}
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-892,.body-figure--female-893)::after {
+  background:radial-gradient(ellipse,rgba(100,112,128,.28) 0%,rgba(124,136,152,.14) 48%,transparent 74%);
+}
+/* Keep the mask's fine edge crisp by reducing only the selected male glow. */
+#app .body-figure--male-v920 .rf920-muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible) .rf920-muscle-fill {
+  filter:brightness(1.08) saturate(1.16) drop-shadow(0 0 2px var(--muscle-color))!important;
+}
+#app .body-figure--male-v920 .muscle-region--core.is-selected .rf920-muscle-fill {filter:none!important;}
+
+/* Appearance changes surfaces and text contrast, not the chosen muscle hue. */
+:root[data-theme='light'] #app .body-figure--male-v920 .rf920-muscle-fill,
+:root[data-theme='light'] #app :is(.body-figure--female-892,.body-figure--female-893) .muscle-region path:not([class*='muscle-hit']):not(.rf911-anatomy-lines) {
+  fill:var(--muscle-color)!important;
+}
+:root[data-theme='light'] #app .rf920-muscle-region:not(.is-selected):not(.is-pressed) .rf920-muscle-fill {fill-opacity:1!important;opacity:.94!important;}
+:root[data-theme='light'] #app :is(.body-figure--female-892,.body-figure--female-893) .muscle-region:not(.is-selected):not(.is-pressed) path:not([class*='muscle-hit']):not(.rf911-anatomy-lines) {fill-opacity:.94!important;}
+:root[data-theme='light'] #app :is(.appearance-option.is-active,.accent-option.is-active,.rf890-body-profile__grid input:checked+span) {
+  background:color-mix(in srgb,var(--accent) 20%,var(--surface));
+}
+:root[data-theme='light'] #app .bottom-nav .nav-item.is-active {color:var(--accent);}
+:root[data-theme='light'] #app .bottom-nav .nav-item.is-active :is(svg,span) {color:inherit;}
+/* Bright status fills retain dark, readable labels on a light surface. */
+:root[data-theme='light'] #app .rfx41-workout-exercise .v72-set-card.is-done {background:color-mix(in srgb,#42d993 22%,var(--surface-2))!important;}
+:root[data-theme='light'] #app .rfx41-workout-exercise.rfx44-complete {background:color-mix(in srgb,#42d993 12%,var(--surface))!important;}
+:root[data-theme='light'] #app .rfx41-workout-exercise .v72-set-card.is-done .v72-set-card__done {background:#42d993!important;border-color:#087a52!important;color:#063323!important;}
+
+/* Scope to discard actions; the header's minimize button stays compact. */
+#app .workout-danger {padding:20px 0 26px;}
+#app :is(.workout-danger [data-action='workout-cancel'],[data-action='workout-cancel-confirm'],.rfx42-discard) {
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;min-height:56px!important;padding:14px 20px;
+  border:1px solid color-mix(in srgb,var(--danger) 65%,var(--line));border-radius:var(--radius-sm);
+  background:color-mix(in srgb,var(--danger) 16%,var(--surface));color:var(--danger);
+  font-size:16px;font-weight:850;line-height:1.4;white-space:normal;
+}
+:root[data-theme='light'] #app :is(.workout-danger [data-action='workout-cancel'],[data-action='workout-cancel-confirm'],.rfx42-discard) {background:#ffe0e6;color:#a31032;border-color:#d63248;}
+#app :is(.workout-danger [data-action='workout-cancel'],[data-action='workout-cancel-confirm'],.rfx42-discard):focus-visible {outline:2px solid var(--danger);outline-offset:3px;}
+@media(hover:hover){#app :is(.workout-danger [data-action='workout-cancel'],.rfx42-discard):hover {background:color-mix(in srgb,var(--danger) 24%,var(--surface));}}

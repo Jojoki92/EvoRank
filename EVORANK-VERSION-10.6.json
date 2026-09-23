@@ -1,0 +1,14 @@
+{
+  "product": "EVORANK",
+  "previousProductName": "RANKFORGE",
+  "version": "10.6",
+  "technicalCore": "9.2.0",
+  "build": {
+    "assetTag": "1060-r1",
+    "serviceWorkerCache": "evorank-v10.6.0-r1",
+    "schemaVersion": 33
+  },
+  "migration": "visible product-name migration with legacy storage and URL compatibility",
+  "releasePolicy": "Every delivered update receives a new visible version number.",
+  "delivery": ["public-site", "netlify", "windows-no-node", "complete-backup"]
+}

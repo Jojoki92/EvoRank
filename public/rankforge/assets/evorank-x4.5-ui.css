@@ -1,0 +1,74 @@
+/* Keep the feathered backdrop; only increase its grey opacity a little. */
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-892,.body-figure--female-893)::before {
+  background:radial-gradient(ellipse,rgba(130,141,155,.25) 0%,rgba(130,141,155,.12) 49%,transparent 75%);
+}
+:root[data-theme='light'] #app :is(.body-figure--male-v920,.body-figure--female-892,.body-figure--female-893)::after {
+  background:radial-gradient(ellipse,rgba(100,112,128,.22) 0%,rgba(130,141,155,.1) 48%,transparent 74%);
+}
+/* Outline visible anatomy only. Invisible touch helpers must stay invisible. */
+#app :is(.body-figure--female-893,.body-figure--female-892) .muscle-region path:not([class*='muscle-hit']):not(.rf911-anatomy-lines) {
+  stroke:rgba(0,0,0,.3)!important;stroke-width:.55!important;vector-effect:non-scaling-stroke;paint-order:fill stroke!important;
+}
+#app .rfx45-cable-default {display:flex;align-items:center;gap:10px;line-height:1.4;}
+#app .rfx45-cable-default input {width:20px;height:20px;flex:none;}
+/* X4.6: the added features use the existing button variants and surface tokens. */
+.rfx45-alarm {margin-top:8px;padding:16px;display:grid;gap:10px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface-2);}
+.rfx45-alarm label,.rfx45-range-labels {display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;}
+.rfx45-alarm label {font-weight:850;color:var(--text);}
+.rfx45-alarm output {padding:5px 9px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.rfx45-alarm input[type='range'] {width:100%;padding:0;margin:0;accent-color:var(--accent);min-height:44px;cursor:pointer;}
+.rfx45-alarm p,.rfx45-help p,.rfx45-week details {color:var(--muted);font-size:14px;line-height:1.55;}
+.rfx45-range-labels {color:var(--muted);margin-top:-8px;}
+.rfx45-alarm>.button {justify-self:start;font-size:14px;}
+.rfx45-alarm details {padding-top:10px;border-top:1px solid var(--line);}
+:is(.rfx45-alarm,.rfx45-help,.rfx45-week) summary {display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:44px;list-style:none;color:var(--text);font-size:14px;font-weight:750;line-height:1.4;cursor:pointer;}
+:is(.rfx45-alarm,.rfx45-help,.rfx45-week) summary::-webkit-details-marker {display:none;}
+:is(.rfx45-alarm,.rfx45-help,.rfx45-week) summary::after {content:'';width:7px;height:7px;flex:none;margin-right:3px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);}
+:is(.rfx45-alarm,.rfx45-help,.rfx45-week) details[open]>summary::after {transform:rotate(225deg);}
+:is(.rfx45-alarm,.rfx45-help,.rfx45-week) details p {margin:8px 0 12px;}
+.rfx45-help {display:grid;gap:12px;align-content:start;}
+.rfx45-help :is(section,details) {padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);}
+.rfx45-help section {display:flex;flex-wrap:wrap;align-items:start;gap:12px;}
+.rfx45-help section>:is(h3,p,.rfx45-actions) {flex-basis:100%;}
+.rfx45-help h3 {font-size:18px;letter-spacing:-.025em;}
+.rfx45-help .button {font-size:14px;}
+.rfx45-help a:not(.button) {color:var(--accent);}
+.rfx45-actions {display:flex;flex-wrap:wrap;gap:8px;}
+.rfx45-week {margin:24px 0;padding:16px;border:1px solid var(--line);border-radius:22px;background:var(--surface);box-shadow:0 16px 38px rgba(0,0,0,.14);}
+.rfx45-week header {align-items:start;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.rfx45-week header>div {flex:1 1 190px;min-width:0;}
+.rfx45-week h2 {margin:5px 0;font-size:22px;}
+.rfx45-week header small {font-size:12px;color:var(--accent);font-weight:950;letter-spacing:.1em;}
+.rfx45-week header p {font-size:14px;color:var(--muted);margin:6px 0;line-height:1.5;}
+.rfx45-week .button,.rfx45-help .rfx45-compact {padding:8px 12px;min-height:44px;font-size:14px;border-radius:12px;line-height:1.3;white-space:normal;}
+/* Primary buttons inherit the app's accent gradient and foreground unchanged. */
+.rfx45-week .button--primary {box-shadow:none;}
+.rfx45-week-days {display:grid;gap:8px;}
+.rfx45-week-days>article {display:grid;grid-template-columns:54px minmax(0,1fr);align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface-2);}
+.rfx45-week-days>.is-free {background:transparent;border-color:transparent;padding-block:2px;}
+.rfx45-week-days>.is-today {border-color:var(--accent);}
+.rfx45-week .rfx45-day {display:grid;place-content:center;align-self:stretch;gap:3px;border:0;border-radius:10px;padding:6px;background:transparent;color:var(--text);font-size:14px;line-height:1.3;}
+.rfx45-day span {color:var(--muted);font-size:13px;}
+.rfx45-week-days>.is-today .rfx45-day {background:var(--accent);color:var(--accent-on);}
+.rfx45-week-days>.is-today .rfx45-day span {color:inherit;}
+.rfx45-plan-item {display:flex;align-items:center;gap:8px;padding:4px 0;min-height:44px;}
+.rfx45-plan-item>div {flex:1;min-width:0;display:grid;gap:4px;}
+.rfx45-plan-item strong {font-size:16px;font-weight:850;line-height:1.3;overflow-wrap:anywhere;}
+.rfx45-plan-item small,.rfx45-free-day {font-size:14px;color:var(--muted);line-height:1.4;}
+.rfx45-session-icon {width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:9px;color:var(--accent);background:var(--accent-soft);}
+.rfx45-session-icon.is-done {color:var(--green);background:color-mix(in srgb,var(--green) 14%,var(--surface-2));}
+.rfx45-free-day {display:block;padding:8px 0;}
+.rfx45-week footer {display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.rfx45-week footer .button {flex:1 1 auto;}
+.rfx45-week details {margin-top:12px;padding-top:4px;border-top:1px solid var(--line);}
+.rf94__sync {display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px;color:var(--muted);margin:12px 0;}
+:root[data-theme='light'] .rfx45-week {box-shadow:0 14px 32px rgba(45,60,86,.08);}
+html[data-ui-style='minimal'] .rfx45-week {box-shadow:none;border-radius:var(--radius-md);}
+@media(max-width:480px){
+  .rfx45-week {padding:13px;border-radius:19px;}
+  .rfx45-week-days>article {grid-template-columns:44px minmax(0,1fr);gap:8px;padding:8px;}
+  .rfx45-plan-item {flex-wrap:wrap;}
+  .rfx45-plan-item>div {flex-basis:calc(100% - 36px);}
+  .rfx45-plan-item .button {margin-left:36px;}
+  .rfx45-alarm {padding:12px;}
+}

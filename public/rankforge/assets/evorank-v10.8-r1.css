@@ -1,0 +1,28 @@
+/* EVORANK 10.8 r1 — separated Home/Ranks settings and Garmin auto-sync */
+.rf108-rank-modal{max-width:680px}
+.rf108-rank-scroll{display:grid;gap:18px;padding-bottom:8px}
+.rf108-rank-section{padding:14px;border:1px solid var(--line);border-radius:22px;background:color-mix(in srgb,var(--surface-2) 78%,transparent)}
+.rf108-rank-section>header{display:grid;grid-template-columns:34px minmax(0,1fr);gap:11px;align-items:center;margin:0 0 13px}
+.rf108-rank-section>header>span{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:color-mix(in srgb,var(--accent) 15%,var(--surface));color:var(--accent);font-size:.68rem;font-weight:950}
+.rf108-rank-section>header strong,.rf108-rank-section>header small{display:block}
+.rf108-rank-section>header strong{font-size:.8rem}
+.rf108-rank-section>header small{margin-top:3px;color:var(--muted);font-size:.56rem;line-height:1.4}
+.rf108-rank-options{gap:7px}
+.rf108-rank-options>article{background:var(--surface)}
+.rf108-garmin-auto{display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;align-items:start;margin:14px 0;padding:13px;border:1px solid color-mix(in srgb,#2f7dff 30%,var(--line));border-radius:18px;background:color-mix(in srgb,#2f7dff 8%,var(--surface))}
+.rf108-garmin-auto>span{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,#2f7dff 16%,var(--surface));color:#2f7dff}
+.rf108-garmin-auto strong,.rf108-garmin-auto p{display:block;margin:0}
+.rf108-garmin-auto strong{font-size:.72rem}
+.rf108-garmin-auto p{margin-top:4px;color:var(--muted);font-size:.58rem;line-height:1.5}
+.rf108-garmin-auto.is-active{border-color:color-mix(in srgb,#31cc79 44%,var(--line));background:color-mix(in srgb,#31cc79 8%,var(--surface))}
+.rf108-garmin-auto.is-active>span{background:color-mix(in srgb,#31cc79 16%,var(--surface));color:#31cc79}
+.rf108-garmin-disconnect{margin-top:-5px}
+.rf108-seahorse{display:block;width:1em;height:1em;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,76,196,.2))}
+.rf970-animal>span:has(.rf108-seahorse),.rf103-sport-rank-hero__main>span:has(.rf108-seahorse){padding:7px}
+.rf970-rank>span:has(.rf108-seahorse),.rf103-sport-ladder>article>span:has(.rf108-seahorse),.rf103-rank-switcher button>span:has(.rf108-seahorse),.rf103-rank-options label>span:has(.rf108-seahorse){padding:5px}
+@media(max-width:520px){
+  .rf108-rank-section{padding:11px;border-radius:18px}
+  .rf108-rank-options>article{grid-template-columns:1fr}
+  .rf108-rank-options .rf103-order-controls{grid-template-columns:repeat(2,1fr);padding:0 10px 9px}
+  .rf108-rank-options .rf103-order-controls button{width:100%}
+}

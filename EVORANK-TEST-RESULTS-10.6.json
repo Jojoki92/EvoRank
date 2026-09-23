@@ -1,0 +1,21 @@
+{
+  "packageVersion": "EvoRank 10.6",
+  "build": "1060-r1",
+  "date": "2026-08-27",
+  "results": {
+    "releaseIntegrationTests": { "passed": 68, "failed": 0 },
+    "accountTests": { "passed": 32, "failed": 0 },
+    "accountBridgeTests": { "passed": 9, "failed": 0 },
+    "accountUiTests": { "passed": 23, "failed": 0 },
+    "securityAudit": { "passed": 25, "failed": 0 },
+    "lint": { "errors": 0, "preExistingWarnings": 94 }
+  },
+  "verified": [
+    "all visible product surfaces identify as EvoRank 10.6",
+    "new EvoRank PWA icons and iPhone splash screens are wired and cached",
+    "existing account, workout and cloud data keys remain compatible",
+    "signup confirmation and password recovery return to build 1060-r1",
+    "bodygraph, ranks, themes, navigation and all training functions remain unchanged",
+    "Windows package runs without a separate Node.js installation"
+  ]
+}

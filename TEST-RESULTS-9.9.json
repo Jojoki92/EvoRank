@@ -1,0 +1,30 @@
+{
+  "packageVersion": "RankForge 9.9",
+  "technicalCore": "9.2.0",
+  "build": "990-r2",
+  "testedAt": "2026-08-26",
+  "result": "passed",
+  "checks": {
+    "buildAndReleaseTests": { "passed": 30, "failed": 0 },
+    "accountTests": { "passed": 29, "failed": 0 },
+    "accountBridgeTests": { "passed": 9, "failed": 0 },
+    "accountUiTests": { "passed": 21, "failed": 0 },
+    "securityAudit": { "passed": 25, "failed": 0 },
+    "eslint": { "errors": 0, "existingWarnings": 94 }
+  },
+  "totalPassed": 114,
+  "totalFailed": 0,
+  "merge": {
+    "triathlon97Preserved": true,
+    "accountsFriendsUnilateral98Preserved": true,
+    "sharedAssetBuild": "990-r2",
+    "offlineCacheContainsBothLines": true,
+    "integrationLoadOrderTested": true,
+    "passwordRecoveryFlowTested": true
+  },
+  "externalSetup": {
+    "supabaseRpcsRequireDeploymentVerification": true,
+    "garminOAuthRequiresDeveloperApprovalAndServerConfiguration": true,
+    "localGarminImportWorksWithoutOAuth": true
+  }
+}

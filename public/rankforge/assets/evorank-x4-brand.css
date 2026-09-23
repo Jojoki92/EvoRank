@@ -1,0 +1,12 @@
+/* Selected D + H design. Workout and rank colours keep their X3 styles. */
+#rf-splash .rf83-splash__logo-wrap,
+#rf-splash .rf83-splash__logo { width:160px!important; height:160px!important; }
+#rf-splash .rf83-splash__logo { border-radius:36px!important; }
+@media(max-height:600px) {
+  #rf-splash .rf83-splash__logo-wrap,#rf-splash .rf83-splash__logo { width:112px!important; height:112px!important; }
+  #rf-splash .rf83-splash__logo { border-radius:25px!important; }
+}
+@media(max-height:480px) {
+  #rf-splash .rf83-splash__logo-wrap,#rf-splash .rf83-splash__logo { width:64px!important; height:64px!important; }
+  #rf-splash .rf83-splash__logo { border-radius:14px!important; }
+}

@@ -1,0 +1,19 @@
+RANKFORGE 10.5 – START HIER
+
+1. Lies zuerst CONTINUE-HERE.md.
+2. Lies danach VERSION-10.5.json und RELEASE-NOTES-10.5.md.
+3. Die fertige Web-App liegt unter public/rankforge/.
+4. Netlify: Den Inhalt des Netlify-ZIP direkt per Drag & Drop bereitstellen.
+5. Windows: ZIP entpacken und RANKFORGE-STARTEN.bat oder RANKFORGE.exe öffnen. Node.js wird nicht benötigt.
+
+Wichtiger Stand:
+- Version 10.5
+- Build 1050-r1
+- Offline-Cache rankforge-v10.5.0-r1
+- Schema 33
+- Die gewählte Muskelgruppe leuchtet stärker; normale Muskel- und Körpergestaltung bleibt unverändert.
+- Bestätigungs- und Reset-Links führen zur aktuellen 10.5-App.
+- Eine Bestätigungs-E-Mail kann in der App erneut angefordert werden.
+- Alle Funktionen und Designentscheidungen aus 10.4 bleiben bestehen.
+
+Das bestehende Design nur auf ausdrücklichen Wunsch verändern.

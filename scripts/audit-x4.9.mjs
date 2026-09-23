@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+const root=path.resolve('public/rankforge');
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const refs=[...html.matchAll(/<(?:script|link)\b[^>]*(?:src|href)="([^"?]+)[^">]*"/g)].map(m=>m[1]);
+const active=refs.filter(r=>r.startsWith('./')&&/\.(js|css)$/.test(r));
+const texts=[html,...active.map(file=>fs.readFileSync(path.resolve(root,file),'utf8'))];
+const externalTags=texts.flatMap((text,i)=>[...text.matchAll(/<(?:script|iframe|img)\b[^>]*src=["'](https?:\/\/[^"']+)/g)].map(m=>({file:i?active[i-1]:'index.html',host:new URL(m[1]).hostname})));
+const trackerPatterns=['googletagmanager.com','google-analytics.com','connect.facebook.net','hotjar.com','clarity.ms','plausible.io','cdn.segment.com'];
+const trackers=trackerPatterns.filter(host=>texts.some(text=>text.includes(host)));
+const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(dir,entry.name)):[path.join(dir,entry.name)]);
+const art=walk(root).filter(file=>/\.(png|jpg|jpeg|svg|webp)$/i.test(file)).map(file=>({file:path.relative(root,file).replaceAll('\\','/'),bytes:fs.statSync(file).size,sha256:createHash('sha256').update(fs.readFileSync(file)).digest('hex'),rightsEvidence:'No automatic rights conclusion; see source-rights notes.'}));
+const report={release:'X4.9',date:'2026-09-11',activeScriptsAndStyles:active.length,automaticExternalTags:externalTags,knownTrackers:trackers,scope:'Static inspection of index and directly loaded scripts/styles. Not a deployed network trace or proof of legal compliance.',imageFiles:art.length,images:art};
+fs.writeFileSync('docs/EVORANK-X4.9-ASSET-AUDIT.json',JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({activeFiles:active.length,externalTags:externalTags.length,knownTrackers:trackers,imageFiles:art.length}));

@@ -1,0 +1,6 @@
+# Interne Pfade nie ausliefern, auch wenn sie versehentlich mitgezippt werden.
+/docs/*   /index.html  404
+/tools/*  /index.html  404
+/native/* /index.html  404
+
+/* /index.html 200

@@ -1,0 +1,49 @@
+/* EvoRank 10.11.3 — equal selection feedback and larger shoulder taps. */
+
+/* Invisible overlay: the full rounded shoulder cap reacts to a finger. */
+.rf113-shoulder-overlay{pointer-events:none}
+.rf113-shoulder-overlay ellipse,
+.rf113-muscle-hit{
+  fill:transparent!important;
+  fill-opacity:0!important;
+  stroke:transparent!important;
+  stroke-width:30!important;
+  pointer-events:all!important;
+  cursor:pointer;
+}
+
+/* Female selection keeps the crisp white contour shown on the hamstrings. */
+:is(.body-figure--female-893,.body-figure--female-892)
+  .muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible)
+  path:not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf113-muscle-hit):not(.rf911-anatomy-lines){
+  fill-opacity:1!important;
+  stroke:#fff!important;
+  stroke-width:3.2!important;
+  paint-order:stroke fill!important;
+  filter:brightness(1.2) saturate(1.42)
+    drop-shadow(0 0 3px #fff)
+    drop-shadow(0 0 11px var(--muscle-color))!important;
+}
+
+/* A masked male muscle now has the same bright edge/glow as the female path. */
+.body-figure--male-v920 .rf920-muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible) .rf920-muscle-fill{
+  fill:var(--muscle-color)!important;
+  opacity:1!important;
+  mix-blend-mode:normal!important;
+  filter:brightness(1.28) saturate(1.58) contrast(1.1)
+    drop-shadow(0 0 2px #fff)
+    drop-shadow(0 0 5px #fff)
+    drop-shadow(0 0 14px var(--muscle-color))!important;
+}
+
+/* Do not draw an extra anatomy line across the newly fitted lat plate. */
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region--lats .rf911-anatomy-lines{display:none!important}
+
+@media(hover:none){
+  .body-figure--male-v920 .rf920-muscle-region.is-selected .rf920-muscle-fill{
+    filter:brightness(1.3) saturate(1.62) contrast(1.12)
+      drop-shadow(0 0 2px #fff)
+      drop-shadow(0 0 6px #fff)
+      drop-shadow(0 0 15px var(--muscle-color))!important;
+  }
+}

@@ -1,0 +1,26 @@
+EVORANK 10.8 – START HIER
+
+1. Lies zuerst CONTINUE-HERE.md.
+2. Lies EVORANK-VERSION-10.8.json und EVORANK-RELEASE-NOTES-10.8.md.
+3. Für die dauerhafte Garmin-Verbindung lies GARMIN-CONNECT-SETUP.md.
+4. Die direkt deploybare App liegt unter public/rankforge/.
+5. Netlify: EVORANK-10.8-NETLIFY.zip entpacken und den Ordner mit index.html,
+   netlify.toml und dem Ordner netlify in das bestehende Projekt hochladen.
+6. Windows: ZIP entpacken und EVORANK-STARTEN.bat oder EVORANK.exe öffnen.
+   Node.js wird beim Endnutzer nicht benötigt.
+
+Wichtiger Stand:
+- Produktname EVORANK
+- Version 10.8
+- Build 1080-r1
+- Offline-Cache evorank-v10.8.0-r1
+- Schema 34
+- Home- und Ranks-Auswahl sind getrennt.
+- Home- und Ranks-Muskelmarkierungen sind getrennt.
+- Der Schwimmrang Seepferdchen hat ein eigenes Piktogramm.
+- Garmin-Dauersynchronisierung ist technisch vorbereitet und benötigt vor der
+  Aktivierung Garmins Developer-Freigabe und Zugangsdaten.
+- Support-Adresse: evorank.fitness@gmail.com
+
+Alte technische Speicher- und Ordnernamen bleiben zur Datenkompatibilität
+bestehen. Das vorhandene Design nur auf ausdrücklichen Wunsch verändern.

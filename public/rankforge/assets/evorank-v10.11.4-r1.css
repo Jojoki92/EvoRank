@@ -1,0 +1,119 @@
+/* EvoRank 10.11.4 — normal body art, unmistakable selection and calm set spacing. */
+
+/* Keep the original anatomy visible. Muscle colour appears only on interaction. */
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region
+  path:not(.rf114-muscle-hit):not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines){
+  fill:transparent!important;
+  fill-opacity:0!important;
+  stroke:transparent!important;
+  filter:none!important;
+  transition:fill-opacity .16s ease,filter .16s ease,stroke .16s ease!important;
+}
+
+:is(.body-figure--female-893,.body-figure--female-892) .muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible)
+  path:not(.rf114-muscle-hit):not(.rf911-muscle-hit):not(.rf910-muscle-hit):not(.rf911-anatomy-lines){
+  fill:var(--muscle-color)!important;
+  fill-opacity:.8!important;
+  stroke:#fff!important;
+  stroke-width:3.4!important;
+  paint-order:stroke fill!important;
+  filter:brightness(1.14) saturate(1.22) drop-shadow(0 0 5px #fff) drop-shadow(0 0 13px var(--muscle-color))!important;
+}
+
+.body-figure--male-v920 .rf920-muscle-region .rf920-muscle-fill{
+  opacity:0!important;
+  fill-opacity:0!important;
+  filter:none!important;
+  transition:opacity .16s ease,filter .16s ease!important;
+}
+
+.body-figure--male-v920 .rf920-muscle-region:is(.is-selected,.is-pressed,:hover,:focus-visible) .rf920-muscle-fill{
+  opacity:.82!important;
+  fill-opacity:.82!important;
+  fill:var(--muscle-color)!important;
+  mix-blend-mode:normal!important;
+  filter:brightness(1.18) saturate(1.3) drop-shadow(0 0 5px #fff) drop-shadow(0 0 14px var(--muscle-color))!important;
+}
+
+.rf114-muscle-hit,.rf114-shoulder-targets ellipse{
+  fill:transparent!important;
+  fill-opacity:0!important;
+  stroke:transparent!important;
+  pointer-events:all!important;
+  cursor:pointer;
+}
+.rf114-muscle-hit{stroke-width:34!important}
+.rf114-shoulder-targets{pointer-events:none}
+.rf114-shoulder-targets ellipse{stroke-width:18!important}
+
+.body-figure--male-v920 .rf920-muscle-region.is-selected .rf920-muscle-hit{
+  fill:transparent!important;
+  stroke:#fff!important;
+  stroke-width:3.2!important;
+  paint-order:stroke!important;
+  filter:drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px var(--muscle-color))!important;
+}
+
+/* Remove the clipped support teaser from the bottom of Profile. */
+.rf111-safety-entry{display:none!important}
+.profile-screen{padding-bottom:calc(112px + var(--safe-bottom))!important}
+.profile-screen .settings-list>button>div{min-width:0}
+.profile-screen .settings-list>button strong,
+.profile-screen .settings-list>button small{display:block!important;white-space:normal!important;line-height:1.28}
+.profile-screen .settings-list>button small{margin-top:4px!important}
+
+/* Calendar heading has the same compact hierarchy on Windows and iPhone. */
+html[data-ui-style="minimal"] .rf1000-calendar-screen .rf1000-screen-title h1,
+.rf1000-calendar-screen .rf1000-screen-title h1{
+  max-width:100%;
+  margin-top:3px!important;
+  font-size:clamp(1.3rem,3.8vw,1.7rem)!important;
+  line-height:1.04!important;
+  letter-spacing:-.04em!important;
+  overflow-wrap:normal;
+}
+.rf1000-screen-title>div{min-width:0}
+.rf1000-calendar-screen{width:min(100%,560px)!important;margin-inline:auto!important}
+
+/* Unfinished sets are separated by space and neutral structure, not colour. */
+.v72-set-stack{gap:14px!important;padding:8px 12px 16px!important}
+.v72-set-card:not(.is-done){
+  position:relative;
+  padding:12px!important;
+  border:1px solid var(--line-strong)!important;
+  border-top-width:3px!important;
+  border-radius:15px!important;
+  background:var(--surface-2)!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.13),inset 0 1px rgba(255,255,255,.025)!important;
+}
+.v72-set-card:not(.is-done)+.v72-set-card:not(.is-done){margin-top:2px}
+.v72-set-card:not(.is-done) .v72-set-card__head{
+  min-height:38px;
+  padding-bottom:9px;
+  border-bottom:1px solid var(--line);
+}
+.v72-set-card:not(.is-done) .v72-set-card__number{
+  border:1px solid var(--line-strong);
+  background:var(--surface)!important;
+}
+.v72-set-card:not(.is-done) .v72-set-card__fields{margin-top:12px!important}
+.v72-set-card:not(.is-done) .v72-set-input,
+.v72-set-card:not(.is-done) .v72-set-detail{border-color:var(--line-strong)!important}
+
+@media(max-width:600px){
+  .screen{padding-inline:14px!important}
+  .rf1000-calendar-screen{width:100%!important}
+  .rf1000-screen-title{grid-template-columns:40px minmax(0,1fr) auto!important;gap:10px!important}
+  .rf1000-calendar-card{padding:15px!important;border-radius:22px!important}
+  .rf1000-month-grid{gap:5px!important}
+  .v72-set-stack{gap:13px!important;padding-inline:9px!important}
+  .v72-set-card:not(.is-done){padding:11px!important}
+}
+
+@media(hover:none){
+  :is(.body-figure--female-893,.body-figure--female-892) .muscle-region:not(.is-selected) path:not(.rf114-muscle-hit),
+  .body-figure--male-v920 .rf920-muscle-region:not(.is-selected) .rf920-muscle-fill{
+    fill-opacity:0!important;
+    opacity:0!important;
+  }
+}

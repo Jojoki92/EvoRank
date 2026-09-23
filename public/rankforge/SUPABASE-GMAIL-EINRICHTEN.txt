@@ -1,0 +1,26 @@
+EVORANK 10.10 – GMAIL IN SUPABASE
+=================================
+
+1. Im Google-Konto evorank.fitness@gmail.com die Zwei-Schritt-Bestätigung aktivieren.
+2. Ein Google-App-Passwort für EVORANK erzeugen.
+3. Supabase → Authentication → Emails / SMTP öffnen.
+4. Folgende Werte eintragen:
+
+   Sender email address: evorank.fitness@gmail.com
+   Sender name:          EVORANK
+   Host:                 smtp.gmail.com
+   Port:                 465
+   Username:             evorank.fitness@gmail.com
+   Password:             Google-App-Passwort (nicht das normale Gmail-Passwort)
+   Minimum interval:     60 Sekunden
+
+5. Speichern.
+6. Unter Authentication → URL Configuration die endgültige HTTPS-Adresse als
+   Site URL und zusätzlich als Redirect URL mit /** eintragen.
+7. Registrierung, Bestätigung und Passwort-Reset mit einem Testkonto prüfen.
+
+Die gelbe Gmail-Warnung in Supabase bedeutet: Gmail ist für kleine Tests gedacht.
+Für eine öffentliche App später einen Transaktionsmail-Anbieter mit eigener
+Domain, SPF, DKIM und DMARC verwenden.
+
+Das App-Passwort niemals in cloud-config.js, Git oder eine ZIP für Nutzer legen.

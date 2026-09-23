@@ -1,0 +1,24 @@
+/* Reuse the established surfaces, type and button variants. */
+.rfx47-age,.rfx47-plan-details{margin:14px 0;color:var(--muted);line-height:1.5}
+.rfx47-age summary,.rfx47-plan-details summary{cursor:pointer;color:var(--text);font-weight:700;padding:10px 0}
+.rfx47-age p,.rfx47-plans p{line-height:1.55;color:var(--muted)}
+.rfx47-age a{color:var(--accent)}
+.rfx47-age .button{display:flex;margin-top:14px}
+.rfx47-plans{display:grid;gap:18px}
+.rfx47-plans>section{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,20px)}
+.rfx47-plans h3{margin:0;font-size:1rem}
+.rfx47-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.rfx47-actions .button{min-height:44px}
+.rfx47-plan-list{list-style:none;margin:12px 0;padding:0}
+.rfx47-plan-list li+li{border-top:1px solid var(--line)}
+.rfx47-plan-list summary{display:grid;grid-template-columns:80px minmax(0,1fr) auto;gap:10px;align-items:center;cursor:pointer;padding:12px 0}
+.rfx47-plan-list summary span,.rfx47-plan-list summary small{color:var(--muted)}
+.rfx47-plan-list summary strong{font-size:.85rem;overflow-wrap:anywhere}
+.rfx47-plan-list p{margin:0 0 14px}
+.rfx47-plan-empty{margin:16px 0}
+.rf1000-wizard>section>header .button{margin-left:auto}
+/* Only Home cards lose the coloured frame; the Ranks screen keeps its styling. */
+.rf103-home-ranks .rf103-rank-card{border-color:var(--line)!important;box-shadow:none!important}
+.rf103-home-ranks .rf103-rank-card::before{display:none!important}
+.rf103-home-ranks .rf103-rank-card__mark{border-color:var(--line)!important;box-shadow:none!important}
+@media(max-width:480px){.rfx47-plan-list summary{grid-template-columns:66px minmax(0,1fr);gap:6px}.rfx47-plan-list summary small{grid-column:2}.rfx47-actions .button{flex:1 1 140px}}

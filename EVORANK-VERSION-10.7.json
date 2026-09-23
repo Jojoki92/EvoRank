@@ -1,0 +1,13 @@
+{
+  "product": "EVORANK",
+  "version": "10.7",
+  "technicalCore": "9.2.0",
+  "build": {
+    "assetTag": "1070-r2",
+    "serviceWorkerCache": "evorank-v10.7.0-r2",
+    "schemaVersion": 33
+  },
+  "change": "home-screen icon updated; domain-aware Supabase redirect; confirmed users receive separate local data areas",
+  "releasePolicy": "Every delivered update receives a new visible version number.",
+  "delivery": ["public-site", "netlify", "windows-no-node", "complete-backup"]
+}
