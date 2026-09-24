@@ -39,8 +39,9 @@ test('profile exposes weight first, saves only through its form and retains hist
  const {dom,w,app}=setup();try{
   app.state.profile.bodyweightKg=70;app.state.profile.birthDate='2000-01-01';app.state.workouts=[{id:'old',bodyweightKg:65,endedAt:'2026-09-01',exercises:[]}];
   const history=JSON.stringify(app.state.workouts),root=fragment(w,app.renderProfileEditModal()),form=root.querySelector('form');
-  assert.ok(form.firstElementChild.classList.contains('x51-body-fields'));assert.equal(form.querySelector('.v7-field-grid input').name,'x51Weight');
-  assert.equal(form.querySelectorAll('[name="x51Weight"]').length,1);assert.ok(form.querySelector('.x56-profile-details [name="name"]'));
+  // X6.1: Name & Spitzname stehen oben, direkt danach die Körperdaten.
+  assert.ok(form.firstElementChild.classList.contains('x61-name-fields'));assert.ok(form.children[1].classList.contains('x51-body-fields'));assert.equal(form.querySelector('.v7-field-grid input').name,'x51Weight');
+  assert.equal(form.querySelectorAll('[name="x51Weight"]').length,1);assert.ok(form.querySelector('.x61-name-fields [name="name"]'));
   assert.equal(form.elements.x51Age.closest('label').hidden,true);form.elements.x51Birth.value='';app.handleChange({target:form.elements.x51Birth});assert.equal(form.elements.x51Age.closest('label').hidden,false);
   form.elements.x51Weight.value='74.5';app.render=()=>{};await app.handleSubmit({target:form,preventDefault(){}});
   assert.equal(app.state.profile.bodyweightKg,74.5);assert.equal(JSON.stringify(app.state.workouts),history);

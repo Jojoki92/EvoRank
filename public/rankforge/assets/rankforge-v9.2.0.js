@@ -6790,7 +6790,7 @@ function muscleSvgGroup(key, paths, statuses, selected) {
   const status = statuses[key];
   const hasRank = Boolean(status?.score);
   const group = MUSCLE_GROUPS.find(item => item.key === key);
-  const color = hasRank ? status.rank.color : (MUSCLE_COLORS[group?.name] || MUSCLE_COLORS[group?.muscles?.[0]] || "var(--bodygraph-neutral)");
+  const color = hasRank ? status.rank.color : rankFromScore(0).color; // X6.1: untrainiert = Holz
   const name = status?.group?.name || key;
   return `<g class="muscle-region muscle-region--${escapeAttr(key)} ${hasRank ? "has-rank" : "is-unranked"} ${selected === key ? "is-selected" : ""}" style="--muscle-color:${escapeAttr(color)}" data-action="select-muscle" data-muscle="${escapeAttr(key)}" role="button" tabindex="0" aria-label="${escapeAttr(name)}">${paths}</g>`;
 }
@@ -6800,7 +6800,7 @@ function bodyMaskGroup(view, key, statuses, selected, pathData, interactive = tr
   const status = statuses[key];
   const hasRank = Boolean(status?.score);
   const group = MUSCLE_GROUPS.find(item => item.key === key);
-  const color = hasRank ? status.rank.color : (MUSCLE_COLORS[group?.name] || MUSCLE_COLORS[group?.muscles?.[0]] || "var(--bodygraph-neutral)");
+  const color = hasRank ? status.rank.color : rankFromScore(0).color; // X6.1: untrainiert = Holz
   const name = status?.group?.name || key;
   const safePath = escapeAttr(pathData);
   const interaction = interactive

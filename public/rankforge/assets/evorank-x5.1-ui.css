@@ -390,3 +390,82 @@
 .x60-search input{min-width:0;height:46px;padding:0 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:16px}
 .x60-join{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 4px;padding:10px 12px;border-radius:16px;border:1px solid var(--line);font-size:.88rem}
 
+
+/* X6.1: Pausentimer-Auswahl als eine durchgehend scrollbare Seite. */
+.v73-rest-setup-modal .v73-rest-setup{overflow-y:auto!important;-webkit-overflow-scrolling:touch;display:block!important}
+.v73-rest-setup-modal .v73-rest-scroll{flex:none!important;max-height:none!important;overflow:visible!important;height:auto!important}
+.v73-rest-setup-modal .v73-rest-footer{position:sticky;bottom:0;z-index:2;background:inherit}
+
+/* X6.1: Satzpause kompakt als eine Zeile direkt auf der Navigationsleiste. */
+.rf893-unified-dock{display:flex!important;align-items:center;gap:6px;padding:6px 8px!important;min-height:0!important;height:auto!important;bottom:calc(var(--x61-nav-bottom,8px) + 70px)!important;border-radius:22px 22px 0 0!important;border-bottom:0!important;box-shadow:0 -8px 24px rgba(0,0,0,.25)!important}
+.rf893-unified-dock .rf893-dock-top,.rf893-unified-dock .rf893-dock-controls{display:contents!important}
+.rf893-unified-dock .rf893-dock-open{flex:1 1 auto;min-width:0;display:flex!important;align-items:center;gap:8px;padding:4px 6px!important;background:transparent!important;border:0!important;min-height:44px!important}
+.rf893-unified-dock .rf893-dock-open>div,.rf893-unified-dock .rf893-dock-open>svg,.rf893-unified-dock .rf893-dock-settings{display:none!important}
+.rf893-unified-dock .rf893-dock-glyph{width:34px!important;height:34px!important;flex:0 0 34px}
+.rf893-unified-dock .rest-time,.rf893-unified-dock .live-duration{font-size:1.25rem!important}
+.rf893-unified-dock .rf893-dock-controls>button,.rf893-unified-dock .rf893-dock-set{flex:0 0 auto;min-width:44px!important;width:auto!important;height:44px!important;min-height:44px!important;padding:0 10px!important;border-radius:14px!important;font-size:.9rem!important}
+.rf893-unified-dock .rf893-dock-set span{display:none!important}
+.rf893-unified-dock .rf893-dock-progress{position:absolute!important;left:18px;right:18px;top:0;height:2px!important;margin:0!important}
+.rf893-unified-dock ~ .bottom-nav,.app-shell:has(.rf893-unified-dock) .bottom-nav{border-top-left-radius:0!important;border-top-right-radius:0!important}
+.rf893-unified-dock .rf893-dock-open{flex:1 0 auto!important;gap:6px!important}
+.rf893-unified-dock .rf893-dock-controls>button,.rf893-unified-dock .rf893-dock-set{min-width:40px!important;padding:0 8px!important;font-size:.85rem!important}
+.rf893-unified-dock .rf893-dock-set{order:10}
+.rf893-unified-dock [data-action="rest-close"]{order:11}
+.rf893-unified-dock .rest-time,.rf893-unified-dock .live-duration{font-size:1.1rem!important;font-variant-numeric:tabular-nums}
+
+/* X6.1: Freundeskarte mit kleiner Körpergrafik, antippbar. */
+.x60-friend{display:grid;grid-template-columns:86px 1fr;gap:12px;align-items:center;cursor:pointer}
+.x60-friend:active{transform:scale(.99)}
+.x61-friend-body{width:86px;height:150px;display:grid;place-items:center;overflow:hidden}
+.x61-friend-body svg,.x61-friend-body .body-figure{width:100%!important;height:100%!important;max-width:86px;max-height:150px}
+.x61-friend-body .x60-avatar{width:56px;height:56px;flex-basis:56px;font-size:1.3rem}
+.x61-friend-info{min-width:0}
+
+/* X6.1: Übungen klar getrennt – rote Umrandung statt dickem Strich, Sätze einklappbar. */
+.rfx41-workout-exercise::before,.v7-workout-exercise::before{display:none!important}
+.rfx41-workout-exercise,.v7-workout-exercise{border:2px solid rgba(var(--accent-rgb,47,125,255),.55)!important;margin-bottom:18px!important}
+.x61-collapse{margin-left:auto;min-height:36px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.x61-collapsed .v72-set-stack,.x61-collapsed .rfx2-load-info,.x61-collapsed .rf82-execution-badge,.x61-collapsed .exercise-note{display:none!important}
+.x61-collapse-bar{display:flex;align-items:center;gap:8px;padding:6px 14px 10px}
+.x61-collapse-bar small{color:var(--muted)}
+/* X6.1: Name-Felder oben, Daten wiederfinden */
+.x61-name-fields{border:0;padding:0;margin:0 0 14px;display:grid;gap:10px}
+.x61-name-fields legend{font-weight:800;margin-bottom:8px}
+.x61-name-fields small{color:var(--muted);font-size:.78rem}
+.x61-recover-card{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.x61-recover-card div{display:grid;gap:2px;min-width:0}
+.x61-recover-card small,.x61-muted{color:var(--muted)}
+.x61-recover{display:grid;gap:12px}
+.x61-recover-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--surface-2,rgba(255,255,255,.04))}
+.x61-recover-row div{display:grid;gap:2px;min-width:0}
+.x61-recover-row small{color:var(--muted)}
+/* X6.1: Rang-Reiter in einer Zeile, bei Platzmangel seitlich wischen */
+#app .x53-rank-tabs{display:flex!important;flex-wrap:nowrap;overflow-x:auto!important;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;gap:4px}
+#app .x53-rank-tabs::-webkit-scrollbar{display:none}
+#app .x53-rank-tabs>button{flex:1 0 auto!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:keep-all;min-height:42px;padding:8px 9px!important;font-size:.78rem!important;scroll-snap-align:center}
+/* X6.1: Schnellzugriff als ruhige Liste im App-Stil */
+#app .rf880-profile-quick>div:last-child{display:grid!important;grid-template-columns:1fr!important;gap:0!important;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+#app .rf880-profile-quick>div:last-child>button{grid-column:auto!important;display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:12px 16px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;text-align:left}
+#app .rf880-profile-quick>div:last-child>button+button{border-top:1px solid var(--line)!important}
+#app .rf880-profile-quick>div:last-child>button:active{background:rgba(var(--accent-rgb),.08)!important}
+#app .rf880-profile-quick button>span:first-child{flex:0 0 42px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center}
+#app .rf880-profile-quick button>div{flex:1}
+#app .rf880-profile-quick button strong{font-size:.95rem!important;line-height:1.25}
+#app .rf880-profile-quick button small{font-size:.78rem!important;margin-top:2px}
+#app .rf880-profile-quick>div:last-child>button::after{content:"";flex:0 0 8px;width:8px;height:8px;border-right:2px solid var(--muted);border-top:2px solid var(--muted);transform:rotate(45deg);margin-right:4px;opacity:.7}
+/* X6.1: Fortschrittskarte ruhiger und im EvoRank-Stil */
+#app .x51-progress>header{align-items:center}
+#app .x51-progress>header [data-action="x51-pin"]{width:40px;height:40px;min-height:40px;padding:0;border-radius:50%;display:grid;place-items:center}
+#app .x51-progress .x51-chart-controls{gap:8px;margin-top:10px}
+#app .x51-progress .x51-chart-controls label{min-width:0;font-size:0}
+#app .x51-progress .x51-chart-controls select{margin:0;min-height:36px;padding:6px 30px 6px 12px;border-radius:999px;font-size:.8rem;text-overflow:ellipsis}
+#app .x51-chart-value{align-items:center;margin-top:16px}
+#app .x51-chart-value strong{font-size:1.9rem;letter-spacing:-.02em}
+#app .x61-trend{flex-basis:100%;font-size:.8rem;font-weight:700;color:var(--muted)}
+#app .x61-trend.is-up{color:var(--success,#32d17a)}
+#app .x61-trend.is-down{color:var(--danger,#ff5a64)}
+#app .x51-grid{stroke-dasharray:3 5;opacity:.7}
+#app .x51-line{stroke-width:3;stroke-linecap:round}
+#app .x51-point{stroke:var(--surface);stroke-width:2}
+#app .x51-point.x61-last{filter:drop-shadow(0 0 6px rgba(var(--accent-rgb),.7))}
+#app .x61-area{stroke:none}

@@ -13,7 +13,11 @@
   function ownsCurrentState(status) {
     const app = window.RANKFORGE_APP;
     const expected = window.EVORANK_LOCAL_ACCOUNTS?.ensure?.(status.email);
-    return !!expected && app?.accountKey === expected;
+    if (!expected || !app?.accountKey) return false;
+    if (app.accountKey === expected) return true;
+    // X6.1: an older device may still use the hashed area of the same e-mail.
+    const hashed = typeof rf85HashEmail === 'function' ? `local-${rf85HashEmail(String(status.email || '').trim().toLowerCase())}` : '';
+    return !!hashed && app.accountKey === hashed;
   }
   function read(state) {
     const status = identity(); if (!status || !ownsCurrentState(status)) return false;

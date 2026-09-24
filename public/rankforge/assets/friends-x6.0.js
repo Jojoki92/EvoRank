@@ -61,6 +61,14 @@
     return `<button class="button button--primary x60-small" data-action="x60-request" data-nickname="${esc(person.nickname)}" ${busy}>Anfragen</button>`;
   }
 
+  function miniBody(snap) {
+    if (typeof bodyFigure !== 'function' || !snap?.muscles || typeof snap.muscles !== 'object') return avatar({displayName: snap?.name || '?'});
+    try {
+      const statuses = Object.fromEntries(Object.entries(snap.muscles).map(([key, value]) => [key, {score: Number(value?.score || 0), rank: {color: value?.rank?.color || '#B9824E', name: value?.rank?.name || ''}, group: {name: key}}]));
+      return bodyFigure('front', statuses, null, {hideLabel: true, interactive: false, className: 'x61-mini-figure', bodyProfile: snap.bodyProfile});
+    } catch { return avatar({displayName: snap?.name || '?'}); }
+  }
+
   function friendCard(friend) {
     const snap = friend.snapshot && typeof friend.snapshot === 'object' ? friend.snapshot : {};
     const stats = snap.stats || {};
@@ -76,11 +84,13 @@
     if (Number(stats.streak) > 0) facts.push(`${Number(stats.streak)} Tage Serie`);
     if (stats.lastWorkoutAt) facts.push(`zuletzt trainiert ${ago(stats.lastWorkoutAt)}`);
     const name = friend.displayName || friend.nickname || 'Freund';
-    return `<article class="x60-friend">
-      <header>${avatar(friend)}<div><strong>${esc(name)}</strong><small>@${esc(friend.nickname || '')}${friend.updatedAt ? ' · Stand ' + esc(ago(friend.updatedAt)) : ''}</small></div>
-      <button class="icon-button icon-button--ghost" data-action="x60-remove" data-friend-id="${esc(friend.id)}" data-name="${esc(name)}" aria-label="${esc(name)} entfernen">${ico('trash', 16) || '✕'}</button></header>
+    return `<article class="x60-friend" data-action="x61-friend" data-friend-id="${esc(friend.id)}" role="button" tabindex="0" aria-label="${esc(name)} ansehen">
+      <div class="x61-friend-body">${miniBody(snap)}</div>
+      <div class="x61-friend-info">
+      <header><div><strong>${esc(name)}</strong><small>@${esc(friend.nickname || '')}${friend.updatedAt ? ' · Stand ' + esc(ago(friend.updatedAt)) : ''}</small></div></header>
       ${lines.length ? `<div class="x60-ranks">${lines.join('')}</div>` : `<p class="x60-muted">Noch keine geteilten Werte. Sie erscheinen, sobald ${esc(name)} die App öffnet.</p>`}
       ${facts.length ? `<p class="x60-muted">${esc(facts.join(' · '))}</p>` : ''}
+      </div>
     </article>`;
   }
 
@@ -101,8 +111,8 @@
     const list = state.loading ? `<p class="x60-muted">Suche läuft …</p>`
       : results.length ? results.map(p => personRow(p, actionFor(p, state))).join('')
       : `<p class="x60-muted">${state.query ? 'Niemand gefunden. Versuch es mit einem anderen Namen.' : 'Noch keine anderen Profile.'}</p>`;
-    const find = `<section class="x60-section"><h2>${state.query ? 'Suchergebnis' : 'Leute auf EvoRank'}</h2>
-      <form class="x60-search" data-form="x60-search"><input name="x60q" type="search" value="${esc(state.query)}" placeholder="Name oder @spitzname" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" maxlength="30"><button class="button button--primary" type="submit">Suchen</button></form>
+    const find = `<section class="x60-section x61-find"><h2>${state.query ? 'Suchergebnis' : 'Leute auf EvoRank'}</h2>
+      <form class="x60-search" data-form="x60-search"><input name="x60q" type="search" value="${esc(state.query)}" placeholder="Name oder @spitzname" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" maxlength="30"></form>
       ${list}</section>`;
     const msg = state.message ? `<p class="x60-note" role="status">${esc(state.message)}</p>` : '';
     return `<section class="screen friends-screen x60-friends">${title}<p class="x60-muted x60-me">Du bist @${esc(s.nickname)} · Stand wird alle 30 Sekunden aktualisiert.</p>${msg}${incoming}${friends}${find}${outgoing}</section>`;
@@ -123,7 +133,9 @@
       state.message = error?.message || 'Suche gerade nicht möglich.';
     } finally {
       state.loading = false;
+      const focused = document.activeElement?.name === 'x60q';
       if (app.ui?.view === 'friends') app.render?.();
+      if (focused) { const input = document.querySelector('[name="x60q"]'); if (input) { input.focus(); const end = input.value.length; try { input.setSelectionRange(end, end); } catch {} } }
     }
   }
 
@@ -211,6 +223,22 @@
     return render(this);
   };
 
+  const oldModal = proto.renderModal;
+  proto.renderModal = function (...args) {
+    const html = oldModal.apply(this, args);
+    if (this.ui?.modal?.type !== 'rf87-friend' || !status().signedIn) return html;
+    const t = document.createElement('template');
+    t.innerHTML = html;
+    t.content.querySelectorAll('[data-action="rf87-add-friend"]').forEach(button => button.remove());
+    const friend = data().friends.find(f => f.id === this.ui.modal.athleteId);
+    t.content.querySelectorAll('[data-action="rf87-remove-friend-ask"]').forEach(button => {
+      button.dataset.action = 'x60-remove';
+      button.dataset.friendId = this.ui.modal.athleteId;
+      button.dataset.name = friend?.displayName || friend?.nickname || 'Freund';
+    });
+    return t.innerHTML;
+  };
+
   proto.renderRanks = function (...args) {
     return leaderboardJoin(this, old.renderRanks.apply(this, args));
   };
@@ -228,10 +256,16 @@
   proto.handleClick = async function (event) {
     const element = event?.target?.closest?.('[data-action]');
     const action = element?.dataset?.action || '';
-    if (!action.startsWith('x60-')) return old.handleClick.call(this, event);
+    if (!/^x6[01]-/.test(action)) return old.handleClick.call(this, event);
     event.preventDefault?.();
     const acc = account();
     if (action === 'x60-account') { window.RANKFORGE_ACCOUNT_UI?.open?.(); return; }
+    if (action === 'x61-friend') {
+      const id = element.dataset.friendId;
+      if ((this.state.friendProfiles || []).some(f => f.athleteId === id)) this.openModal('rf87-friend', {athleteId: id});
+      else this.showToast?.('Der Stand wird gerade geladen. Versuch es gleich nochmal.');
+      return;
+    }
     if (action === 'x60-refresh') { await act(this, () => Promise.resolve(), '', 'Aktualisiert.'); return; }
     if (action === 'x60-request') {
       const nick = element.dataset.nickname;
@@ -242,6 +276,7 @@
     if (action === 'x60-decline') { await act(this, () => acc.declineFriendRequest(element.dataset.requestId), element.dataset.requestId, ''); return; }
     if (action === 'x60-remove') {
       if (!window.confirm(`${element.dataset.name || 'Diese Person'} als Freund entfernen?`)) return;
+      this.closeModal?.();
       await act(this, () => acc.removeFriend(element.dataset.friendId), '', 'Freund entfernt.');
       return;
     }
@@ -258,6 +293,19 @@
       await reloadBoards(this);
     }
   };
+
+  // X6.1: Liste filtert sich beim Tippen; kurz danach sucht der Server mit.
+  let typing = 0;
+  document.addEventListener('input', event => {
+    const input = event.target;
+    if (input?.name !== 'x60q') return;
+    const term = input.value.trim().replace(/^@+/, '').toLocaleLowerCase('de-DE');
+    document.querySelectorAll('.x61-find .x60-person').forEach(row => { row.hidden = term.length > 0 && !row.innerText.toLocaleLowerCase('de-DE').includes(term); });
+    window.clearTimeout(typing);
+    const app = window.RANKFORGE_APP;
+    if (!app || term.length === 1) return;
+    typing = window.setTimeout(() => search(app, term), 450);
+  });
 
   window.EVORANK_X60_FRIENDS = Object.freeze({search: (q, app = window.RANKFORGE_APP) => search(app, q)});
 })();

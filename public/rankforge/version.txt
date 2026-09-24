@@ -1,2 +1,2 @@
-EvoRank X6.0
-build=x6.0-r1
+EvoRank X6.1
+build=x6.1-r1

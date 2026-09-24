@@ -1,6 +1,11 @@
-# EvoRank X6.0 – rechtliche Prüfung und notwendige Betreiberangaben
+# EvoRank X6.1 – rechtliche Prüfung und notwendige Betreiberangaben
 
-Stand: 23.09.2026. Eine rechtliche Gesamtfreigabe ist **nicht** erreicht. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
+Stand: 24.09.2026. Eine rechtliche Gesamtfreigabe ist **nicht** erreicht. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
+
+## In X6.1
+
+- Keine neuen Datenarten. „Daten wiederfinden“ liest nur Daten auf dem eigenen Gerät und die eigene Cloud-Sicherung; Übernehmen legt vorher eine Kopie an.
+- Freunde sehen weiterhin nur freigegebene Werte (Spitzname, Anzeigename, Rang, Muskel-Ränge).
 
 ## In X6.0 umgesetzt
 
