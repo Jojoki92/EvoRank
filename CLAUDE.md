@@ -103,7 +103,7 @@ Jede neue Version (X6.1, X6.2, …) als **Windows**- und **Netlify**-Ordner.
     `x` 1hsM8icTw0JAz0q5yMmSfNxFfj8QZCPKJ, `x5` 1kmFAyLj6-x_D1gmqfwbODjikbpsZ_T9n,
     `X5.8` 1kQZTWvuwrj-DyysWaliGP1KShhnpl33u, `X5.9` 1EkqgzOHK-mX3OWjMbqwbtViDzaj0MDyK,
     `x6` 1a9KOFsyRXOj33ApvucDJ35asIme8svYn, `X6.0` 1dnPfG832GTQqeIdJh6YYNohv-11jUb5z,
-    `X6.1` (siehe Drive).
+    `X6.1` 1cAwDol3hjPzpYDP8n3on58uQW2ZjgwGp.
   - **Grenze:** Das Drive-Werkzeug kann nur kleine Textdateien hochladen (Inhalt läuft durch
     den Chat). Bilder, `EVORANK.exe` und ganze Pakete (~19 MB je ZIP) gehen so nicht.
   - Deshalb: Version-Ordner + Anleitung in Drive anlegen, die zwei Pakete als ZIP
