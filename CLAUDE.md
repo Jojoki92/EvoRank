@@ -97,6 +97,10 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 
 Jede neue Version (X6.1, X6.2, …) als **Windows**- und **Netlify**-Ordner.
 
+- **Wunsch 24.09.2026:** Alles immer als NEUE Datei in Google Drive speichern (nie überschreiben):
+  Anleitung, Rechtscheck, weitere Textdateien je Version. ZIPs gehen technisch nicht (siehe Grenze).
+- Netlify-Deploy 24.09.2026 erneut versucht: 403 (Umgebungs-Netzwerkregel). Anleitung für Johannes liegt
+  in Drive X6.1 `NETLIFY-FREIGABE-ANLEITUNG.md`. Sobald Hosts frei: `deploy-site` ausführen (X6.1 gewünscht).
 - Johannes' PC-Ziel (nur Doku): `C:\Users\johan\OneDrive\Dokumente\EvoRank\FREED\x\x5\X<version>\`.
 - **Google Drive** (verbunden): gleiche Struktur `EvoRank/FREED/x/x5/X<version>/`.
   - Ordner-IDs: `EvoRank` 10-hfnxncRLnX54LYD2NnvhJdKX9PCspl, `FREED` 131G7OSL2uTZmWIAdJ3619ucWy5Ff6Ahu,
