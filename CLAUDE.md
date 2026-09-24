@@ -15,7 +15,7 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 
 ## Stand
 
-- Aktuelle App: **X6.1 / x6.1-r1**. Nächste Lieferung: **X6.2**.
+- Aktuelle App: **X6.2 / x6.2-r1**. Nächste Lieferung: **X6.3**.
 - **Veröffentlichung auf Netlify war am 23.09.2026 blockiert:** Netzwerk-Regel der Umgebung sperrt
   `api.netlify.com` und `netlify-mcp.netlify.app`. Deploy-Weg: Netlify-Tool `deploy-site` (siteId s. unten)
   liefert einen `npx @netlify/mcp …`-Befehl; im Ordner des Netlify-Pakets ausführen. Johannes wurde gebeten,
@@ -39,6 +39,10 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
   Gmail-Altkonto → wieder Schlüssel `johannes` (vorher leerer `local-…`-Bereich = „Konto weg“).
   Frauen-Figur untrainiert = Holz, Workout roter Rahmen, Pausen-Leiste über Navigation, Ranks-Reiter einzeilig.
   @jojoki ist Johannes' zweites Konto (Schul-Mail), kein Fehler. Test-Skripte im Scratchpad (`look.mjs`, `flow61.mjs`).
+- X6.2 (24.09.2026): `assets/interface-x6.2.js`: Start zeichnet nur einmal (vorher >20×, Start 6,0 s → 1,7 s
+  bei 4× gedrosselter CPU), Service Worker öffnet sofort aus dem Speicher, Splash-Logo 192 px, Abbrechen oben /
+  Abschließen unten, Einklappen in der Kopfzeile, Übungsoptionen als Liste, Pausen-Leiste über der Navigation,
+  Wischen zum Löschen, Startseite tippen/halten+ziehen, Freunde nur per Suche, Wiederfinden in „Daten & Hilfe“.
 - Prüfung X5.9: `npm test` 140/140, Build ok, Smoke ok, Browser-Screenshots (Chromium,
   iPhone-Größe). Nicht geprüft: echtes iPhone.
 - Browser-Test hier: `packaging/windows/EVORANK-NODE-SERVER.mjs` starten, Playwright

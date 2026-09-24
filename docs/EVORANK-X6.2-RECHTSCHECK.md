@@ -1,6 +1,11 @@
-# EvoRank X6.1 – rechtliche Prüfung und notwendige Betreiberangaben
+# EvoRank X6.2 – rechtliche Prüfung und notwendige Betreiberangaben
 
 Stand: 24.09.2026. Eine rechtliche Gesamtfreigabe ist **nicht** erreicht. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
+
+## In X6.2
+
+- Freunde werden nicht mehr vorgeschlagen; Profile erscheinen nur bei gezielter Suche (weniger Sichtbarkeit fremder Profile).
+- Wischen zum Löschen betrifft nur eigene Vorlagen; abgeschlossene Trainings bleiben erhalten.
 
 ## In X6.1
 

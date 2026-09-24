@@ -1,6 +1,6 @@
-# EvoRank X6.1
+# EvoRank X6.2
 
-Vollständiger Projektstand X6.1 (`x6.1-r1`). Die App liegt in
+Vollständiger Projektstand X6.2 (`x6.2-r1`). Die App liegt in
 `public/rankforge/`. Framework, Grafiken, Datenbankskripte, Integrationen und
 Tests sind ebenfalls enthalten. Nächstes App-Update: X6.1.
 
@@ -41,7 +41,7 @@ Die Dateinamen mit X2 sind weiterhin Teil der aktuellen App.
 - [Gedächtnis und Arbeitsweise](CLAUDE.md)
 - [Projektregeln](AGENTS.md)
 - [Übergabe X5.7](CONTINUE-HERE-X5.7.md) und [Übergabe-Dokumente](docs/uebergabe-x5.7/)
-- [Anleitung X6.1](EVORANK-X6.1-ANLEITUNG.md)
+- [Anleitung X6.2](EVORANK-X6.2-ANLEITUNG.md)
 - [Strava, Garmin und Freunde einrichten](docs/EVORANK-X4.5-VERBINDUNGEN.md)
 - [Rangprüfung und Quellen](docs/EVORANK-X4.2-RANGPRUEFUNG.md)
 - [Prüfbericht X5.7](docs/EVORANK-X5.7-VALIDIERUNG.md)

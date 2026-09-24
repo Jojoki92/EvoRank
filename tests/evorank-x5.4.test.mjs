@@ -16,8 +16,9 @@ test('reordering preserves unsaved checkboxes, saves only on submit, and core pa
  const x=app();x.ui.modal={type:'x51-home'};const form=fragment(x.renderModal()).querySelector('form');
  assert.equal(form.querySelector('[name="module"][value="ranks"]'),null);assert.equal(form.querySelector('[name="module"][value="figure"]'),null);
  const row=form.querySelector('[data-module="friends"]'),check=row.querySelector('input');check.checked=true;const before=JSON.stringify(x.state.settings.homeX51);
- while(row.previousElementSibling)click(x,row.querySelector('[data-action="x51-module-up"]'));
- assert.equal(check.checked,true);assert.equal(JSON.stringify(x.state.settings.homeX51),before,'Cancel leaves settings unchanged');assert.equal(row.querySelector('[data-action="x51-module-up"]').disabled,true);
+ // X6.2: Pfeile entfernt; Ordnen per Halten und Ziehen verschiebt die Zeile im Formular.
+ assert.equal(row.querySelector('[data-action="x51-module-up"]'),null);row.parentElement.prepend(row);
+ assert.equal(check.checked,true);assert.equal(JSON.stringify(x.state.settings.homeX51),before,'Cancel leaves settings unchanged');
  await x.handleSubmit({target:form,preventDefault(){}});assert.equal(home.settings(x).moduleOrder[0],'friends');assert.equal(home.settings(x).modules.friends,true);assert.equal(x.ui.modal,null);
 });
 test('endurance analysis uses actual calendar months, distinct days, and totals without changing ranks or records',()=>{

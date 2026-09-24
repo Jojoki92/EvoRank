@@ -29,15 +29,24 @@
       const done = card.querySelectorAll('.v72-set-card.is-done').length;
       const isClosed = closed.has(id);
       card.classList.toggle('x61-collapsed', isClosed);
-      let bar = card.querySelector(':scope > .x61-collapse-bar');
-      if (!bar) {
-        bar = document.createElement('div');
-        bar.className = 'x61-collapse-bar';
-        card.querySelector(':scope > header')?.after(bar);
+      // X6.2: kleiner Knopf oben in der Kopfzeile statt eigener Leiste.
+      const header = card.querySelector(':scope > header');
+      if (!header) return;
+      let button = header.querySelector('.x61-collapse');
+      if (!button) {
+        button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'x61-collapse';
+        button.dataset.action = 'x61-collapse';
+        const menu = header.querySelector('[data-action="workout-exercise-menu"]');
+        if (menu) menu.before(button); else header.append(button);
       }
-      const label = `${isClosed ? 'Sätze zeigen' : 'Sätze einklappen'}`;
-      const html = `<small>${done} von ${sets.length} Sätzen erledigt</small><button type="button" class="x61-collapse" data-action="x61-collapse" data-instance="${esc(id)}" aria-expanded="${!isClosed}">${label} <span aria-hidden="true">${isClosed ? '▾' : '▴'}</span></button>`;
-      if (bar.innerHTML !== html) bar.innerHTML = html;
+      button.dataset.instance = id;
+      button.setAttribute('aria-expanded', String(!isClosed));
+      button.setAttribute('aria-label', isClosed ? 'Sätze zeigen' : 'Sätze einklappen');
+      const html = `<small>${done}/${sets.length}</small><span aria-hidden="true">${isClosed ? '▾' : '▴'}</span>`;
+      if (button.innerHTML !== html) button.innerHTML = html;
+      card.querySelector(':scope > .x61-collapse-bar')?.remove();
     });
   }
 
@@ -117,7 +126,7 @@
   // iPhone: Beim Tippen in ein Feld bleibt genau dieses Feld sichtbar.
   document.addEventListener('focusin', event => {
     const field = event.target;
-    if (!field?.matches?.('.modal input, .modal select, .modal textarea')) return;
+    if (!field?.matches?.('.modal input:not([type=checkbox]):not([type=radio]):not([type=range]), .modal textarea')) return;
     const keep = () => field.isConnected && document.activeElement === field && field.scrollIntoView({block: 'center', behavior: 'auto'});
     setTimeout(keep, 320);
     window.visualViewport?.addEventListener('resize', keep, {once: true});
@@ -241,8 +250,18 @@
 
   proto.renderProfile = function (...args) {
     const t = template(old.renderProfile.apply(this, args));
-    const screen = t.content.querySelector('.screen') || t.content.firstElementChild;
-    screen?.insertAdjacentHTML('beforeend', '<section class="card x61-recover-card"><div><strong>Daten fehlen?</strong><small>Andere Trainingsstände auf diesem Gerät oder in der Cloud finden.</small></div><button class="button button--secondary" type="button" data-action="x61-recover">Wiederfinden</button></section>');
+    // X6.2: als Eintrag in „Daten & Hilfe“ statt als eigene Karte.
+    const group = [...t.content.querySelectorAll('.rf880-profile-group')].find(g => g.querySelector('summary')?.textContent.includes('Daten & Hilfe'));
+    const body = group?.querySelector('.rf880-profile-group__body');
+    const ico = (name, size) => typeof icon === 'function' ? icon(name, size) : '';
+    const entry = `<button data-action="x61-recover"><span>${ico('refresh', 20)}</span><div><strong>Daten wiederfinden</strong><small>Andere Trainingsstände auf diesem Gerät oder in der Cloud</small></div>${ico('chevronRight', 18)}</button>`;
+    if (body) {
+      body.insertAdjacentHTML('beforeend', entry);
+      const count = group.querySelector('summary b');
+      if (count) count.textContent = body.children.length;
+    } else {
+      (t.content.querySelector('.screen') || t.content.firstElementChild)?.insertAdjacentHTML('beforeend', `<section class="card x61-recover-card">${entry}</section>`);
+    }
     return t.innerHTML;
   };
 
@@ -349,7 +368,7 @@
       const sources = new Set([...document.querySelectorAll('#app img')].map(img => img.currentSrc || img.src));
       document.querySelectorAll('#app svg image').forEach(node => sources.add(node.getAttribute('href') || node.getAttribute('xlink:href')));
       const decode = Promise.all([...sources].filter(Boolean).map(src => { const img = new Image(); img.src = src; return (img.decode ? img.decode() : Promise.resolve()).catch(() => {}); }));
-      await Promise.race([decode, new Promise(r => setTimeout(r, 2500))]);
+      await Promise.race([decode, new Promise(r => setTimeout(r, 500))]);
       await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
       return finish(message);
     };

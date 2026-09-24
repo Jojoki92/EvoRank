@@ -424,8 +424,6 @@
 /* X6.1: Übungen klar getrennt – rote Umrandung statt dickem Strich, Sätze einklappbar. */
 .rfx41-workout-exercise::before,.v7-workout-exercise::before{display:none!important}
 .rfx41-workout-exercise,.v7-workout-exercise{border:2px solid rgba(var(--accent-rgb,47,125,255),.55)!important;margin-bottom:18px!important}
-.x61-collapse{margin-left:auto;min-height:36px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;gap:6px}
-.x61-collapsed .v72-set-stack,.x61-collapsed .rfx2-load-info,.x61-collapsed .rf82-execution-badge,.x61-collapsed .exercise-note{display:none!important}
 .x61-collapse-bar{display:flex;align-items:center;gap:8px;padding:6px 14px 10px}
 .x61-collapse-bar small{color:var(--muted)}
 /* X6.1: Name-Felder oben, Daten wiederfinden */
@@ -469,3 +467,72 @@
 #app .x51-point{stroke:var(--surface);stroke-width:2}
 #app .x51-point.x61-last{filter:drop-shadow(0 0 6px rgba(var(--accent-rgb),.7))}
 #app .x61-area{stroke:none}
+
+/* X6.2: Einklappen in der Kopfzeile; eingeklappt bleibt nur die Kopfzeile */
+#app .rfx41-workout-exercise>header .x61-collapse{align-self:start;min-height:34px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:.78rem;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+#app .rfx41-workout-exercise>header .x61-collapse small{color:var(--muted);font-variant-numeric:tabular-nums}
+#app .rfx41-workout-exercise.x61-collapsed>:not(header){display:none!important}
+#app .rfx41-workout-exercise.x61-collapsed{padding-bottom:6px}
+/* X6.2: Blätter liegen über Workout-Kopf und -Fuß; „Training abschließen“ verschwindet, solange ein Blatt offen ist */
+#app .modal-backdrop{z-index:200!important}
+html[data-rf-modal-open="true"] .workout-bottom,#app:has(.modal-backdrop) .workout-bottom{display:none!important}
+/* X6.2: Tastatur offen – nichts scheint zwischen Blatt und Tastatur durch */
+html.x62-typing .modal-backdrop{background:var(--bg,#05070a)!important;backdrop-filter:none!important}
+/* X6.2: Pausentimer – Startknopf als ruhige Leiste am Ende des Blatts */
+.v73-rest-setup-modal .v73-rest-footer{position:sticky!important;bottom:0;margin:12px -18px 0!important;padding:10px 18px max(12px,env(safe-area-inset-bottom))!important;background:var(--surface)!important;backdrop-filter:none!important;border-top:1px solid var(--line)!important;box-shadow:none!important}
+.v73-rest-setup-modal .v73-rest-footer .button{box-shadow:none!important;filter:none!important}
+/* X6.2: Pausen-Leiste nie über der unteren Leiste */
+.rf893-unified-dock{bottom:var(--x62-dock-bottom,96px)!important;border-radius:18px!important;border-bottom:1px solid var(--line)!important;left:12px!important;right:12px!important;width:auto!important;transform:none!important;padding:4px 6px!important;gap:4px!important}
+.rf893-unified-dock ~ .bottom-nav,.app-shell:has(.rf893-unified-dock) .bottom-nav{border-top-left-radius:revert!important;border-top-right-radius:revert!important}
+.rf893-unified-dock .rf893-dock-glyph{width:30px!important;height:30px!important;flex:0 0 30px}
+.rf893-unified-dock .rf893-dock-controls>button,.rf893-unified-dock .rf893-dock-set{height:36px!important;min-height:36px!important;min-width:36px!important;padding:0 8px!important;border-radius:12px!important;font-size:.8rem!important;background:transparent!important;border:1px solid var(--line)!important;color:var(--text)!important;box-shadow:none!important}
+.rf893-unified-dock .rf893-dock-controls>button.is-primary,.rf893-unified-dock .rf893-dock-controls>button[data-action*="pause"],.rf893-unified-dock .rf893-dock-controls>button[data-action*="resume"]{background:var(--accent)!important;border-color:var(--accent)!important;color:var(--x49-accent-ink,#000)!important}
+.rf893-unified-dock .rf893-dock-open{min-height:36px!important}
+.rf893-unified-dock .rest-time,.rf893-unified-dock .live-duration{font-size:1.05rem!important}
+/* X6.2: Workout – oben „Abbrechen“ dezent */
+#app .workout-header .x62-cancel{background:transparent!important;border:1px solid var(--line)!important;color:var(--muted)!important;box-shadow:none!important}
+/* X6.2: Übungsoptionen als eine ruhige Liste */
+#app .rfx49-motion-sheet .v7-action-list{display:grid;gap:0!important;background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+#app .rfx49-motion-sheet .v7-action-list>button{min-height:54px!important;margin:0!important;padding:10px 14px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;gap:12px}
+#app .rfx49-motion-sheet .v7-action-list>*+*{border-top:1px solid var(--line)!important}
+#app .rfx49-motion-sheet .v7-action-list>button>span:first-child{width:34px!important;height:34px!important;flex:0 0 34px;border-radius:10px!important}
+#app .rfx49-motion-sheet .v7-action-list>button strong{font-size:.95rem!important}
+#app .rfx49-motion-sheet .v7-action-list>button small{font-size:.75rem!important}
+#app .rfx49-motion-sheet .v7-superset-picker,#app .rfx49-motion-sheet .rf82-mode-picker{margin:0!important;padding:10px 14px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+#app .rfx49-motion-sheet .rf82-mode-picker p{display:none}
+#app .rfx49-motion-sheet .v7-superset-picker button,#app .rfx49-motion-sheet .rf82-mode-picker button{min-height:34px!important;padding:0 12px!important;font-size:.8rem!important}
+/* X6.2: Startseite gestalten – tippen und ziehen statt Schalter und Pfeile */
+#app .x54-module-row{display:flex!important;align-items:center;gap:10px;padding:0 12px!important;min-height:52px;background:var(--surface);cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;transition:transform .15s ease,box-shadow .15s ease}
+#app .x54-module-row>label{flex:1;display:flex!important;align-items:center;gap:12px;min-height:52px;margin:0!important;cursor:pointer}
+#app .x54-module-row>label input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+#app .x54-module-row>label span{order:2;flex:1;font-weight:600}
+#app .x54-module-row>label::before{content:"";order:1;flex:0 0 24px;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);box-sizing:border-box;transition:background .15s,border-color .15s}
+#app .x54-module-row>label:has(input:checked)::before{background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--accent)}
+#app .x54-module-row>label:not(:has(input:checked)) span{color:var(--muted)}
+#app .x62-grip{display:grid;gap:3px;padding:8px 4px;opacity:.55}
+#app .x62-grip i{display:block;width:16px;height:2px;border-radius:2px;background:var(--muted)}
+#app .x54-module-row.x62-lifted{position:relative;z-index:3;transform:scale(1.03);box-shadow:0 10px 28px rgba(0,0,0,.35);border-radius:14px;cursor:grabbing}
+#app .x54-module-order{touch-action:pan-y}
+/* X6.2: Wischen zum Löschen */
+#app .routine-row{position:relative;touch-action:pan-y;overflow:hidden}
+#app .routine-row.x62-swiping>*{transform:translateX(var(--x62-dx,0));transition:none;position:relative;z-index:1;background:var(--surface)}
+#app .routine-row.x62-swiping{background:rgba(255,70,85,.18)}
+#app .routine-row.x62-will-delete{background:var(--danger,#ff4655)}
+#app .routine-row.x62-deleting>*{transition:transform .18s ease}
+#app .routine-row.x62-swiping::after{content:"Löschen";position:absolute;inset:0;display:flex;align-items:center;justify-content:var(--x62-side,flex-end);padding:0 20px;color:#fff;font-weight:800;pointer-events:none;z-index:0}
+#app .rfx41-workout-exercise>header{position:relative}
+#app .rfx41-workout-exercise>header .x61-collapse{position:absolute;top:12px;right:58px;z-index:2}
+/* X6.2: Pause im Workout als schmale Leiste direkt über „Training abschließen“ */
+#app .rest-timer{bottom:var(--x62-dock-bottom,96px)!important;left:12px!important;right:12px!important;width:auto!important;transform:none!important;min-height:0!important;height:auto!important;padding:5px 8px!important;gap:6px!important;border-radius:18px!important;display:flex!important;align-items:center}
+#app .rest-timer>button{height:38px!important;min-height:38px!important;min-width:38px!important;width:auto!important;padding:0 10px!important;border-radius:12px!important;font-size:.82rem!important;box-shadow:none!important}
+#app .rest-timer>[data-action="rest-adjust"]{background:transparent!important;border:1px solid var(--line)!important;color:var(--text)!important}
+#app .rest-timer .rest-timer__time{flex:1;display:flex!important;flex-direction:row!important;align-items:center;justify-content:center;gap:8px;background:transparent!important;border:0!important}
+#app .rest-timer .rest-timer__time small{display:none!important}
+#app .rest-timer .rest-time{font-size:1.15rem!important;font-variant-numeric:tabular-nums}
+#app .rest-timer .rest-close{background:transparent!important;border:0!important}
+#app .x54-module-row,#app .x54-module-row>label{background:var(--surface)!important;opacity:1!important}
+#app .x54-module-row>label{justify-content:flex-start!important;text-align:left!important;padding:0!important}
+#app .x54-module-row>label span{text-align:left!important;margin:0!important}
+#app .x54-module-row>label input{position:absolute!important;opacity:0!important;pointer-events:none!important;width:1px!important;height:1px!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important}
+#app .x54-module-row>label{display:flex!important;grid-template-columns:none!important;gap:12px!important}
+#app .x54-module-row{position:relative!important}#app .x54-module-row>label input{left:12px;top:50%}

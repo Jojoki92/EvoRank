@@ -15,7 +15,7 @@ test('friends tab has no link-based invitations and guides to sign in', async ()
     assert.match(html, /data-action="x60-account"/);
     assert.doesNotMatch(html, /Profil-Link|Live-Suche einrichten|Einladung/);
     w.RANKFORGE_ACCOUNT = {status: () => ({configured: true, signedIn: true, hasProfile: true, nickname: 'anna'}), onChange() {}, getAccessToken: async () => null};
-    app.ui.x60 = {query: '', results: [{id: '1', nickname: 'ben', displayName: 'Ben', relation: ''}, {id: '2', nickname: 'cara', displayName: 'Cara', relation: 'incoming', requestId: 'r2'}], loading: false, message: '', busy: '', loadedFor: 'anna'};
+    app.ui.x60 = {query: 'b', results: [{id: '1', nickname: 'ben', displayName: 'Ben', relation: ''}, {id: '2', nickname: 'cara', displayName: 'Cara', relation: 'incoming', requestId: 'r2'}], loading: false, message: '', busy: '', loadedFor: 'anna'};
     html = app.renderFriends();
     assert.match(html, /data-action="x60-request" data-nickname="ben"/);
     assert.match(html, /data-action="x60-accept" data-request-id="r2"/);

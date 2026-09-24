@@ -1,7 +1,7 @@
 # EvoRank project instructions
 
-Current release: **X6.1 / x6.1-r1**. Read `CLAUDE.md`
-and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.2.
+Current release: **X6.2 / x6.2-r1**. Read `CLAUDE.md`
+and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.3.
 Communicate in German. The user prefers concrete completed app packages and a
 short explanation. The complete source is authoritative; older release notes
 are historical. Do not claim access to private phone workouts or prior chats.
@@ -53,6 +53,11 @@ are historical. Do not claim access to private phone workouts or prior chats.
   IndexedDB states + cloud backup, merge via `RANKFORGE_BRIDGE.mergeTrainingStates` after a backup),
   splash held until images decode, memoized `getMetrics` (fingerprint of workouts/profile/day).
   Legacy e-mail hashes map to the old local keys (johannes/stefan/felix) in `account-local-v10.7-r2.js`.
+- X6.2: `assets/interface-x6.2.js` loads after X6.1: renders are suppressed during `init` and drawn once
+  at the end (4 s guard); the service worker serves the cached shell immediately (refresh for next start).
+  Workout header button = cancel (confirm), bottom = finish, no `.workout-danger`. Swipe a `.routine-row`
+  to delete (existing `deleteRoutine`). Home layout: tap toggles, long-press drag reorders (user request,
+  form-only until "Übernehmen"). Friends: no suggestions before a search term.
 - Muscle aggregation: best contribution 70%, up to three supporting contributions
   together 30%; one contribution counts fully. Secondary transfer remains 58%.
 - Cable defaults remain visibly unconfirmed 1:1 unless the user configures them.

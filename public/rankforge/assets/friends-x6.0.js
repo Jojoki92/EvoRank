@@ -102,16 +102,18 @@
     if (!s.signedIn) return `<section class="screen friends-screen x60-friends">${title}<article class="x60-card"><strong>Mit Freunden trainieren</strong><p class="x60-muted">Melde dich an. Dann findest du deine Freunde direkt in der App und siehst ihren Stand.</p><button class="button button--primary button--wide" data-action="x60-account">Anmelden</button></article></section>`;
     if (!s.hasProfile) return `<section class="screen friends-screen x60-friends">${title}<article class="x60-card"><strong>Wähle einen Spitznamen</strong><p class="x60-muted">Über ihn finden dich andere. Deine E-Mail sieht niemand.</p><button class="button button--primary button--wide" data-action="x60-account">Spitznamen festlegen</button></article></section>`;
 
-    if (state.loadedFor !== s.nickname && !state.loading) queueMicrotask(() => search(app, state.query || ''));
+    // X6.2: keine Vorschläge mehr – Freunde werden gezielt gesucht.
+    if (state.query && state.loadedFor !== s.nickname && !state.loading) queueMicrotask(() => search(app, state.query));
     const d = data();
     const results = Array.isArray(state.results) ? state.results : [];
     const incoming = d.incoming.length ? `<section class="x60-section"><h2>Anfragen an dich</h2>${d.incoming.map(r => personRow(r, `<div class="x60-actions"><button class="button button--primary x60-small" data-action="x60-accept" data-request-id="${esc(r.requestId)}">Annehmen</button><button class="button button--secondary x60-small" data-action="x60-decline" data-request-id="${esc(r.requestId)}">Ablehnen</button></div>`)).join('')}</section>` : '';
     const friends = `<section class="x60-section"><h2>Deine Freunde${d.friends.length ? ` (${d.friends.length})` : ''}</h2>${d.friends.length ? d.friends.map(friendCard).join('') : `<p class="x60-muted">Noch keine Freunde. Such unten nach Namen und schick eine Anfrage.</p>`}</section>`;
     const outgoing = d.outgoing.length ? `<section class="x60-section"><h2>Gesendete Anfragen</h2>${d.outgoing.map(r => personRow(r, `<button class="button button--secondary x60-small" data-action="x60-decline" data-request-id="${esc(r.requestId)}">Zurücknehmen</button>`)).join('')}</section>` : '';
-    const list = state.loading ? `<p class="x60-muted">Suche läuft …</p>`
+    const list = !state.query ? `<p class="x60-muted">Gib den Namen oder @spitznamen deines Freundes ein.</p>`
+      : state.loading ? `<p class="x60-muted">Suche läuft …</p>`
       : results.length ? results.map(p => personRow(p, actionFor(p, state))).join('')
       : `<p class="x60-muted">${state.query ? 'Niemand gefunden. Versuch es mit einem anderen Namen.' : 'Noch keine anderen Profile.'}</p>`;
-    const find = `<section class="x60-section x61-find"><h2>${state.query ? 'Suchergebnis' : 'Leute auf EvoRank'}</h2>
+    const find = `<section class="x60-section x61-find"><h2>Freunde finden</h2>
       <form class="x60-search" data-form="x60-search"><input name="x60q" type="search" value="${esc(state.query)}" placeholder="Name oder @spitzname" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" maxlength="30"></form>
       ${list}</section>`;
     const msg = state.message ? `<p class="x60-note" role="status">${esc(state.message)}</p>` : '';
@@ -122,6 +124,7 @@
     const state = ui(app);
     state.query = String(query || '').trim().replace(/^@+/, '').slice(0, 30);
     state.loadedFor = status().nickname;
+    if (!state.query) { state.results = []; state.message = ''; if (app.ui?.view === 'friends') app.render?.(); return; }
     if (state.query.length === 1) { state.message = 'Bitte mindestens zwei Zeichen eingeben.'; app.render?.(); return; }
     state.loading = true;
     state.message = '';
