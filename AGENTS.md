@@ -1,7 +1,7 @@
 # EvoRank project instructions
 
-Current release: **X6.2 / x6.2-r1**. Read `CLAUDE.md`
-and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.3.
+Current release: **X6.3 / x6.3-r1**. Read `CLAUDE.md`
+and `CONTINUE-HERE-X5.7.md` before changing code. Next delivery: X6.4.
 Communicate in German. The user prefers concrete completed app packages and a
 short explanation. The complete source is authoritative; older release notes
 are historical. Do not claim access to private phone workouts or prior chats.
@@ -58,6 +58,11 @@ are historical. Do not claim access to private phone workouts or prior chats.
   Workout header button = cancel (confirm), bottom = finish, no `.workout-danger`. Swipe a `.routine-row`
   to delete (existing `deleteRoutine`). Home layout: tap toggles, long-press drag reorders (user request,
   form-only until "Übernehmen"). Friends: no suggestions before a search term.
+- X6.3: `assets/interface-x6.3.js` loads last. The user asked to remove explanatory grey text from the UI;
+  it lives in `docs/EVORANK-ERKLAERUNGEN.md` (model limits stay reachable in Ranks → "Einordnung &
+  Vergleichsdaten"; the leaderboard consent dialog still names what others see; unconfirmed cable
+  defaults stay visible). Leaderboard only in the Friends tab (Freunde | Bestenliste). Plus sheet endurance
+  rows use `x53-record`. Shop redesigned from the existing reward markup; no reward data changed.
 - Muscle aggregation: best contribution 70%, up to three supporting contributions
   together 30%; one contribution counts fully. Secondary transfer remains 58%.
 - Cable defaults remain visibly unconfirmed 1:1 unless the user configures them.

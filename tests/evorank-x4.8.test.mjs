@@ -105,7 +105,9 @@ test('locker has one scroll owner containing the final reward and close action; 
   const x=app();x.ui.modal={type:'eggs'};const root=fragment(x.renderModal());
   const modal=root.querySelector('.modal.rfx48-locker'),scroll=modal.querySelector('.rfx48-locker-scroll');
   assert.ok(modal);assert.equal(modal.querySelectorAll('.modal-scroll').length,1);
-  assert.match(scroll.textContent,/Carbon Edge/);assert.ok(scroll.querySelector('.rf893-locker-footer [data-action="rf893-close-locker"]'));
+  assert.match(scroll.textContent,/Carbon Edge/);
+  // X6.3: kein zusätzlicher Schließen-Knopf unten; geschlossen wird über das X oben.
+  assert.equal(scroll.querySelector('.rf893-locker-footer'),null);
   assert.ok(modal.querySelector('.modal-header [data-action="close-modal"]'));
   x.state.health={authorization:'unknown'};assert.equal(fragment(x.renderProfile()).querySelector('.rfx3-design-link'),null);
 });

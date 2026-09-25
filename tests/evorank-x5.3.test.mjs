@@ -47,7 +47,9 @@ test('Home rank follows sport; endurance has the same five sections and keeps re
 });
 test('profile controls stay grouped, detail panels disclose the model, and friends never reuse Gym scores',()=>{
  const x=app();const profile=fragment(x.renderProfile());assert.equal(profile.querySelector('.x51-profile-tools'),null);assert.ok(profile.querySelector('.rf880-profile-group__body [data-action="x51-progress-library"]'));
- click(x,'x53-rank-help','data-sport="run"');assert.match(x.renderModal(),/72 % und 28 %/);click(x,'x53-component','data-sport="run" data-area="consistency"');assert.match(x.renderModal(),/keine sportliche Höchstleistung/);
+ click(x,'x53-rank-help','data-sport="run"');assert.match(x.renderModal(),/72 % und 28 %/);click(x,'x53-component','data-sport="run" data-area="consistency"');
+ // X6.3: Bereichsdetails zeigen nur Kennzahlen; das Modell steht weiter in „Einordnung & Vergleichsdaten“ (oben geprüft).
+ assert.match(x.renderModal(),/x53-value/);assert.doesNotMatch(x.renderModal(),/keine sportliche Höchstleistung/);
  x.state.liveFriends={friendIds:['one','two','three'],snapshots:{one:{name:'Gym only',score:899},two:{name:'Runner',sportRanks:{run:{score:410,recorded:true,model:'endurance-age-v1'}}},three:{name:'Invalid',sportRanks:{run:{score:999999,recorded:true,model:'endurance-age-v1'}}}}};
  const html=m.friends(x,'run');assert.match(html,/Runner/);assert.doesNotMatch(html,/Gym only|Invalid/);assert.equal(m.publicRanks(x).run.recorded,false);
  assert.ok(readFileSync('public/rankforge/service-worker.js','utf8').includes('sports-profile-x5.3.js'));

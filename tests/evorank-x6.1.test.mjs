@@ -18,7 +18,7 @@ async function started(w, api) {
 
 test('X6.1 module is loaded last and cached offline, small logo is used', () => {
   const html = read('index.html');
-  assert.match(html, /interface-x6\.1\.js\?build=x6\.2-r1/);
+  assert.match(html, /interface-x6\.1\.js\?build=x6\.3-r1/);
   assert.ok(html.indexOf('interface-x6.1.js') > html.indexOf('friends-x6.0.js'));
   const sw = read('service-worker.js');
   assert.match(sw, /interface-x6\.1\.js/);
@@ -93,7 +93,7 @@ test('exercise sets can be collapsed per exercise', async () => {
     const button = host.querySelector('[data-action="x61-collapse"]');
     // X6.2: der Knopf sitzt in der Kopfzeile und zeigt erledigt/gesamt.
     assert.ok(host.querySelector('header .x61-collapse'));
-    assert.match(button.textContent, /1\/2/);
+    assert.match(button.getAttribute('aria-label'), /1 von 2 erledigt/);
     app.handleClick({target: button, preventDefault() {}});
     assert.ok(host.querySelector('.rfx41-workout-exercise').classList.contains('x61-collapsed'));
     app.handleClick({target: host.querySelector('[data-action="x61-collapse"]'), preventDefault() {}});

@@ -15,7 +15,7 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
 
 ## Stand
 
-- Aktuelle App: **X6.2 / x6.2-r1**. Nächste Lieferung: **X6.3**.
+- Aktuelle App: **X6.3 / x6.3-r1**. Nächste Lieferung: **X6.4**.
 - **Veröffentlichung auf Netlify war am 23.09.2026 blockiert:** Netzwerk-Regel der Umgebung sperrt
   `api.netlify.com` und `netlify-mcp.netlify.app`. Deploy-Weg: Netlify-Tool `deploy-site` (siteId s. unten)
   liefert einen `npx @netlify/mcp …`-Befehl; im Ordner des Netlify-Pakets ausführen. Johannes wurde gebeten,
@@ -43,6 +43,10 @@ Die X5.7-Übergabe liegt vollständig in `docs/uebergabe-x5.7/` (02 = offene Auf
   bei 4× gedrosselter CPU), Service Worker öffnet sofort aus dem Speicher, Splash-Logo 192 px, Abbrechen oben /
   Abschließen unten, Einklappen in der Kopfzeile, Übungsoptionen als Liste, Pausen-Leiste über der Navigation,
   Wischen zum Löschen, Startseite tippen/halten+ziehen, Freunde nur per Suche, Wiederfinden in „Daten & Hilfe“.
+- X6.3 (25.09.2026): `assets/interface-x6.3.js`: graue Erklärtexte raus (→ `docs/EVORANK-ERKLAERUNGEN.md`),
+  Bestenliste nur im Freunde-Tab, Plus-Menü startet Ausdauer direkt, Pausentimer-Startleiste fest, Live-Workout
+  oben nur Pause + Übung hinzufügen, Einklapp-Pfeil neben ⋯, kompakte Satzkarten, erledigt = grün, Rangkarte in
+  Rangfarbe, neuer Forge Shop, Tastatur blendet Leisten aus. Schwarzer Bildschirm (Foto 21) hier nicht nachstellbar.
 - Prüfung X5.9: `npm test` 140/140, Build ok, Smoke ok, Browser-Screenshots (Chromium,
   iPhone-Größe). Nicht geprüft: echtes iPhone.
 - Browser-Test hier: `packaging/windows/EVORANK-NODE-SERVER.mjs` starten, Playwright
@@ -111,7 +115,8 @@ Jede neue Version (X6.1, X6.2, …) als **Windows**- und **Netlify**-Ordner.
     `x` 1hsM8icTw0JAz0q5yMmSfNxFfj8QZCPKJ, `x5` 1kmFAyLj6-x_D1gmqfwbODjikbpsZ_T9n,
     `X5.8` 1kQZTWvuwrj-DyysWaliGP1KShhnpl33u, `X5.9` 1EkqgzOHK-mX3OWjMbqwbtViDzaj0MDyK,
     `x6` 1a9KOFsyRXOj33ApvucDJ35asIme8svYn, `X6.0` 1dnPfG832GTQqeIdJh6YYNohv-11jUb5z,
-    `X6.1` 1cAwDol3hjPzpYDP8n3on58uQW2ZjgwGp, `X6.2` 1Thoyo5Dw9FAJ22tA0oUq8E_7SlNtbtPn.
+    `X6.1` 1cAwDol3hjPzpYDP8n3on58uQW2ZjgwGp, `X6.2` 1Thoyo5Dw9FAJ22tA0oUq8E_7SlNtbtPn,
+    `X6.3` 1464qJDs27CCOnmtF_GUhG_s8yTTYcMSn.
   - **Grenze:** Das Drive-Werkzeug kann nur kleine Textdateien hochladen (Inhalt läuft durch
     den Chat). Bilder, `EVORANK.exe` und ganze Pakete (~19 MB je ZIP) gehen so nicht.
   - Deshalb: Version-Ordner + Anleitung in Drive anlegen, die zwei Pakete als ZIP

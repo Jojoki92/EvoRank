@@ -37,7 +37,9 @@ test('Gym exercise history folds, muscle balance retains every group, and profil
 test('every sport has its own authenticated community leaderboard and survives a missing backend',async()=>{
  const x=app(),requests=[];w.RANKFORGE_CLOUD={supabaseUrl:'https://example.invalid',supabasePublishableKey:'public-test'};w.RANKFORGE_ACCOUNT={status:()=>({signedIn:true,hasProfile:true}),getAccessToken:async()=>'test-token'};
  w.fetch=async(url,init)=>{requests.push({url,init,args:JSON.parse(init.body)});return {ok:true,json:async()=>[{id:'person',displayName:'Athlet',score:450,rankLabel:'Test'}]};};
- for(const sport of ['strength','run','bike','swim']){await w.EVORANK109.loadLeaderboard(sport,x);x.ui.x53RankSport=sport;x.ui.rankTab='rank';const board=fragment(x.renderRanks()).querySelector('.rf109-leaderboard');assert.ok(board);assert.equal(board.querySelector('[data-action="rf109-leader-profile"]').dataset.sport,sport);assert.match(board.textContent,/Athlet/);assert.equal(requests.at(-1).args.p_sport,sport);assert.equal(requests.at(-1).init.headers.authorization,'Bearer test-token');}
+ for(const sport of ['strength','run','bike','swim']){await w.EVORANK109.loadLeaderboard(sport,x);x.ui.x53RankSport=sport;x.ui.rankTab='rank';
+  // X6.3: Die Bestenliste steht im Freunde-Tab, nicht mehr in Ranks.
+  assert.equal(fragment(x.renderRanks()).querySelector('.rf109-leaderboard'),null);const board=fragment(w.EVORANK109.renderLeaderboard(sport,x)).querySelector('.rf109-leaderboard');assert.ok(board);assert.equal(board.querySelector('[data-action="rf109-leader-profile"]').dataset.sport,sport);assert.match(board.textContent,/Athlet/);assert.equal(requests.at(-1).args.p_sport,sport);assert.equal(requests.at(-1).init.headers.authorization,'Bearer test-token');}
  const length=requests.length;x.state.privacyV110={leaderboardConsent:false};await w.EVORANK109.publishLeaderboards(x);assert.equal(requests.length,length,'Viewing never opts into publication');
  w.fetch=async()=>({ok:false,status:404,json:async()=>({code:'PGRST202'})});await w.EVORANK109.loadLeaderboard('run',x);assert.match(w.EVORANK109.renderLeaderboard('run',x),/noch nicht eingerichtet/);
 });

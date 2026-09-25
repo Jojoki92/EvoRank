@@ -38,14 +38,21 @@
         button.type = 'button';
         button.className = 'x61-collapse';
         button.dataset.action = 'x61-collapse';
+        // X6.3: Pfeil und drei Punkte sitzen gemeinsam oben rechts.
         const menu = header.querySelector('[data-action="workout-exercise-menu"]');
-        if (menu) menu.before(button); else header.append(button);
+        const group = document.createElement('div');
+        group.className = 'x63-head-actions';
+        group.append(button);
+        if (menu) group.append(menu);
+        header.append(group);
       }
       button.dataset.instance = id;
       button.setAttribute('aria-expanded', String(!isClosed));
-      button.setAttribute('aria-label', isClosed ? 'Sätze zeigen' : 'Sätze einklappen');
-      const html = `<small>${done}/${sets.length}</small><span aria-hidden="true">${isClosed ? '▾' : '▴'}</span>`;
-      if (button.innerHTML !== html) button.innerHTML = html;
+      button.setAttribute('aria-label', `${isClosed ? 'Sätze zeigen' : 'Sätze einklappen'} (${done} von ${sets.length} erledigt)`);
+      // X6.3: nur ein kleines Pfeil-Symbol neben den drei Punkten.
+      const html = typeof icon === 'function' ? icon(isClosed ? 'chevronDown' : 'chevronUp', 18) : (isClosed ? '▾' : '▴');
+      // Nur neu schreiben, wenn sich der Zustand ändert (sonst Endlosschleife mit dem Beobachter).
+      if (button.dataset.state !== String(isClosed)) { button.dataset.state = String(isClosed); button.innerHTML = html; }
       card.querySelector(':scope > .x61-collapse-bar')?.remove();
     });
   }

@@ -1,6 +1,11 @@
-# EvoRank X6.2 – rechtliche Prüfung und notwendige Betreiberangaben
+# EvoRank X6.3 – rechtliche Prüfung und notwendige Betreiberangaben
 
-Stand: 24.09.2026. Eine rechtliche Gesamtfreigabe ist **nicht** erreicht. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
+Stand: 25.09.2026. Eine rechtliche Gesamtfreigabe ist **nicht** erreicht. Eine Garantie, dass keinerlei rechtliche Schwierigkeiten entstehen, ist nicht möglich.
+
+## In X6.3
+
+- Erklärtexte (u. a. Modellgrenzen, Datenschutz-Hinweise bei Freunden/Bestenliste) aus der Oberfläche in `docs/EVORANK-ERKLAERUNGEN.md` verschoben. Die Modellbeschreibung bleibt in der App unter Ranks → „Einordnung & Vergleichsdaten“ erreichbar; die Einwilligung zur Bestenliste nennt weiterhin, was andere sehen.
+- Bestenliste nur noch im Freunde-Tab.
 
 ## In X6.2
 

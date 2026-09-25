@@ -536,3 +536,129 @@ html.x62-typing .modal-backdrop{background:var(--bg,#05070a)!important;backdrop-
 #app .x54-module-row>label input{position:absolute!important;opacity:0!important;pointer-events:none!important;width:1px!important;height:1px!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important}
 #app .x54-module-row>label{display:flex!important;grid-template-columns:none!important;gap:12px!important}
 #app .x54-module-row{position:relative!important}#app .x54-module-row>label input{left:12px;top:50%}
+
+/* ============================== X6.3 ============================== */
+/* Erklärtexte mit eigener Klasse ausblenden (Inhalte stehen in der Anleitung) */
+#app .rf880-profile-group__body button small,#app .rf880-profile-group summary small,#app .section-heading h2+small,#app .section-heading h2+p,
+#app .rfx49-motion-sheet .v7-action-list>button:not([data-action="exercise-rest"]) small,#app .rf82-mode-picker small:not(.x59-label),
+#app .v7-picker-row__copy em,#app .rfx45-alarm>p,#app .x53-competency-card>span,#app .x53-figure-hint{display:none!important}
+#app .rf880-profile-group summary{min-height:56px}
+#app .rf880-profile-group__body>button{min-height:56px;align-items:center}
+
+/* Freunde: Umschalter Freunde | Bestenliste */
+#app .x63-social-tabs{display:flex;gap:4px;margin:6px 0 18px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+#app .x63-social-tabs>button{flex:1;min-height:40px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:inherit;font-weight:700;font-size:.9rem}
+#app .x63-social-tabs>button.is-active{background:var(--accent);color:var(--x49-accent-ink,#000)}
+#app .x63-board-sports{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 0 14px}
+#app .x63-board-sports::-webkit-scrollbar{display:none}
+#app .x63-board-sports>button{flex:0 0 auto;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:inherit;font-size:.85rem;font-weight:700}
+#app .x63-board-sports>button.is-active{border-color:var(--accent);color:var(--accent)}
+#app .x60-friends .rf109-leaderboard{margin:0;padding:14px;border-radius:22px}
+#app .x60-friends .rf109-leaderboard>header{margin-bottom:10px}
+#app .x60-friends .rf109-leader-row{min-height:56px}
+#app .x60-friends .rf109-leader-empty{padding:18px 8px;text-align:center}
+#app .x63-join{margin-top:12px}
+#app .x61-friend-info header strong{font-size:1.1rem}
+#app .x60-friend{align-items:center}
+
+/* Pausentimer: Startleiste fest unten, nur der Inhalt scrollt */
+.v73-rest-setup-modal{display:flex!important;flex-direction:column!important;max-height:calc(100dvh - 24px)!important;overflow:hidden!important}
+.v73-rest-setup-modal .v73-rest-setup{flex:1 1 auto!important;min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+.v73-rest-setup-modal .x63-rest-body{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:12px}
+.v73-rest-setup-modal .v73-rest-footer{position:static!important;flex:0 0 auto!important;margin:0!important;padding:12px 18px max(14px,env(safe-area-inset-bottom))!important;background:var(--surface)!important;border-top:1px solid var(--line)!important}
+
+/* Live-Workout: eine schlanke Werkzeugzeile */
+#app .x63-workout-tools{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;margin:10px 14px 4px}
+#app .x63-rest-mini{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 16px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
+#app .x63-rest-mini svg{color:var(--accent)}
+#app .x63-rest-mini b{font-size:1.05rem;font-variant-numeric:tabular-nums}
+#app .x63-add-exercise{display:inline-flex;align-items:center;gap:6px;min-height:52px;padding:0 14px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-weight:700;font-size:.9rem}
+#app .x63-add-exercise svg{color:var(--accent)}
+
+/* Einklappen: kleines Symbol neben den drei Punkten */
+#app .rfx41-workout-exercise>header .x63-head-actions{position:absolute;top:10px;right:10px;z-index:2;display:flex;align-items:center;gap:2px}
+#app .rfx41-workout-exercise>header .x63-head-actions>button{position:static!important;width:38px!important;height:38px!important;min-height:38px!important;min-width:0!important;padding:0!important;display:grid!important;place-items:center;border-radius:12px!important;border:0!important;background:transparent!important;color:var(--muted)!important;margin:0!important;transform:none!important}
+
+
+/* Sätze: immer so kompakt wie „Fertig“ */
+#app .v72-set-card:not(.is-done) .v72-set-card__head{min-height:0!important;padding-bottom:0!important;border-bottom:0!important}
+#app .v72-set-card:not(.is-done) .v72-set-card__fields{margin-top:8px!important}
+#app .v72-set-card:not(.is-done){border-top-width:1px!important;box-shadow:none!important}
+
+/* Übung komplett erledigt: nur grün, ohne Akzent-Schimmer */
+#app .rfx41-workout-exercise.rfx44-complete{background:color-mix(in srgb,var(--green) 14%,var(--surface))!important;background-image:none!important}
+#app .rfx41-workout-exercise.rfx44-complete>header,#app .rfx41-workout-exercise.rfx44-complete>header *{background-image:none!important}
+#app .rfx41-workout-exercise.rfx44-complete>header{background:transparent!important}
+
+/* Pausen-Leiste nicht über Fenstern und nicht beim Tippen */
+#app:has(.modal-backdrop) .rf893-unified-dock,html.x63-typing .rf893-unified-dock,html.x63-typing .rest-timer,html.x63-typing .bottom-nav{display:none!important}
+
+/* Tastatur offen: nichts scheint zwischen Blatt und Tastatur durch */
+html.x63-typing #app .modal-backdrop{background:var(--bg,#05070a)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#app .modal--sheet{box-shadow:0 30vh 0 0 var(--surface),0 60vh 0 0 var(--surface),0 90vh 0 0 var(--surface)!important}
+
+/* Wischen: keine roten Striche oben/unten */
+#app .routine-row.x62-swiping,#app .routine-row.x62-will-delete{background:transparent!important}
+#app .routine-row.x62-swiping::after{inset:1px 0!important;background:rgba(255,70,85,.55)!important}
+#app .routine-row.x62-will-delete::after{background:var(--danger,#ff4655)!important}
+
+/* Übungssuche: kein zweiter (lila) Rahmen im Suchfeld */
+#app .rf77-picker-search input,#app .modal-search input{outline:none!important;box-shadow:none!important;border:0!important;background:transparent!important}
+#app .modal-search:focus-within{border-color:var(--accent)!important}
+#app .rf77-picker-search{grid-template-columns:1fr!important}
+
+/* Eigene Übung: nichts ragt seitlich heraus */
+#app .modal fieldset{min-width:0}
+#app .modal .modal-scroll,#app .modal .modal-form{overflow-x:hidden}
+#app .v7-muscle-picks>div{display:flex!important;flex-wrap:wrap!important;gap:8px}
+#app .v72-custom-set-row{display:grid!important;grid-template-columns:34px minmax(0,1fr) minmax(0,1fr) 40px!important;gap:8px!important;align-items:end}
+#app .v72-custom-set-row input{min-width:0;width:100%}
+#app .v72-custom-set-row>button{width:40px!important;height:44px!important;min-width:0!important;padding:0!important;display:grid;place-items:center}
+
+/* Einheit speichern: großer Speichern-Knopf, „Zurück“ als Textlink */
+#app [data-form="x42-tracker-save"] .modal-footer{display:grid!important;grid-template-columns:1fr!important;gap:6px!important}
+#app [data-form="x42-tracker-save"] .modal-footer .button--primary{width:100%}
+#app .x63-text-button{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--muted)!important;min-height:40px}
+
+/* Hellmodus: Silber und helle Rangfarben sichtbar */
+:root[data-theme="light"] #app .x53-figure,:root[data-theme="light"] #app .x51-sport-figure{filter:drop-shadow(0 1px 1px rgba(15,23,42,.25))}
+:root[data-theme="light"] #app .x53-competency-card i,:root[data-theme="light"] #app .x53-area-label i{box-shadow:0 0 0 1.5px rgba(15,23,42,.35)}
+
+/* Profil: Einstellungen einheitlich */
+#app .rf880-profile-group__body>button[data-action="rf110-open-production"]{grid-column:auto}
+
+/* Forge Shop */
+#app .x63-shop{padding-bottom:max(18px,env(safe-area-inset-bottom))}
+#app .x63-wallet{position:relative;display:flex;align-items:center;gap:14px;margin:4px 0 18px;padding:18px;border-radius:22px;overflow:hidden;background:radial-gradient(120% 140% at 0% 0%,rgba(var(--accent-rgb),.45),transparent 60%),linear-gradient(135deg,color-mix(in srgb,var(--accent) 28%,var(--surface)),var(--surface));border:1px solid rgba(var(--accent-rgb),.35)}
+#app .x63-wallet>div{display:grid;gap:0;flex:1}
+#app .x63-wallet strong{font-size:2rem;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+#app .x63-wallet span:not(.x63-coin){color:var(--muted);font-weight:700;font-size:.85rem}
+#app .x63-wallet em{font-style:normal;font-size:.7rem;font-weight:800;padding:5px 9px;border-radius:999px;background:rgba(0,0,0,.25);color:var(--text);white-space:nowrap}
+#app .x63-coin{flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3b0,#f5c542 45%,#b8860b 100%);box-shadow:inset 0 -3px 6px rgba(0,0,0,.25),0 4px 14px rgba(245,197,66,.35);position:relative}
+#app .x63-coin::after{content:"";position:absolute;inset:9px;border-radius:50%;border:2px solid rgba(120,80,0,.35)}
+#app .x63-coin--small{display:inline-block;flex:0 0 16px;width:16px;height:16px;vertical-align:-3px;margin-right:6px;box-shadow:none}
+#app .x63-coin--small::after{inset:3px;border-width:1px}
+#app .x63-shop .v72-shop-section{margin:0 0 22px!important;padding:0!important;border:0!important;background:transparent!important}
+#app .x63-shop .v72-shop-section>header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 2px 10px!important;padding:0!important;border:0!important}
+#app .x63-shop .v72-shop-section>header h3{font-size:1.05rem;margin:0}
+#app .x63-reset{min-height:30px!important;height:30px;padding:0 12px!important;border-radius:999px!important;border:1px solid var(--line)!important;background:transparent!important;color:var(--muted)!important;font-size:.75rem!important;font-weight:700!important;width:auto!important}
+#app .x63-shop .v72-shop-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+#app .x63-shop .v72-shop-card{display:flex!important;flex-direction:column!important;gap:10px!important;padding:10px!important;margin:0!important;border-radius:20px!important;border:1px solid var(--line)!important;background:var(--surface)!important;min-height:0!important}
+#app .x63-shop .v72-shop-card.is-equipped{border-color:var(--reward,var(--accent))!important;box-shadow:0 0 0 1px var(--reward,var(--accent)),0 8px 24px color-mix(in srgb,var(--reward,var(--accent)) 25%,transparent)!important}
+#app .x63-shop .v72-shop-card__preview{display:grid;place-items:center;aspect-ratio:1.4/1;border-radius:14px;background:radial-gradient(90% 90% at 50% 20%,color-mix(in srgb,var(--reward,var(--accent)) 40%,transparent),transparent 70%),color-mix(in srgb,var(--reward,var(--accent)) 10%,var(--surface-2,#141821))}
+#app .x63-shop .v72-shop-card__preview .rf81-reward-preview{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:rgba(0,0,0,.2);color:var(--reward,var(--accent));border:1px solid color-mix(in srgb,var(--reward,var(--accent)) 45%,transparent)}
+#app .x63-shop .v72-shop-card__preview svg{width:28px;height:28px}
+#app .x63-shop .v72-shop-card__copy{padding:0 2px}
+#app .x63-shop .v72-shop-card__copy>div{display:flex;flex-direction:column;gap:3px}
+#app .x63-shop .v72-shop-card__copy strong{font-size:.9rem;line-height:1.2}
+#app .x63-shop .v72-shop-card__copy span{align-self:flex-start;font-size:.6rem;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:999px;background:color-mix(in srgb,var(--reward,var(--accent)) 18%,transparent);color:var(--reward,var(--accent))}
+#app .x63-shop .v72-shop-card>button{width:100%!important;min-height:38px!important;margin-top:auto!important;border-radius:12px!important;font-size:.85rem!important;font-weight:800!important;display:inline-flex!important;align-items:center;justify-content:center}
+#app .x63-shop .v72-shop-card>button[data-action="rf81-reward-buy"]{background:rgba(245,197,66,.12)!important;border:1px solid rgba(245,197,66,.4)!important;color:#f5c542!important}
+#app .x63-shop .v72-shop-card>button[data-action="rf81-reward-buy"]:disabled{opacity:.45}
+#app .x63-shop .v72-shop-card>button[data-action="rf81-reward-equip"]{background:var(--accent)!important;color:var(--x49-accent-ink,#000)!important;border:0!important}
+#app .x63-shop .v72-shop-card>.rf81-preview-button{min-height:32px!important;background:transparent!important;border:1px solid var(--line)!important;color:var(--text)!important;font-size:.78rem!important}
+:root[data-theme="light"] #app .x63-shop .v72-shop-card>button[data-action="rf81-reward-buy"]{color:#8a6100!important}
+/* X6.3: Shop als normales Blatt von unten (passt zu den iPhone-Ecken) */
+#app .modal.rfx48-locker{align-self:flex-end!important;width:100%!important;max-width:800px;margin:0 auto!important;height:calc(var(--rf-visual-height,100dvh) - 36px)!important;max-height:calc(var(--rf-visual-height,100dvh) - 36px)!important;border-radius:28px 28px 0 0!important}
+#app .modal.rfx48-locker>.rfx48-locker-scroll{padding-bottom:max(24px,env(safe-area-inset-bottom))!important}
+:root[data-theme="light"] #app .x53-profile i:not(.icon){box-shadow:0 0 0 1.5px rgba(15,23,42,.4)}

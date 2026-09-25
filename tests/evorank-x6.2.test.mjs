@@ -68,7 +68,8 @@ test('home layout: no arrow buttons, rows can be toggled and reordered', async (
     t.innerHTML = app.renderModal();
     assert.equal(t.content.querySelectorAll('[data-action="x51-module-up"],[data-action="x51-module-down"]').length, 0);
     assert.ok(t.content.querySelectorAll('.x54-module-row .x62-grip').length > 3);
-    assert.match(t.content.querySelector('.x54-module-options .x51-help').textContent, /Halten und ziehen/);
+    // X6.3: Hinweistexte entfernt.
+    assert.equal(t.content.querySelector('.x54-module-options .x51-help'), null);
   } finally { dom.window.close(); }
 });
 
